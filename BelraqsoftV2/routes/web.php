@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\generalController;
+use App\Http\Controllers\usuariosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', generalController::class);
+Route::get('{modulo}/{opcion?}',[generalController::class,"index"]);

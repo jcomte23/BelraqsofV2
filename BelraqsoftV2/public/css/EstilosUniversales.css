@@ -1,0 +1,46 @@
+.boton_cerrar_session {
+    margin-top: 22px !important;
+    margin-left: 22px;
+}
+
+.navegation {
+    background-color: #FDEDFE !important;
+}
+
+.titulo {
+    color: black !important;
+}
+
+.alineacion_boton {
+    margin-left: 25px;
+}
+
+.logo {
+    border-radius: 25%;
+}
+
+.contenedor {
+    min-height: 88.8vh;
+}
+
+footer {
+    margin-left: 15%;
+    margin-top: auto;
+}
+
+
+/* ESTILOS USUARIOS  */
+
+.botones-operaciones {
+    padding: 0;
+    margin: 0;
+}
+
+.buscador {
+    padding-left: 0px !important;
+}
+
+.formulario {
+    margin-left: 15%;
+    margin-right: 15%;
+}
