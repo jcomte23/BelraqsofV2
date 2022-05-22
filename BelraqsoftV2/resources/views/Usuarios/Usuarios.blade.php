@@ -159,12 +159,12 @@
                 <td>Estado</td>
                 <td>
                     <div class="row">
-                        <div class="col-lg-6 botones-operaciones">
+                        <div class="col-lg-4 botones-operaciones">
                             <form method="get" action="{{ url('/' . $modulo) }}">
                                 <button class="btn btn-danger" type="submit"><i class="bi bi-trash-fill"></i></button>
                             </form>
                         </div>
-                        <div class="col-lg-6 botones-operaciones">
+                        <div class="col-lg-4 botones-operaciones">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#FormularioEdicionUsuarios"><i class="bi bi-pencil-fill"></i></button>
                             <!-- Modal -->
@@ -289,6 +289,9 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-lg-4 botones-operaciones form-check form-switch">
+                            <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckChecked" checked>
                         </div>
                     </div>
                 </td>

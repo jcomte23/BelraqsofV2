@@ -32,8 +32,17 @@ footer {
 /* ESTILOS USUARIOS  */
 
 .botones-operaciones {
-    padding: 0;
-    margin: 0;
+    padding-left: 0px !important;
+    padding-right: 0px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.switchEstado{
+    font-size: 25px;
+    margin-left: 0px!important;
+    margin-right: 15px !important;
+    
 }
 
 .buscador {
