@@ -20,12 +20,13 @@ return new class extends Migration
             $table->unsignedBigInteger('TipoDocumento');
             $table->string('Documento',15);
             $table->string('Correo',100)->nullable();//correo puede ser opcional
+            $table->string('Telefono(s)',40);
             $table->date('FechaNacimiento')->nullable();//fecha puede ser opcional
             $table->string('Direccion');
-            $table->string('Telefono(s)',40);
             $table->string('Ciudad_Municipio',50);
             $table->boolean('Estado')->default(true);
             $table->foreign('TipoDocumento')->references('id')->on('tipo_documento');
+            $table->timestamps();
         });
     }
 

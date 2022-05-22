@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('Abreviatura',5);
             $table->string('TipoDocumento',25)->charset('utf8mb4');
+            $table->timestamps();
         });
     }
 
