@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,17 +10,17 @@
     <meta name="robots" content="index,follow">
     <meta name="revisit-after" content="15days">
     <meta name="googlebot" content="index,follow">
-    <meta name="author" content="Javier Cómbita Téllez, Sebastián Velásquez, Kevin Orlando Hernández Ruiz,Santiago Garcia Uribe">
-    <!--icono de la pagina:https://www.favicon-generator.org/ solo imagenes .png-->
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('img/Favicon/apple-icon-57x57.png')}}">
+    <meta name="author" content="Javier Cómbita Téllez, Sebastián Velásquez, Kevin Orlando Hernández Ruiz,Santiago Garcia Uribe"> -->
+<!--icono de la pagina:https://www.favicon-generator.org/ solo imagenes .png-->
+<!-- <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('img/Favicon/apple-icon-57x57.png')}}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/Favicon/apple-icon-60x60.png')}}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/Favicon/apple-icon-72x72.png')}}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/Favicon/apple-icon-76x76.png')}}">
     <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/Favicon/apple-icon-114x114.png')}}">
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('img/Favicon/apple-icon-120x120.png')}}">
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('img/Favicon/apple-icon-144x144.png')}}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img/Favicon/apple-icon-152x152.png')}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/Favicon/apple-icon-180x180.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img/Favicon/apple-icon-152x152.png')}}"> -->
+<!-- <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/Favicon/apple-icon-180x180.png')}}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('img/Favicon/android-icon-192x192.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/Favicon/favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('img/Favicon/favicon-96x96.png')}}">
@@ -52,18 +52,18 @@
                     <p>Recuperala para que puedas iniciar sesión</p>
                     <button id="bt__registrarse">Recuperar</button>
                 </div>
-            </div>
-            <!--Formulario de login y Registro-->
-            <div class="contenedor__login-register">
-                <!--Login-->
-                <form action="{{ url('/Reportes')}}" method="get" class="formulario__login">
+            </div> -->
+<!--Formulario de login y Registro-->
+<!-- <div class="contenedor__login-register"> -->
+<!--Login-->
+<!-- <form action="{{ url('/Reportes')}}" method="get" class="formulario__login">
                     <h2>Iniciar Sesión</h2>
                     <input type="text" placeholder="Correo Electronico" name="correo">
                     <input type="password" placeholder="Contraseña" name="contrasena">
                     <button type="submit">Entrar</button>
-                </form>
-                <!--Registro-->
-                <form action="vistas/Login/viewRecuperarClave.php" method="POST" class="formulario__register">
+                </form> -->
+<!--Registro-->
+<!-- <form action="vistas/Login/viewRecuperarClave.php" method="POST" class="formulario__register">
                     <h2>Recupera tu contraseña</h2>
                     <input type="email" placeholder="Correo Electronico" name="correo">
                     <input type="text" placeholder="Usuario" name="usuario">
@@ -75,4 +75,4 @@
     <script src="{{ asset('js/script.js')}}"></script>
 </body>
 
-</html>
+</html> -->
