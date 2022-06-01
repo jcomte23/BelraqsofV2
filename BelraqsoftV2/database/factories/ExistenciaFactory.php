@@ -19,7 +19,7 @@ class ExistenciaFactory extends Factory
         return [
             'Codigo'=>$this->faker->numerify('CC-###'),
             'Nombre'=>$this->faker->name(),
-            'Descripcion'=>$this->faker->paragraph(),
+            'Descripcion'=>$this->faker->name(),
             'ValorUnitario'=>$this->faker->biasedNumberBetween($min = 2000, $max = 50000, $function = 'sqrt'),
             'Stock'=>$this->faker->biasedNumberBetween($min = 2, $max = 200, $function = 'sqrt'),
             'PrecioDedal'=>$this->faker->biasedNumberBetween($min = 2300, $max = 55000, $function = 'sqrt'),

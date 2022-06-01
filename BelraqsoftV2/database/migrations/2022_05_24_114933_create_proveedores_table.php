@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('TipoDocumento');
             $table->string('NumeroIdenNit',25);
             $table->string('Correo',100)->nullable();//correo puede ser opcional
-            $table->string('Telefono(s)',40);
+            $table->string('Telefonos',40);
             $table->string('Descripcion');
             $table->string('Direccion');
             $table->string('Ciudad_Municipio',50);

@@ -25,7 +25,7 @@ class ProveedorFactory extends Factory
             'NumeroIdenNit'=>$this->faker->numberBetween(10000000, 1099999999),
             'Correo'=>$this->faker->email(),
             'Direccion'=>$this->faker->address(),
-            'Telefono(s)'=>$this->faker->biasedNumberBetween($min = 3000000000, $max = 3400000000, $function = 'sqrt'),
+            'Telefonos'=>$this->faker->biasedNumberBetween($min = 3000000000, $max = 3400000000, $function = 'sqrt'),
             'Ciudad_Municipio'=>$this->faker->city(),
             'Estado'=>$this->faker->randomElement([0,1])
         ];
