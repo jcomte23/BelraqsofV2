@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Cliente;
 use App\Models\Existencia;
 use App\Models\Proveedor;
+use App\Models\Venta;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,5 +23,6 @@ class DatabaseSeeder extends Seeder
         Cliente::factory(50)->create();
         Proveedor::factory(50)->create();
         Existencia::factory(50)->create();
+        Venta::factory(50)->create();
     }
 }
