@@ -8,7 +8,8 @@ class generalController extends Controller
 {
     public function __invoke()
     {
-        return view("Login.Login");
+        //return view("Login.Login");
+        return view("welcome");
     }
 
     public function index($modulo,$opcion=null){

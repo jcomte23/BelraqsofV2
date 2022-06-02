@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UsuariosController extends Controller
+class ExistenciasController extends Controller
 {
     public function index(){
-        $modulo="Usuarios";
+        $modulo="Existencias";
         return view("$modulo.$modulo",compact('modulo'));
     }
 }

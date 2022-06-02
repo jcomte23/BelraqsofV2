@@ -80,49 +80,49 @@
                         </p>
                         <h5 class="centered titulo">User logeado</h5>
                             <li>
-                                <a href="{{ url('/Reportes')}}">
+                                <a href="{{ route('reporteIndex')}}">
                                     <i class="large material-icons">reorder</i>
                                     <span>Reportes</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/Clientes')}}">
+                                <a href="{{ route('clienteIndex')}}">
                                     <i class="large material-icons">account_box</i>
                                     <span>Clientes</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/Usuarios')}}">
+                                <a href="{{ route('usuarioIndex')}}">
                                     <i class="large material-icons">person</i>
                                     <span>Usuarios</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/Compras')}}">
+                                <a href="{{ route('compraIndex')}}">
                                     <i class="large material-icons">shopping_cart</i>
                                     <span>Compras</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/Pedidos')}}">
+                                <a href="{{ route('pedidoIndex')}}">
                                     <i class="large material-icons">add_shopping_cart</i>
                                     <span>Pedidos</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/Ventas')}}">
+                                <a href="{{ route('ventaIndex')}}">
                                     <i class="large material-icons">assignment_turned_in</i>
                                     <span>Ventas</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/Proveedores')}}">
+                                <a href="{{ route('proveedorIndex')}}">
                                     <i class="large material-icons">face</i>
                                     <span>Proveedores</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/Existencias')}}">
+                                <a href="{{ route('existenciaIndex')}}">
                                     <i class="large material-icons">reorder</i>
                                     <span>Existencias</span>
                                 </a>
