@@ -12,7 +12,7 @@
         </form>
         <form class="d-flex">
             <div class="btn-group btn-group" role="group">
-                <a type="button" class="btn btn-primary " href="{{ url('/'.$modulo.'/Registrar')}}">
+                <a type="button" class="btn btn-primary " href="{{ route('compraRegistrar') }}">
                     <span><i class="bi bi-plus-lg"></i></span>
                 </a>
             </div>
@@ -42,7 +42,7 @@
             <td>313</td>
             <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-                    <a type="button" class="btn btn-warning" href="{{ url('/'.$modulo.'/Editar')}}">
+                    <a type="button" class="btn btn-warning" href="{{ route('compraEditar') }}">
                         <i class="bi bi-pencil-fill"></i>
                     </a>
                     <a type="button" class="btn btn-danger" href="">
@@ -63,7 +63,7 @@
             <td>313</td>
             <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-                    <a type="button" class="btn btn-warning" href="{{ url('/'.$modulo.'/Editar')}}">
+                    <a type="button" class="btn btn-warning" href="{{ route('compraEditar') }}">
                         <i class="bi bi-pencil-fill"></i>
                     </a>
                     <a type="button" class="btn btn-danger" href="">
@@ -84,7 +84,7 @@
             <td>313</td>
             <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-                    <a type="button" class="btn btn-warning" href="{{ url('/'.$modulo.'/Editar')}}">
+                    <a type="button" class="btn btn-warning" href="{{ route('compraEditar') }}">
                         <i class="bi bi-pencil-fill"></i>
                     </a>
                     <a type="button" class="btn btn-danger" href="">

@@ -12,7 +12,7 @@
         </form>
         <form class="d-flex">
             <div class="btn-group btn-group" role="group">
-                <a type="button" class="btn btn-primary " href="{{ url('/'.$modulo.'/Registrar')}}">
+                <a type="button" class="btn btn-primary " href="{{ route('pedidoRegistrar') }}">
                     <i class="material-icons align-middle">add</i>
                     <span></span>
                 </a>
@@ -43,13 +43,13 @@
             <td>12345</td>
             <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-                    <a type="button" class="btn btn-warning" href="{{ url('/'.$modulo.'/Editar')}}">
+                    <a type="button" class="btn btn-warning" href="{{ route('pedidoEditar') }}">
                         <i class="material-icons align-middle">edit</i>
                     </a>
                     <a type="button" class="btn btn-danger" href="">
                         <i class="material-icons align-middle">close</i>
                     </a>
-                    <a type="button" class="btn btn-success" href="{{ url('/'.$modulo)}}">
+                    <a type="button" class="btn btn-success" href="{{ route('pedidoIndex') }}">
                         <i class="material-icons align-middle">check</i>
                     </a>
                     <a type="button" class="btn btn-info" href="">
@@ -67,13 +67,13 @@
             <td>12345</td>
             <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-                    <a type="button" class="btn btn-warning" href="{{ url('/'.$modulo.'/Editar')}}">
+                    <a type="button" class="btn btn-warning" href="{{ route('pedidoEditar') }}">
                         <i class="material-icons align-middle">edit</i>
                     </a>
                     <a type="button" class="btn btn-danger" href="">
                         <i class="material-icons align-middle">close</i>
                     </a>
-                    <a type="button" class="btn btn-success" href="{{ url('/'.$modulo)}}">
+                    <a type="button" class="btn btn-success" href="{{ route('pedidoIndex') }}">
                         <i class="material-icons align-middle">check</i>
                     </a>
                     <a type="button" class="btn btn-info" href="">
@@ -91,13 +91,13 @@
             <td>12345</td>
             <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-                    <a type="button" class="btn btn-warning" href="{{ url('/'.$modulo.'/Editar')}}">
+                    <a type="button" class="btn btn-warning" href="{{ route('pedidoEditar') }}">
                         <i class="material-icons align-middle">edit</i>
                     </a>
                     <a type="button" class="btn btn-danger" href="">
                         <i class="material-icons align-middle">close</i>
                     </a>
-                    <a type="button" class="btn btn-success" href="{{ url('/'.$modulo)}}">
+                    <a type="button" class="btn btn-success" href="{{ route('pedidoIndex') }}">
                         <i class="material-icons align-middle">check</i>
                     </a>
                     <a type="button" class="btn btn-info" href="">

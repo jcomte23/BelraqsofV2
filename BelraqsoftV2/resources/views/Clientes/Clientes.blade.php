@@ -177,8 +177,7 @@
                     <div class="row">
                         <div class="col-lg-6 botones-operaciones">
                             <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                data-bs-target="#FormularioEdicionClientes"><i
-                                    class="material-icons align-middle">edit</i></button>
+                                data-bs-target="#FormularioEdicionClientes"><i class="bi bi-pencil-fill"></i></button>
                             <div class="modal fade" id="FormularioEdicionClientes" tabindex="-1"
                                 aria-labelledby="FormularioEdicionClientesLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-xl">
