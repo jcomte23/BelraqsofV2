@@ -7,14 +7,13 @@
 <nav class="navbar">
     <div class="container p-0">
         <form class="d-flex" action="{{ url('/'.$modulo)}}" method="get">
-            <input class="form-control me-2 " placeholder="Buscar">
-            <button class="btn btn-primary" type="submit">Buscar</button>
+            <input class="form-control me-2" type="search" placeholder="Buscar" name="datoBuscado" aria-label="Search">
+                <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
         </form>
         <form class="d-flex">
             <div class="btn-group btn-group" role="group">
                 <a type="button" class="btn btn-primary " href="{{ url('/'.$modulo.'/Registrar')}}">
-                    <i class="material-icons align-middle">add</i>
-                    <span></span>
+                    <span><i class="bi bi-plus-lg"></i></span>
                 </a>
             </div>
         </form>
@@ -44,13 +43,13 @@
             <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
                     <a type="button" class="btn btn-warning" href="{{ url('/'.$modulo.'/Editar')}}">
-                        <i class="material-icons align-middle">edit</i>
+                        <i class="bi bi-pencil-fill"></i>
                     </a>
                     <a type="button" class="btn btn-danger" href="">
-                        <i class="material-icons align-middle">close</i>
+                        <i class="bi bi-x-circle-fill"></i>
                     </a>
                     <a type="button" class="btn btn-info" href="">
-                        <i class="material-icons align-middle">remove_red_eye</i>
+                        <i class="bi bi-eye-fill"></i>
                     </a>
                 </div>
             </td>
@@ -65,13 +64,13 @@
             <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
                     <a type="button" class="btn btn-warning" href="{{ url('/'.$modulo.'/Editar')}}">
-                        <i class="material-icons align-middle">edit</i>
+                        <i class="bi bi-pencil-fill"></i>
                     </a>
                     <a type="button" class="btn btn-danger" href="">
-                        <i class="material-icons align-middle">close</i>
+                        <i class="bi bi-x-circle-fill"></i>
                     </a>
                     <a type="button" class="btn btn-info" href="">
-                        <i class="material-icons align-middle">remove_red_eye</i>
+                        <i class="bi bi-eye-fill"></i>
                     </a>
                 </div>
             </td>
@@ -86,13 +85,13 @@
             <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
                     <a type="button" class="btn btn-warning" href="{{ url('/'.$modulo.'/Editar')}}">
-                        <i class="material-icons align-middle">edit</i>
+                        <i class="bi bi-pencil-fill"></i>
                     </a>
                     <a type="button" class="btn btn-danger" href="">
-                        <i class="material-icons align-middle">close</i>
+                        <i class="bi bi-x-circle-fill"></i>
                     </a>
                     <a type="button" class="btn btn-info" href="">
-                        <i class="material-icons align-middle">remove_red_eye</i>
+                        <i class="bi bi-eye-fill"></i>
                     </a>
                 </div>
             </td>
