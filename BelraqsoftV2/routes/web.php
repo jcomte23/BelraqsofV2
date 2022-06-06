@@ -39,13 +39,13 @@ Route::get('Ventas',[VentasController::class,"index"])->name('ventaIndex');
 Route::get('Proveedores',[ProveedoresController::class,"index"])->name('proveedorIndex');
 Route::get('Existencias',[ExistenciasController::class,"index"])->name('existenciaIndex');
 
-// Route::get('{modulo}/{opcion?}',[generalController::class,"index"]);
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified'
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-// });
+ Route::get('{modulo}/{opcion?}',[generalController::class,"index"]);
+ Route::middleware([
+     'auth:sanctum',
+     config('jetstream.auth_session'),
+     'verified'
+ ])->group(function () {
+     Route::get('/dashboard', function () {
+         return view('dashboard');
+     })->name('dashboard');
+});
