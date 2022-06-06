@@ -9,6 +9,7 @@ use App\Http\Controllers\PedidosController;
 use App\Http\Controllers\VentasController;
 use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\ExistenciasController;
+use App\Http\Controllers\LoginsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', generalController::class);
+Route::get('/', [LoginsController::class,"index"])->name('loginIndex');
 Route::get('Reportes',[ReportesController::class,"index"])->name('reporteIndex');
 Route::get('Clientes',[ClientesController::class,"index"])->name('clienteIndex');
 Route::get('Usuarios',[UsuariosController::class,"index"])->name('usuarioIndex');
@@ -39,13 +40,13 @@ Route::get('Ventas',[VentasController::class,"index"])->name('ventaIndex');
 Route::get('Proveedores',[ProveedoresController::class,"index"])->name('proveedorIndex');
 Route::get('Existencias',[ExistenciasController::class,"index"])->name('existenciaIndex');
 
-// Route::get('{modulo}/{opcion?}',[generalController::class,"index"]);
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified'
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-// });
+ Route::get('{modulo}/{opcion?}',[generalController::class,"index"]);
+ Route::middleware([
+     'auth:sanctum',
+     config('jetstream.auth_session'),
+     'verified'
+ ])->group(function () {
+     Route::get('/dashboard', function () {
+         return view('dashboard');
+     })->name('dashboard');
+});

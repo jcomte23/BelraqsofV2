@@ -9,4 +9,8 @@ class Proveedor extends Model
 {
     use HasFactory;
     protected $table="proveedores";
+
+    public function unionTipoDoc(){
+        return $this->belongsTo(tipo_documento::class,'TipoDocumento');
+    }
 }

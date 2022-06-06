@@ -1,6 +1,6 @@
 @extends('Layouts.plantilla')
 
-@section('title',$modulo)
+@section('title', $modulo)
 
 @section('content')
 <h1 class="fw-bold">{{$modulo}}</h1>
@@ -17,7 +17,7 @@
                     <span></span>
                 </a>
             </div>
-        </form>
+        </div>
     </div>
 </nav>
 <table class="table text-center align-middle">

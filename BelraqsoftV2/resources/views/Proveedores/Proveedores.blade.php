@@ -130,7 +130,7 @@
                     <td>{{$Proveedor->NombreRazonSocial	}}</td>
                     <td>{{$Proveedor->NombreContacto}}</td>
                     <td>{{$Proveedor->NumeroContacto}}</td>
-                    <td>{{$Proveedor->TipoDocumento}}</td>
+                    <td>{{$Proveedor->unionTipoDoc->Abreviatura}}</td>
                     <td>{{$Proveedor->NumeroIdenNit}}</td>
                     <td>{{$Proveedor->Correo}}</td>
                     <td>{{$Proveedor->Telefonos}}</td>
