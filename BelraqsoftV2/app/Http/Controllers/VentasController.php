@@ -9,7 +9,7 @@ class VentasController extends Controller
 {
     public function index(){
         $modulo="Ventas";
-        $ventas=Venta::all();
+        $ventas=Venta::paginate(10);
         return view("$modulo.$modulo",compact('modulo'),['ventas'=>$ventas]);
     }
 }

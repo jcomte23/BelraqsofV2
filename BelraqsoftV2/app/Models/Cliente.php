@@ -9,4 +9,8 @@ class Cliente extends Model
 {
     use HasFactory;
     protected $table="clientes";
+
+    public function unionTipoDoc(){
+        return $this->belongsTo(tipo_documento::class,'TipoDocumento');
+    }
 }

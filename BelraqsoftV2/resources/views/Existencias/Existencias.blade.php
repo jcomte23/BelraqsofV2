@@ -160,8 +160,8 @@
             <th scope="col">ValorUnitario</th>
             <th scope="col">Stock</th>
             <th scope="col">PrecioDedal</th>
-            <th scope="col">Telefono</th>
             <th scope="col">PrecioMayor</th>
+            <th scope="col">Operaciones</th>
         </tr>
         </tr>
     </thead>
@@ -337,4 +337,5 @@
         @endforelse
     </tbody>
 </table>
+{{$existencias->Links('pagination::bootstrap-4')}}
 @endsection

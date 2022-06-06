@@ -9,7 +9,7 @@ class ExistenciasController extends Controller
 {
     public function index(){
         $modulo="Existencias";
-        $existencias=Existencia::all();
+        $existencias=Existencia::paginate(10);
         return view("$modulo.$modulo",compact('modulo'),['existencias'=>$existencias]);
     }
 }

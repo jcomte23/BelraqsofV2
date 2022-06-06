@@ -156,6 +156,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nombres</th>
                 <th scope="col">Apellidos</th>
+                <th scope="col">Tipo</th>
                 <th scope="col">Documento</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Fecha Nacimiento</th>
@@ -171,7 +172,8 @@
                 <td>{{$cliente->id}}</td>
                 <td>{{$cliente->Nombres}}</td>
                 <td>{{$cliente->Apellidos}}</td>
-                <td>{{$cliente->Apellidos}}</td>
+                <td>{{$cliente->unionTipoDoc->Abreviatura}}</td>
+                <td>{{$cliente->Documento}}</td>
                 <td>{{$cliente->Correo}}</td>
                 <td>{{$cliente->FechaNacimiento}}</td>
                 <td>{{$cliente->Direccion}}</td>
@@ -337,4 +339,8 @@
             @endforelse
         </tbody>
     </table>
+        {{$clientes->Links('pagination::bootstrap-4')}}
+
+    
+    
 @endsection

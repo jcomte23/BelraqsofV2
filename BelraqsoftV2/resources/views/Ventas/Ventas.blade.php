@@ -23,6 +23,7 @@
             <th scope="col">Cantidad Productos</th>
             <th scope="col">Ganancia</th>
             <th scope="col">Cliente</th>
+            <th scope="col">Doc. Cliente</th>
             <th scope="col">Operaciones</th>
         </tr>
     </thead>
@@ -33,7 +34,9 @@
             <td>{{$venta->Fecha}}</td>
             <td>{{$venta->CantidadProductos}}</td>
             <td>${{$venta->Total}}</td>
-            <td>{{$venta->Cliente}}</td>
+            <td>{{$venta->unionCliente->Nombres}} {{$venta->unionCliente->Apellidos}}</td>
+            <td>{{$venta->unionCliente->Documento}}</td>
+
             <td>
                 <div class="row">
                     <div class="col-lg-3 botones-operaciones">
@@ -56,9 +59,9 @@
             </td>
         </tr>
         @empty
-            
+        <tr>Sin ventas</tr>
         @endforelse
-        
     </tbody>
 </table>
+{{$ventas->Links('pagination::bootstrap-4')}}
 @endsection

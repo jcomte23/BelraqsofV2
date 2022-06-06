@@ -9,7 +9,7 @@ class ClientesController extends Controller
 {
     public function index(){
         $modulo="Clientes";
-        $clientes=Cliente::all();
+        $clientes=Cliente::paginate(10);
         return view("$modulo.$modulo",compact('modulo'),['clientes'=>$clientes]);
     }
 }
