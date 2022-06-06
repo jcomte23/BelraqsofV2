@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('tipo_documento', function (Blueprint $table) {
             $table->id();
-            $table->string('Abreviatura',5);
-            $table->string('TipoDocumento',25)->charset('utf8mb4');
+            $table->string('Abreviatura',5)->unique();
+            $table->string('TipoDocumento',25)->charset('utf8mb4')->unique();
             $table->timestamps();
         });
     }

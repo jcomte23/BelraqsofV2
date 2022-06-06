@@ -153,6 +153,7 @@
     <table class="table text-center align-middle">
         <thead>
             <tr>
+                <th scope="col">ID</th>
                 <th scope="col">Nombres</th>
                 <th scope="col">Apellidos</th>
                 <th scope="col">Documento</th>
@@ -165,14 +166,16 @@
             </tr>
         </thead>
         <tbody>
+            @forelse ($clientes as $cliente)
             <tr>
-                <td>Carmen</td>
-                <td>Lopes</td>
-                <td>1002212</td>
-                <td>Carmen@gmail.com</td>
-                <td>02/01/2002</td>
-                <td>Crr 32 a</td>
-                <td>302333432</td>
+                <td>{{$cliente->id}}</td>
+                <td>{{$cliente->Nombres}}</td>
+                <td>{{$cliente->Apellidos}}</td>
+                <td>{{$cliente->Apellidos}}</td>
+                <td>{{$cliente->Correo}}</td>
+                <td>{{$cliente->FechaNacimiento}}</td>
+                <td>{{$cliente->Direccion}}</td>
+                <td>{{$cliente->Telefonos}}</td>
                 <td>
                     <div class="row">
                         <div class="col-lg-6 botones-operaciones">
@@ -329,6 +332,9 @@
                     </div>
                 </td>
             </tr>
+            @empty
+                <tr>Sin clientes</tr>
+            @endforelse
         </tbody>
     </table>
 @endsection
