@@ -18,7 +18,7 @@ class ProveedorFactory extends Factory
     {
         return [
             'NombreRazonSocial'=>$this->faker->company(),
-            'Descripcion'=>$this->faker->paragraph(),
+            'Descripcion'=>$this->faker->text(),
             'NombreContacto'=>$this->faker->name(),
             'NumeroContacto'=>$this->faker->biasedNumberBetween($min = 3000000000, $max = 3400000000, $function = 'sqrt'),
             'TipoDocumento'=>$this->faker->randomElement([1,2,3]),
