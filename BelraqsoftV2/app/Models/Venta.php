@@ -2,11 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Cliente;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Venta extends Model
 {
     use HasFactory;
     protected $table="ventas";
+
+    public function unionCliente(){
+        return $this->belongsTo(Cliente::class,'Cliente');
+    }
+
+
 }

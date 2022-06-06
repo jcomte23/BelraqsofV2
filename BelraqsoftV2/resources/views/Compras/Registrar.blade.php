@@ -145,8 +145,8 @@
         </tbody>
     </table>
     <div class="mt-5 btn-group d-flex">
-        <a type="submit" href="{{ url('/'.$modulo.'/Registrar')}}" class="btn btn-success confirmar_o_cancelar " style="margin-right: 30%; left: 29%;">Registrar</a>
-        <a type="submit" href="{{ url('/'.$modulo)}}" class="btn btn-danger confirmar_o_cancelar " style="margin-left: 30%; right: 29%;">Cancelar</a>
+        <a type="submit" href="{{ route('compraRegistrar') }}" class="btn btn-success confirmar_o_cancelar " style="margin-right: 30%; left: 29%;">Registrar</a>
+        <a type="submit" href="{{ route('compraIndex') }}" class="btn btn-danger confirmar_o_cancelar " style="margin-left: 30%; right: 29%;">Cancelar</a>
     </div>
 </div>
 

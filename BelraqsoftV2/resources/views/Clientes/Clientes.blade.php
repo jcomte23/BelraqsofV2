@@ -153,8 +153,10 @@
     <table class="table text-center align-middle">
         <thead>
             <tr>
+                <th scope="col">ID</th>
                 <th scope="col">Nombres</th>
                 <th scope="col">Apellidos</th>
+                <th scope="col">Tipo</th>
                 <th scope="col">Documento</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Fecha Nacimiento</th>
@@ -165,20 +167,22 @@
             </tr>
         </thead>
         <tbody>
+            @forelse ($clientes as $cliente)
             <tr>
-                <td>Carmen</td>
-                <td>Lopes</td>
-                <td>1002212</td>
-                <td>Carmen@gmail.com</td>
-                <td>02/01/2002</td>
-                <td>Crr 32 a</td>
-                <td>302333432</td>
+                <td>{{$cliente->id}}</td>
+                <td>{{$cliente->Nombres}}</td>
+                <td>{{$cliente->Apellidos}}</td>
+                <td>{{$cliente->unionTipoDoc->Abreviatura}}</td>
+                <td>{{$cliente->Documento}}</td>
+                <td>{{$cliente->Correo}}</td>
+                <td>{{$cliente->FechaNacimiento}}</td>
+                <td>{{$cliente->Direccion}}</td>
+                <td>{{$cliente->Telefonos}}</td>
                 <td>
                     <div class="row">
                         <div class="col-lg-6 botones-operaciones">
                             <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                data-bs-target="#FormularioEdicionClientes"><i
-                                    class="material-icons align-middle">edit</i></button>
+                                data-bs-target="#FormularioEdicionClientes"><i class="bi bi-pencil-fill"></i></button>
                             <div class="modal fade" id="FormularioEdicionClientes" tabindex="-1"
                                 aria-labelledby="FormularioEdicionClientesLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-xl">
@@ -330,6 +334,13 @@
                     </div>
                 </td>
             </tr>
+            @empty
+                <tr>Sin clientes</tr>
+            @endforelse
         </tbody>
     </table>
+        {{$clientes->Links('pagination::bootstrap-4')}}
+
+    
+    
 @endsection

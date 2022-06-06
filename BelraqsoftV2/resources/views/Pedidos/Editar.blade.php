@@ -130,8 +130,8 @@
     </table>
 
     <div class="mt-5 btn-group d-flex">
-        <a type="submit" href="{{ url('/'.$modulo.'/Editar')}}" class="btn btn-primary " style="margin-right: 30%; left: 20%;">Registrar</a>
-        <a type="submit" href="{{ url('/'.$modulo)}}" class="btn btn-secondary " style="margin-left: 30%; right: 20%;">Cancelar</a>
+        <a type="submit" href="{{ route('pedidoEditar') }}" class="btn btn-primary " style="margin-right: 30%; left: 20%;">Registrar</a>
+        <a type="submit" href="{{ route('pedidoIndex') }}" class="btn btn-secondary " style="margin-left: 30%; right: 20%;">Cancelar</a>
     </div>
 </div>
 @endsection

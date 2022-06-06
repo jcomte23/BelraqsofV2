@@ -18,21 +18,25 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col">CODG.</th>
+            <th scope="col">CODG</th>
             <th scope="col">Fecha Venta</th>
             <th scope="col">Cantidad Productos</th>
-            <th scope="col">$ Ganacia</th>
+            <th scope="col">Ganancia</th>
             <th scope="col">Cliente</th>
+            <th scope="col">Doc. Cliente</th>
             <th scope="col">Operaciones</th>
         </tr>
     </thead>
     <tbody>
+        @forelse ($ventas as $venta)
         <tr>
-            <td>1</td>
-            <td>22/04/2021</td>
-            <td>8</td>
-            <td>$32000</td>
-            <td>1096247379</td>
+            <td>{{$venta->Codigo}}</td>
+            <td>{{$venta->Fecha}}</td>
+            <td>{{$venta->CantidadProductos}}</td>
+            <td>${{$venta->Total}}</td>
+            <td>{{$venta->unionCliente->Nombres}} {{$venta->unionCliente->Apellidos}}</td>
+            <td>{{$venta->unionCliente->Documento}}</td>
+
             <td>
                 <div class="row">
                     <div class="col-lg-3 botones-operaciones">
@@ -54,6 +58,10 @@
                 </div>
             </td>
         </tr>
+        @empty
+        <tr>Sin ventas</tr>
+        @endforelse
     </tbody>
 </table>
+{{$ventas->Links('pagination::bootstrap-4')}}
 @endsection

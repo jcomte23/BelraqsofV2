@@ -141,13 +141,11 @@
                 <td>Total</td>
                 <td></td>
             </tr>
-
         </tbody>
     </table>
-
     <div class="mt-5 btn-group d-flex">
-        <a type="submit" href="{{ url('/'.$modulo.'/Editar')}}"  class="btn btn-primary " style="margin-right: 30%; left: 20%;">Actualizar</a>
-        <a type="submit" href="{{ url('/'.$modulo)}}" class="btn btn-secondary " style="margin-left: 30%; right: 20%;">Cancelar</a>
+        <a type="submit" href="{{ route('compraEditar') }}"  class="btn btn-primary " style="margin-right: 30%; left: 20%;">Actualizar</a>
+        <a type="submit" href="{{ route('compraIndex') }}" class="btn btn-secondary " style="margin-left: 30%; right: 20%;">Cancelar</a>
     </div>
 </div>
 @endsection

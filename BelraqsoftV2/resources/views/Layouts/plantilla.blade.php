@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('img/Favicon/apple-icon-120x120.png') }}">
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('img/Favicon/apple-icon-144x144.png') }}">
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img/Favicon/apple-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/Favicon//pple-icon-180x180.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/Favicon/apple-icon-180x180.png') }}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('img/Favicon/android-icon-192x192.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/Favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('img/Favicon/favicon-96x96.png') }}">
@@ -35,13 +35,7 @@
     <meta http-equiv="Last-Modified" content="0">
     <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
     <meta http-equiv="Pragma" content="no-cache">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link href="{{ asset('lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/zabuto_calendar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('lib/gritter/css/jquery.gritter.css') }}" />
     <!-- jQuery library -->
@@ -49,13 +43,11 @@
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons-1.8.3/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/EstilosUniversales.css') }}">
     <link href="{{ asset('css/pagination.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-
-    <meta name="robots" content="noindex, nofollow">
     <title>@yield('title')</title>
 </head>
 
@@ -91,49 +83,49 @@
                 <h5 class="centered titulo">User logeado</h5>
                 <li>
                     <a href="{{ route('reporteIndex') }}">
-                        <i class="large material-icons">reorder</i>
+                        <i class="bi bi-speedometer2"></i>
                         <span>Reportes</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('clienteIndex') }}">
-                        <i class="large material-icons">account_box</i>
+                        <i class="bi bi-person-square"></i>
                         <span>Clientes</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('usuarioIndex') }}">
-                        <i class="large material-icons">person</i>
+                        <i class="bi bi-person-circle"></i>
                         <span>Usuarios</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('compraIndex') }}">
-                        <i class="large material-icons">shopping_cart</i>
+                        <i class="bi bi-cart-plus-fill"></i>
                         <span>Compras</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('pedidoIndex') }}">
-                        <i class="large material-icons">add_shopping_cart</i>
+                        <i class="bi bi-bag-plus-fill"></i>
                         <span>Pedidos</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('ventaIndex') }}">
-                        <i class="large material-icons">assignment_turned_in</i>
+                        <i class="bi bi-bag-check-fill"></i>
                         <span>Ventas</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('proveedorIndex') }}">
-                        <i class="large material-icons">face</i>
+                        <i class="bi bi-person-bounding-box"></i>
                         <span>Proveedores</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('existenciaIndex') }}">
-                        <i class="large material-icons">reorder</i>
+                        <i class="bi bi-archive"></i>
                         <span>Existencias</span>
                     </a>
                 </li>
@@ -166,7 +158,12 @@
         </div>
     </footer>
 
+<<<<<<< HEAD
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+=======
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+>>>>>>> 62412a49175aced237cc3eb3b751ecdea9622b0f
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
@@ -208,10 +205,9 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
-    <script src="{{ asset('js/bootstrap.js.js') }}"></script>
+    </script> --}}
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.esm.js') }}"></script>
 </body>
 
 </html>
