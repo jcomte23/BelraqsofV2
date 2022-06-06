@@ -113,23 +113,31 @@
             <tr>
                 <th scope="col">Nombre / Razon social</th>
                 <th scope="col">Nombre del contacto</th>
-                <th scope="col">Numero / NIT</th>
+                <th scope="col">Numero del contacto</th>
+                <th scope="col">Tipo de documento</th>
+                <th scope="col">Numero de nit</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Telefono</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Direccion</th>
+                <th scope="col">Ciudad / Municipio</th>
                 <th scope="col">Operaciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Esika S.A</td>
-                <td>Julio Martinez</td>
-                <td>809384335-k</td>
-                <td>juliomar@esika.com.co</td>
-                <td>6045783424</td>
-                <td>Distribuidora de cosmetico a nivel nacional</td>
-                <td>Av 32 Dg 42 ee-23</td>
+            @foreach ($Proveedores as $Proveedor)
+                <tr>
+                    <td>{{$Proveedor->NombreRazonSocial	}}</td>
+                    <td>{{$Proveedor->NombreContacto}}</td>
+                    <td>{{$Proveedor->NumeroContacto}}</td>
+                    <td>{{$Proveedor->TipoDocumento}}</td>
+                    <td>{{$Proveedor->NumeroIdenNit}}</td>
+                    <td>{{$Proveedor->Correo}}</td>
+                    <td>{{$Proveedor->Telefonos}}</td>
+                    <td>{{$Proveedor->Descripcion}}</td>
+                    <td>{{$Proveedor->Direccion}}</td>
+                    <td>{{$Proveedor->Ciudad_Municipio}}</td>
+
                 <td>
                     <div class="row">
                         <div class="col-lg-4 botones-operaciones">
@@ -240,5 +248,7 @@
                 </td>
             </tr>
         </tbody>
+        @endforeach
     </table>
+    {{$Proveedores->Links('pagination::bootstrap-5')}}
 @endsection
