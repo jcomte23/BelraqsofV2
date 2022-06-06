@@ -250,5 +250,5 @@
         </tbody>
         @endforeach
     </table>
-    {{$Proveedores->Links('pagination::bootstrap-5')}}
+    {{$Proveedores->Links('pagination::bootstrap-4')}}
 @endsection
