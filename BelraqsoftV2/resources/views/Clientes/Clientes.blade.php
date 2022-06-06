@@ -150,7 +150,7 @@
         </div>
     </div>
 
-    <table class="table text-center align-middle">
+    <table id="myTable" class="table text-center align-middle">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -338,9 +338,5 @@
                 <tr>Sin clientes</tr>
             @endforelse
         </tbody>
-    </table>
-        {{$clientes->Links('pagination::bootstrap-4')}}
-
-    
-    
+    </table>    
 @endsection
