@@ -3,19 +3,16 @@
 @section('title', $modulo)
 
 @section('content')
-    <h1 class="fw-bold">{{ $modulo }}</h1>
-    <nav class="navbar">
-        <div class="container p-0">
-            <form class="d-flex" action="{{ url('/' . $modulo) }}" method="get">
-                <input class="form-control me-2 " placeholder="Buscar">
-                <button class="btn btn-primary" type="submit">Buscar</button>
-            </form>
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#FormularioRegistroProveedores"><i class="bi bi-person-plus-fill"></i> Nuevo</button>
+<nav class="navbar navbar-light">
+    <div class="container-fluid barraSuperior">
+        <h1 class="fw-bold">{{ $modulo }}</h1>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#FormularioRegistroProveedores"><i class="bi bi-person-plus-fill"></i> Nuevo</button>
+    </div>
+</nav>
 
-            <!-- Modal -->
-            <div class="modal fade" id="FormularioRegistroProveedores" tabindex="-1"
+    <div class="modal fade" id="FormularioRegistroProveedores" tabindex="-1"
             aria-labelledby="FormularioRegistroProveedoresLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -51,208 +48,191 @@
                                         name="txtNumero" placeholder="" required>
                                 </div>
 
-                                <!-- NIVEL 2 -->
-                                <!---->
-                                <div class="col-lg-3">
-                                    <label class="label">Telefono</label><br>
-                                    <input class="IngresoDatos form-control" type="text"
-                                        name="txttelefono" placeholder="" required>
-                                </div>
-                                <div class="col-lg-6">
-                                    <label class="label">Direccion</label><br>
-                                    <input class="IngresoDatos form-control" type="text"
-                                        name="txtDireccion" placeholder="" required>
-                                </div>
-                                <div class="col-lg-3">
-                                    <label class="label">Ciudad / Municipio</label><br>
-                                    <input class="IngresoDatos form-control" type="text"
-                                        name="txtCiudad" placeholder="" required>
-                                </div>
+                                    <!-- NIVEL 2 -->
+                                    <!---->
+                                    <div class="col-lg-3">
+                                        <label class="label">Telefono</label><br>
+                                        <input class="IngresoDatos form-control" type="text" name="txttelefono"
+                                            placeholder="" required>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label class="label">Direccion</label><br>
+                                        <input class="IngresoDatos form-control" type="text" name="txtDireccion"
+                                            placeholder="" required>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="label">Ciudad / Municipio</label><br>
+                                        <input class="IngresoDatos form-control" type="text" name="txtCiudad" placeholder=""
+                                            required>
+                                    </div>
 
-                                <!-- NIVEL 3 -->
-                                <!---->
-                                <div class="col-lg-8">
-                                    <label class="label">Ingrese nombre del
-                                        contacto:</label><br>
-                                    <input class="IngresoDatos form-control" type="text"
-                                        name="txtContacto" placeholder="" required>
-                                </div>
-                                <div class="col-lg-4">
-                                    <label class="label">Ingrese numero del
-                                        contacto:</label><br>
-                                    <input class="IngresoDatos form-control" type="text"
-                                        name="txtNumeroContacto" placeholder="" required>
-                                </div>
+                                    <!-- NIVEL 3 -->
+                                    <!---->
+                                    <div class="col-lg-8">
+                                        <label class="label">Ingrese nombre del
+                                            contacto:</label><br>
+                                        <input class="IngresoDatos form-control" type="text" name="txtContacto"
+                                            placeholder="" required>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label class="label">Ingrese numero del
+                                            contacto:</label><br>
+                                        <input class="IngresoDatos form-control" type="text" name="txtNumeroContacto"
+                                            placeholder="" required>
+                                    </div>
 
-                                <!-- NIVEL 4-->
-                                <!---->
-                                <div class="col-lg-12">
-                                    <label class="label">Correo:</label><br>
-                                    <input class="IngresoDatos form-control" type="text"
-                                        name="txtCorreo" required>
-                                </div>
-                                <div class="col-lg-12">
-                                    <label class="label">Descripcion del proveedor:</label><br>
-                                    <input class="IngresoDatos form-control" style="height: 80px;"
-                                        type="textarea" name="txtDescripcion" placeholder=" ">
-                                </div>
+                                    <!-- NIVEL 4-->
+                                    <!---->
+                                    <div class="col-lg-12">
+                                        <label class="label">Correo:</label><br>
+                                        <input class="IngresoDatos form-control" type="text" name="txtCorreo" required>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <label class="label">Descripcion del proveedor:</label><br>
+                                        <input class="IngresoDatos form-control" style="height: 80px;" type="textarea"
+                                            name="txtDescripcion" placeholder=" ">
+                                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Actualizar">
+                        </div>
+                        </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">Cancelar</button>
-                        <input class="btn btn-success confirmar_o_cancelar" type="submit"
-                            value="Actualizar">
-                    </div>
-                    </form>
                 </div>
             </div>
-        </div>
-        </div>
-    </nav>
 
-    <table id="myTable" class="table table-hover">
+    <table id="myTable" class="table text-center align-middle display">
         <thead>
             <tr>
-                <th scope="col">Nombre / Razon social</th>
-                <th scope="col">Nombre del contacto</th>
-                <th scope="col">Numero del contacto</th>
-                <th scope="col">Tipo de documento</th>
-                <th scope="col">Numero de nit</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Telefono</th>
+                <th scope="col">Razon social</th>
+                <th scope="col">Documento</th>
                 <th scope="col">Descripcion</th>
+                <th scope="col">Contacto Interno</th>
+                <th scope="col">Teléfono Contacto</th>
+                <th scope="col">Correo</th>      
                 <th scope="col">Direccion</th>
-                <th scope="col">Ciudad / Municipio</th>
                 <th scope="col">Operaciones</th>
             </tr>
         </thead>
         <tbody>
             @forelse ($Proveedores as $Proveedor)
                 <tr>
-                    <td>{{$Proveedor->NombreRazonSocial	}}</td>
-                    <td>{{$Proveedor->NombreContacto}}</td>
-                    <td>{{$Proveedor->NumeroContacto}}</td>
-                    <td>{{$Proveedor->unionTipoDoc->Abreviatura}}</td>
-                    <td>{{$Proveedor->NumeroIdenNit}}</td>
-                    <td>{{$Proveedor->Correo}}</td>
-                    <td>{{$Proveedor->Telefonos}}</td>
-                    <td>{{$Proveedor->Descripcion}}</td>
-                    <td>{{$Proveedor->Direccion}}</td>
-                    <td>{{$Proveedor->Ciudad_Municipio}}</td>
+                    <td>{{ $Proveedor->NombreRazonSocial }}</td>
+                    <td>{{ $Proveedor->unionTipoDoc->Abreviatura }}-{{ $Proveedor->NumeroIdenNit }}</td>
+                    <td>{{ $Proveedor->Descripcion }}</td>
+                    <td>{{ $Proveedor->NombreContacto }}</td>
+                    <td>{{ $Proveedor->NumeroContacto }}</td>
+                    <td>{{ $Proveedor->Correo }}</td>
+                    <td>{{ $Proveedor->Direccion }}</td>
                     <td>
-                    <div class="row">
-                        <div class="col-lg-4 botones-operaciones">
-                            <form method="get" action="{{ url('/' . $modulo) }}">
-                                <button class="btn btn-danger" type="submit"><i class="bi bi-trash-fill"></i></button>
-                            </form>
-                        </div>
-                        <div class="col-lg-4 botones-operaciones">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        <form action="#" method="post" style="display:inline-flex">
+                            <button class="btn btn-danger boton-listado" type="submit"><i
+                                    class="bi bi-trash-fill"></i></button>
+                            <button type="button" class="btn btn-warning boton-listado" data-bs-toggle="modal"
                                 data-bs-target="#FormularioEdicionProveedores"><i class="bi bi-pencil-fill"></i></button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="FormularioEdicionProveedores" tabindex="-1"
-                                aria-labelledby="FormularioEdicionProveedoresLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-xl">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="FormularioEdicionProveedoresLabel">Edicion de
-                                                {{ $modulo }}</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form class="text-center fst-italic needs-validation row formulario"
-                                                method="post">
-                                                <form class="text-center fst-italic needs-validation row formulario"
-                                                    method="POST">
-                                                    <!-- NIVEL 1 -->
-                                                    <div class="col-lg-5">
-                                                        <label class="label">Ingrese nombre o razon
-                                                            social:</label><br>
-                                                        <input class="IngresoDatos form-control" type="text"
-                                                            name="txtNombre" placeholder="" required>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <label class="label">Tipo:</label><br>
-                                                        <select class="form-select IngresoDatos form-control"
-                                                            aria-label="Default select example" name="txtTipo_Doc" required>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <label class="label">Numero / NIT:</label><br>
-                                                        <input class="IngresoDatos form-control" type="text"
-                                                            name="txtNumero" placeholder="" required>
-                                                    </div>
-
-                                                    <!-- NIVEL 2 -->
-                                                    <!---->
-                                                    <div class="col-lg-3">
-                                                        <label class="label">Telefono</label><br>
-                                                        <input class="IngresoDatos form-control" type="text"
-                                                            name="txttelefono" placeholder="" required>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <label class="label">Direccion</label><br>
-                                                        <input class="IngresoDatos form-control" type="text"
-                                                            name="txtDireccion" placeholder="" required>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <label class="label">Ciudad / Municipio</label><br>
-                                                        <input class="IngresoDatos form-control" type="text"
-                                                            name="txtCiudad" placeholder="" required>
-                                                    </div>
-
-                                                    <!-- NIVEL 3 -->
-                                                    <!---->
-                                                    <div class="col-lg-8">
-                                                        <label class="label">Ingrese nombre del
-                                                            contacto:</label><br>
-                                                        <input class="IngresoDatos form-control" type="text"
-                                                            name="txtContacto" placeholder="" required>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <label class="label">Ingrese numero del
-                                                            contacto:</label><br>
-                                                        <input class="IngresoDatos form-control" type="text"
-                                                            name="txtNumeroContacto" placeholder="" required>
-                                                    </div>
-
-                                                    <!-- NIVEL 4-->
-                                                    <!---->
-                                                    <div class="col-lg-12">
-                                                        <label class="label">Correo:</label><br>
-                                                        <input class="IngresoDatos form-control" type="text"
-                                                            name="txtCorreo" required>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <label class="label">Descripcion del proveedor:</label><br>
-                                                        <input class="IngresoDatos form-control" style="height: 80px;"
-                                                            type="textarea" name="txtDescripcion" placeholder=" ">
-                                                    </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancelar</button>
-                                            <input class="btn btn-success confirmar_o_cancelar" type="submit"
-                                                value="Actualizar">
-                                        </div>
-                                        </form>
+                            <div class="form-check form-switch switchEstado">
+                                <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckChecked"
+                                    checked>
+                            </div>
+                        </form>
+                        <!-- Modal -->
+                        <div class="modal fade" id="FormularioEdicionProveedores" tabindex="-1"
+                            aria-labelledby="FormularioEdicionProveedoresLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="FormularioEdicionProveedoresLabel">Edicion de
+                                            {{ $modulo }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
+                                    <div class="modal-body">
+                                        <form class="text-center fst-italic needs-validation row formulario" method="post">
+                                            <form class="text-center fst-italic needs-validation row formulario"
+                                                method="POST">
+                                                <!-- NIVEL 1 -->
+                                                <div class="col-lg-5">
+                                                    <label class="label">Ingrese nombre o razon
+                                                        social:</label><br>
+                                                    <input class="IngresoDatos form-control" type="text" name="txtNombre"
+                                                        placeholder="" required>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label class="label">Tipo:</label><br>
+                                                    <select class="form-select IngresoDatos form-control"
+                                                        aria-label="Default select example" name="txtTipo_Doc" required>
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label class="label">Numero / NIT:</label><br>
+                                                    <input class="IngresoDatos form-control" type="text" name="txtNumero"
+                                                        placeholder="" required>
+                                                </div>
+
+                                                <!-- NIVEL 2 -->
+                                                <!---->
+                                                <div class="col-lg-3">
+                                                    <label class="label">Telefono</label><br>
+                                                    <input class="IngresoDatos form-control" type="text" name="txttelefono"
+                                                        placeholder="" required>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label class="label">Direccion</label><br>
+                                                    <input class="IngresoDatos form-control" type="text" name="txtDireccion"
+                                                        placeholder="" required>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label class="label">Ciudad / Municipio</label><br>
+                                                    <input class="IngresoDatos form-control" type="text" name="txtCiudad"
+                                                        placeholder="" required>
+                                                </div>
+
+                                                <!-- NIVEL 3 -->
+                                                <!---->
+                                                <div class="col-lg-8">
+                                                    <label class="label">Ingrese nombre del
+                                                        contacto:</label><br>
+                                                    <input class="IngresoDatos form-control" type="text" name="txtContacto"
+                                                        placeholder="" required>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label class="label">Ingrese numero del
+                                                        contacto:</label><br>
+                                                    <input class="IngresoDatos form-control" type="text"
+                                                        name="txtNumeroContacto" placeholder="" required>
+                                                </div>
+
+                                                <!-- NIVEL 4-->
+                                                <!---->
+                                                <div class="col-lg-12">
+                                                    <label class="label">Correo:</label><br>
+                                                    <input class="IngresoDatos form-control" type="text" name="txtCorreo"
+                                                        required>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <label class="label">Descripcion del proveedor:</label><br>
+                                                    <input class="IngresoDatos form-control" style="height: 80px;"
+                                                        type="textarea" name="txtDescripcion" placeholder=" ">
+                                                </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancelar</button>
+                                        <input class="btn btn-success confirmar_o_cancelar" type="submit"
+                                            value="Actualizar">
+                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 botones-operaciones form-switch">
-                            <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckChecked"
-                                checked>
-                        </div>
-                    </div>
+
                     </td>
-            </tr>
-            @empty
-                <tr>Sin clientes</tr>
-        @endforelse
+                </tr>
+                @empty
+                <tr>Sin proveedores</tr>
+            @endforelse
         </tbody>
         
     </table>
-
 @endsection
