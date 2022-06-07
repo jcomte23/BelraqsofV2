@@ -181,8 +181,12 @@
                             <button type="button" class="btn btn-warning boton-listado" data-bs-toggle="modal"
                                 data-bs-target="#FormularioEdicionClientes"><i class="bi bi-pencil-fill"></i></button>
                             <div class="form-check form-switch switchEstado">
-                                <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckChecked"
-                                    checked>
+                                @if ($cliente->Estado==1)
+                                <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault"
+                                checked>
+                                @else
+                                <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault">
+                                @endif
                             </div>
                         </form>
                         <div class="modal fade" id="FormularioEdicionClientes" tabindex="-1"
