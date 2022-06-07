@@ -4,7 +4,8 @@
 
 @section('content')
 <h1 class="fw-bold">{{$modulo}}</h1>
-<table id="myTable" class="table table-hover">
+
+<table id="myTable" class="table table-hover display">
     <thead>
         <tr>
             <th scope="col">CODG</th>
