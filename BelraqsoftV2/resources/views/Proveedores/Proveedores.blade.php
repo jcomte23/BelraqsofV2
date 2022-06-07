@@ -108,7 +108,7 @@
         </div>
     </nav>
 
-    <table class="table table-hover">
+    <table id="myTable" class="table table-hover">
         <thead>
             <tr>
                 <th scope="col">Nombre / Razon social</th>
@@ -125,7 +125,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($Proveedores as $Proveedor)
+            @forelse ($Proveedores as $Proveedor)
                 <tr>
                     <td>{{$Proveedor->NombreRazonSocial	}}</td>
                     <td>{{$Proveedor->NombreContacto}}</td>
@@ -137,8 +137,7 @@
                     <td>{{$Proveedor->Descripcion}}</td>
                     <td>{{$Proveedor->Direccion}}</td>
                     <td>{{$Proveedor->Ciudad_Municipio}}</td>
-
-                <td>
+                    <td>
                     <div class="row">
                         <div class="col-lg-4 botones-operaciones">
                             <form method="get" action="{{ url('/' . $modulo) }}">
@@ -245,10 +244,13 @@
                                 checked>
                         </div>
                     </div>
-                </td>
+                    </td>
             </tr>
+            @empty
+                <tr>Sin clientes</tr>
+        @endforelse
         </tbody>
-        @endforeach
+        
     </table>
-    {{$Proveedores->Links('pagination::bootstrap-4')}}
+
 @endsection
