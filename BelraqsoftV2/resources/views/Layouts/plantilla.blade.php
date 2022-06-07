@@ -83,7 +83,7 @@
                 </p>
                 <h5 class="centered titulo">User logeado</h5>
                 <li>
-                    <a href="{{ route('reporteIndex') }}">
+                    <a href="{{ route('reporteIndex') }}" class="active">
                         <i class="bi bi-speedometer2"></i>
                         <span>Reportes</span>
                     </a>

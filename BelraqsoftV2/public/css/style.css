@@ -1,21 +1,3 @@
-/**
-* Template Name: Dashio
-* Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-* Author: TemplateMag.com
-* License: https://templatemag.com/license/
-*/
-
-
-/*
-Template Name: DASHIO - Bootstrap 3.1.1 Admin Theme
-Template Version: 1.0
-Author: Carlos Alvarez
-Website: http://Alvarez.is/
-*/
-
-
-/* Import fonts */
-
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
 
 /* BASIC THEME CONFIGURATION */
@@ -24,7 +6,6 @@ body {
     /*color de textos como titulos*/
     color: #797979;
     /*color de fondo*/
-    background: #fffefe;
     font-family: 'Ruda', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
@@ -42,15 +23,15 @@ a:focus {
     outline: none;
 }
 
-::selection {
-    background: #F797FF;
-    color: #fff;
-}
+/* ::selection {
+    background: blue;
+    color: blue;
+} */
 
-::-moz-selection {
-    background: #F797FF;
+/* ::-moz-selection {                                                                                                                                      
+    background: ;
     color: #fff;
-}
+} */
 
 #container {
     width: 100%;
@@ -60,8 +41,12 @@ a:focus {
 
 /* Bootstrap Modifications */
 
+.header{
+    background: rgb(36, 36, 36);
+}
+
 .modal-header {
-    background: #F797FF;
+    background: #6875f5;
 }
 
 .modal-title {
@@ -90,7 +75,7 @@ a:focus {
 /*Theme Backgrounds*/
 
 .bg-theme {
-    background-color: #F797FF;
+    background-color: #6875f5;
 }
 
 .bg-theme02 {
@@ -110,7 +95,7 @@ a:focus {
 
 .btn-theme {
     color: #fff;
-    background-color: #F797FF;
+    background-color: #6875f5;
     border-color: #48bcb4;
 }
 
@@ -224,11 +209,11 @@ hr {
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {
-    background-color: #F797FF;
+    background-color: #6875f5;
 }
 
 .bg-theme {
-    background-color: #F797FF;
+    background-color: #6875f5;
 }
 
 ul.top-menu>li>.logout {
@@ -236,12 +221,24 @@ ul.top-menu>li>.logout {
     font-size: 12px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
-    border: 1px solid #ee46fd !important;
+    border: 1px solid white !important;
     padding: 5px 15px;
     margin-right: 15px;
-    background: #F797FF;
+    background: #6875f5;
     margin-top: 15px;
 }
+
+ul.top-menu>li>.logout:hover {
+    color: black !important;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: 1px solid white !important;
+    padding: 5px 15px;
+    margin-right: 15px;
+    background: white !important;
+    margin-top: 15px;
+}
+
 
 
 /*sidebar navigation*/
@@ -341,7 +338,7 @@ ul.sidebar-menu li ul.sub li a {
     -o-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    color: #aeb2b7;
+    color: white;
 }
 
 ul.sidebar-menu li ul.sub li a:hover {
@@ -350,7 +347,7 @@ ul.sidebar-menu li ul.sub li a:hover {
 }
 
 ul.sidebar-menu li ul.sub li.active a {
-    color: #F797FF;
+    color: #6875f5;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -375,7 +372,7 @@ ul.sidebar-menu li a span {
 }
 
 ul.sidebar-menu li a {
-    color: #aeb2b7;
+    color: white;
     text-decoration: none;
     display: block;
     padding: 15px 0 15px 10px;
@@ -391,7 +388,7 @@ ul.sidebar-menu li a {
 ul.sidebar-menu li a.active,
 ul.sidebar-menu li a:hover,
 ul.sidebar-menu li a:focus {
-    background: #F797FF;
+    background: #6875f5;
     color: #fff;
     display: block;
     -webkit-transition: all 0.3s ease;
@@ -470,7 +467,7 @@ a.logo:focus {
 }
 
 a.logo span {
-    color: #F797FF;
+    color: #6875f5;
 }
 
 
@@ -552,7 +549,7 @@ ul.top-menu>li>a:focus {
 }
 
 .dropdown-menu.extended li p.green {
-    background-color: #F797FF;
+    background-color: #6875f5;
     color: #fff;
 }
 
@@ -760,9 +757,9 @@ ul.top-menu>li>a:focus {
 }
 
 .notify-arrow-green {
-    border-color: transparent transparent #F797FF;
-    border-bottom-color: #F797FF !important;
-    border-top-color: #F797FF !important;
+    border-color: transparent transparent #6875f5;
+    border-bottom-color: #6875f5 !important;
+    border-top-color: #6875f5 !important;
 }
 
 
@@ -844,7 +841,7 @@ ul.top-menu>li>a:focus {
 }
 
 .ds a {
-    color: #F797FF;
+    color: #6875f5;
 }
 
 
@@ -895,8 +892,8 @@ ul.top-menu>li>a:focus {
 .custom-bar-chart .bar .value {
     position: absolute;
     bottom: 0;
-    background: #F797FF;
-    color: #F797FF;
+    background: #6875f5;
+    color: #6875f5;
     width: 100%;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -1042,7 +1039,7 @@ PANELS CONFIGURATIONS
 
 .green-panel {
     text-align: center;
-    background: #F797FF;
+    background: #6875f5;
 }
 
 .green-panel .green-header {
@@ -1626,7 +1623,7 @@ PANELS CONFIGURATIONS
 }
 
 .profile-01 {
-    background: #F797FF;
+    background: #6875f5;
     height: 50px;
 }
 
@@ -1682,7 +1679,7 @@ PANELS CONFIGURATIONS
 }
 
 .pr2-social a:hover {
-    color: #F797FF;
+    color: #6875f5;
 }
 
 .pr2-social i {
@@ -1751,7 +1748,7 @@ PANELS CONFIGURATIONS
 
 .panel.terques-chart .chart-tittle .value a:hover,
 .panel.terques-chart .chart-tittle .value a.active {
-    color: #F797FF;
+    color: #6875f5;
     font-size: 12px;
 }
 
@@ -1843,7 +1840,7 @@ PANELS CONFIGURATIONS
     display: block;
     position: relative;
     overflow: hidden;
-    background-color: #F797FF;
+    background-color: #6875f5;
     -webkit-transition: background-color 0.4s;
     -moz-transition: background-color 0.4s;
     -o-transition: background-color 0.4s;
@@ -1863,7 +1860,7 @@ PANELS CONFIGURATIONS
 }
 
 .project:hover .photo-wrapper {
-    background-color: #F797FF;
+    background-color: #6875f5;
     background-image: url(../img/zoom.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -2152,7 +2149,7 @@ ul li {
 .dataTables_paginate.paging_bootstrap.pagination li:hover a,
 .dataTables_paginate.paging_bootstrap.pagination li.active a {
     color: #fff;
-    background: #F797FF;
+    background: #6875f5;
     border-radius: 3px;
     -webkit-border-radius: 3px;
 }
@@ -2172,7 +2169,7 @@ ul li {
     margin: 0;
     padding: 25px 20px;
     text-align: center;
-    background: #F797FF;
+    background: #6875f5;
     border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
     color: #fff;
@@ -2409,7 +2406,7 @@ ul.my-friends li .friends-pic {
     height: 3px;
     margin: 10px auto;
     width: 80px;
-    background-color: #F797FF;
+    background-color: #6875f5;
 }
 
 .icn-main-container {
@@ -2427,7 +2424,7 @@ ul.my-friends li .friends-pic {
     font-size: 2.4em;
     line-height: 100px;
     color: #fff;
-    background-color: #F797FF;
+    background-color: #6875f5;
     -webkit-transition: all 0.6s ease-in-out;
     transition: all 0.6s ease-in-out;
 }
@@ -2518,7 +2515,7 @@ ul.my-friends li .friends-pic {
 
 .dm-icon:active,
 .dm-icon:hover {
-    background: #F797FF
+    background: #6875f5
 }
 
 
@@ -2551,7 +2548,7 @@ ul.my-friends li .friends-pic {
 .mail-nav>li>a:hover,
 .mail-nav>li>a:focus {
     background: #fafafa;
-    color: #F797FF;
+    color: #6875f5;
     border-right: 3px solid #1fb5ad;
 }
 
@@ -2559,8 +2556,8 @@ ul.my-friends li .friends-pic {
 .mail-nav>li.active>a:hover,
 .mail-nav>li.active>a:focus {
     background: #fafafa;
-    color: #F797FF;
-    border-right: 3px solid #F797FF;
+    color: #6875f5;
+    border-right: 3px solid #6875f5;
 }
 
 .mail-nav>li+li {
@@ -2622,7 +2619,7 @@ a.mail-dropdown {
 }
 
 .btn-compose {
-    background: #F797FF;
+    background: #6875f5;
     padding: 12px 0;
     text-align: center;
     width: 100%;
@@ -3010,11 +3007,11 @@ ul.inbox-pagination li {
 
 .view-mail a,
 .attachment-mail a:hover {
-    color: #F797FF;
+    color: #6875f5;
 }
 
 .attachment-mail a {
-    color: #F797FF;
+    color: #6875f5;
 }
 
 .attachment-mail ul li {
@@ -3093,7 +3090,7 @@ ul.inbox-pagination li {
 }
 
 .chat-room-head {
-    background: #F797FF;
+    background: #6875f5;
     color: #FFFFFF;
     min-height: 70px;
     padding: 15px;
@@ -3251,7 +3248,7 @@ ul.chat-user li a:hover {
 }
 
 .room-box h5 a {
-    color: #F797FF;
+    color: #6875f5;
 }
 
 .chat-tools {
@@ -3299,7 +3296,7 @@ ul.chat-available-user li a {
 }
 
 ul.chat-available-user li a:hover {
-    color: #F797FF;
+    color: #6875f5;
 }
 
 .group-rom {
@@ -3681,7 +3678,7 @@ ul.chat-available-user li a:hover {
 /*footer*/
 
 .site-footer {
-    background: #F797FF;
+    background: #6875f5;
     color: #fff;
     padding: 15px 0;
 }
@@ -3741,7 +3738,7 @@ ul.chat-available-user li a:hover {
 }
 
 .contact-form .form-send button {
-    background: #F797FF;
+    background: #6875f5;
     border: 0;
     padding: 10px 30px;
     color: #fff;
