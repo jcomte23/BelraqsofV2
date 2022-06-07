@@ -11,7 +11,7 @@ class ProveedoresController extends Controller
     public function index(){
         $modulo="Proveedores";
 
-        $Proveedores = Proveedor::paginate(15);
+        $Proveedores = Proveedor::all();
 
         return view("$modulo.$modulo",compact('modulo','Proveedores'));
 
