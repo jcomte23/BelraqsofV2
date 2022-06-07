@@ -3,17 +3,11 @@
 @section('title',$modulo)
 
 @section('content')
-<h1 class="fw-bold">{{ $modulo }}</h1>
-<nav class="navbar">
-    <div class="container p-0">
-        <form class="d-flex" action="{{ url('/' . $modulo) }}" method="get">
-            <input class="form-control me-2 " placeholder="Buscar">
-            <button class="btn btn-primary" type="submit">Buscar</button>
-        </form>
-
+<nav class="navbar navbar-light">
+    <div class="container-fluid barraSuperior" >
+        <h1 class="fw-bold">{{ $modulo }}</h1>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
             data-bs-target="#FormularioRegistroClientes"><i class="bi bi-person-plus-fill"></i> Nuevo</button>
-
     </div>
 </nav>
 
@@ -150,7 +144,7 @@
     </div>
 </div>
 
-<table class="table text-center align-middle">
+<table id="myTable" class="table text-center align-middle">
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -337,5 +331,4 @@
         @endforelse
     </tbody>
 </table>
-{{$existencias->Links('pagination::bootstrap-4')}}
 @endsection

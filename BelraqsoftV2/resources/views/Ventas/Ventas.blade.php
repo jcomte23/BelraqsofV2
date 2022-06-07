@@ -4,18 +4,7 @@
 
 @section('content')
 <h1 class="fw-bold">{{$modulo}}</h1>
-<nav class="navbar navbar-light">
-    <div class="container-fluid buscador">
-        <form class="d-flex" action="{{ url('/'.$modulo)}}" method="get">
-            <input class="form-control me-2 " type="search" placeholder="Buscar" name="datoBuscado" aria-label="Search">
-            <button class="btn btn-primary" type="submit">Buscar</button>
-        </form>
-        <form class="d-flex">
-
-        </form>
-    </div>
-</nav>
-<table class="table table-hover">
+<table id="myTable" class="table table-hover">
     <thead>
         <tr>
             <th scope="col">CODG</th>
@@ -63,5 +52,4 @@
         @endforelse
     </tbody>
 </table>
-{{$ventas->Links('pagination::bootstrap-4')}}
 @endsection
