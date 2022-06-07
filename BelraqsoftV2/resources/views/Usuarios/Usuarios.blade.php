@@ -44,7 +44,9 @@
                             <label class="form-label">Tipo:</label><br>
                             <select class="form-select IngresoDatos form-control" aria-label="Default select example"
                                 name="txtTipo_Doc" required>
-                                <option value="">Seleccione...</option>
+                                @foreach ($Documentos as $Documento )
+                                <option value="">{{$Documento->Abreviatura }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <!---->

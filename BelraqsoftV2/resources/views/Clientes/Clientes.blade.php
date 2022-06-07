@@ -59,7 +59,9 @@
                                         class="material-icons align-middle"></i></span>
                                 <select class="form-select IngresoDatos form-control" aria-label="Default select example"
                                     name="txtTipo_Doc" required>
-                                    <option value="">Seleccione...</option>
+                                    @foreach ($Documentos as $Documento )
+                                    <option value="">{{$Documento->Abreviatura }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -146,7 +148,7 @@
         </div>
     </div>
 
-    <table id="myTable" class="table text-center align-middle display">
+    <table id="myTable" class="table text-center align-middle">
         <thead>
             <tr>
                 <th scope="col">ID</th>

@@ -3,49 +3,50 @@
 @section('title', $modulo)
 
 @section('content')
-    <h1 class="fw-bold">{{ $modulo }}</h1>
-    <nav class="navbar">
-        <div class="container p-0">
-            <form class="d-flex" action="{{ url('/' . $modulo) }}" method="get">
-                <input class="form-control me-2 " placeholder="Buscar">
-                <button class="btn btn-primary" type="submit">Buscar</button>
-            </form>
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#FormularioRegistroProveedores"><i class="bi bi-person-plus-fill"></i> Nuevo</button>
+<nav class="navbar navbar-light">
+    <div class="container-fluid barraSuperior">
+        <h1 class="fw-bold">{{ $modulo }}</h1>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#FormularioRegistroProveedores"><i class="bi bi-person-plus-fill"></i> Nuevo</button>
+    </div>
+</nav>
 
-            <!-- Modal -->
-            <div class="modal fade" id="FormularioRegistroProveedores" tabindex="-1"
-                aria-labelledby="FormularioRegistroProveedoresLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="FormularioRegistroProveedoresLabel">Registro de
-                                {{ $modulo }}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="text-center fst-italic needs-validation row formulario" method="post">
-                                <form class="text-center fst-italic needs-validation row formulario" method="POST">
-                                    <!-- NIVEL 1 -->
-                                    <div class="col-lg-5">
-                                        <label class="label">Ingrese nombre o razon
-                                            social:</label><br>
-                                        <input class="IngresoDatos form-control" type="text" name="txtNombre" placeholder=""
-                                            required>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <label class="label">Tipo:</label><br>
-                                        <select class="form-select IngresoDatos form-control"
-                                            aria-label="Default select example" name="txtTipo_Doc" required>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <label class="label">Numero / NIT:</label><br>
-                                        <input class="IngresoDatos form-control" type="text" name="txtNumero" placeholder=""
-                                            required>
-                                    </div>
+    <div class="modal fade" id="FormularioRegistroProveedores" tabindex="-1"
+            aria-labelledby="FormularioRegistroProveedoresLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="FormularioRegistroProveedoresLabel">Registro de
+                            {{ $modulo }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="text-center fst-italic needs-validation row formulario"
+                            method="post">
+                            <form class="text-center fst-italic needs-validation row formulario"
+                                method="POST">
+                                <!-- NIVEL 1 -->
+                                <div class="col-lg-5">
+                                    <label class="label">Ingrese nombre o razon
+                                        social:</label><br>
+                                    <input class="IngresoDatos form-control" type="text"
+                                        name="txtNombre" placeholder="" required>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="label">Tipo:</label><br>
+                                    <select class="form-select IngresoDatos form-control">
+                                    @foreach ($Documentos as $Documento )
+                                    <option value="">{{$Documento->Abreviatura }}</option>
+                                    @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label class="label">Numero / NIT:</label><br>
+                                    <input class="IngresoDatos form-control" type="text"
+                                        name="txtNumero" placeholder="" required>
+                                </div>
 
                                     <!-- NIVEL 2 -->
                                     <!---->
@@ -100,8 +101,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
 
     <table id="myTable" class="table text-center align-middle display">
         <thead>
@@ -117,7 +116,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($Proveedores as $Proveedor)
+            @forelse ($Proveedores as $Proveedor)
                 <tr>
                     <td>{{ $Proveedor->NombreRazonSocial }}</td>
                     <td>{{ $Proveedor->unionTipoDoc->Abreviatura }}-{{ $Proveedor->NumeroIdenNit }}</td>
@@ -230,7 +229,10 @@
 
                     </td>
                 </tr>
+                @empty
+                <tr>Sin proveedores</tr>
+            @endforelse
         </tbody>
-        @endforeach
+        
     </table>
 @endsection
