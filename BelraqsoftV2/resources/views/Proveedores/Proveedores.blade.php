@@ -39,8 +39,10 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="label">Tipo:</label><br>
-                                    <select class="form-select IngresoDatos form-control"
-                                        aria-label="Default select example" name="txtTipo_Doc" required>
+                                    <select class="form-select IngresoDatos form-control">
+                                    @foreach ($Documentos as $Documento )
+                                    <option value="">{{$Documento->Abreviatura }}</option>
+                                    @endforeach
                                     </select>
                                 </div>
                                 <div class="col-lg-4">
