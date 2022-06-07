@@ -320,8 +320,12 @@
                         </div>
                     </div>
                     <div class="col-lg-6 botones-operaciones form-check form-switch">
-                        <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckChecked"
-                            checked>
+                        @if ($producto->Estado==1)
+                        <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault"
+                        checked>
+                        @else
+                        <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault">
+                        @endif
                     </div>
                 </div>
             </td>
