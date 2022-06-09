@@ -3,11 +3,10 @@
 @section('title', $modulo)
 
 @section('content')
-
-
     <nav class="navbar navbar-light">
         <div class="container-fluid barraSuperior">
             <h1 class="fw-bold">{{ $modulo }}</h1>
+
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#FormularioRegistroClientes"><i class="bi bi-person-plus-fill"></i> Nuevo</button>
         </div>
@@ -22,7 +21,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="text-center fst-italic needs-validation row formulario" method="get">
+                    <form class="text-center fst-italic needs-validation row formulario"
+                        action="{{ route('clienteRegistrar') }}" method="POST">
+                        @csrf
+
+                        @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <p>{{ $error }}</p>
+                            @endforeach
+                        @endif
+
                         <!-- NIVEL 1 -->
                         <div class="col-lg-6">
                             <!--- Nombre Cliente --->
@@ -32,25 +40,31 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="text" class="form-control" placeholder="Nombres del cliente" name=""
-                                    required>
+                                <input type="text" class="form-control" placeholder="Nombres del cliente"
+                                    name="txtNombreCliente" id="txtNombreCliente" value="{{ old('txtNombreCliente') }}">
                             </div>
+                            <br>
+                            <small class="text-danger">{{$errors->first('txtNombreCliente')}}</small>
                         </div>
                         <div class="col-lg-6">
                             <!-- Apellido -->
+                            <br>
+                            <br>
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Apellido</label>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="text" class="form-control" placeholder="Apellidos de cliente" name="">
+                                <input type="text" class="form-control" placeholder="Apellidos de cliente"
+                                    name="txtApellidosCliente" id="txtApellidosCliente"
+                                    value="{{ old('txtApellidosCliente') }}">
                             </div>
                         </div>
 
                         <!-- NIVEL 2 -->
                         <div class="col-lg-3">
-                            <!-- Apellido -->
+                            <!-- tipo documento -->
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Tipo</label>
                             </div>
@@ -58,9 +72,9 @@
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
                                 <select class="form-select IngresoDatos form-control" aria-label="Default select example"
-                                    name="txtTipo_Doc" required>
-                                    @foreach ($Documentos as $Documento )
-                                    <option value="">{{$Documento->Abreviatura }}</option>
+                                    name="txtTipo_Doc" id="txtTipo_Doc" value="{{ old('txtTipo_Doc') }}">
+                                    @foreach ($TipoDocumentos as $tipo)
+                                        <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -73,7 +87,8 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="Text" class="form-control" placeholder="Documento" name="">
+                                <input type="Text" class="form-control" placeholder="Documento" name="txtDocumento"
+                                    id="txtDocumento" value="{{ old('txtDocumento') }}">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -83,7 +98,8 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="text" class="form-control" placeholder="Correo del cliente" name="">
+                                <input type="text" class="form-control" placeholder="Correo del cliente" name="txtCorreo"
+                                    id="txtCorreo" value="{{ old('txtCorreo') }}">
                             </div>
                         </div>
 
@@ -97,7 +113,7 @@
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
                                 <input type="date" class="form-control" placeholder="Fecha de nacimiento del cliente"
-                                    name="">
+                                    name="txtFecha" id="txtFecha" value="{{ old('txtFecha') }}">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -108,7 +124,8 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="text" class="form-control" placeholder="Dirección del cliente" name="">
+                                <input type="text" class="form-control" placeholder="Dirección del cliente"
+                                    name="txtDireccion" id="txtDireccion" value="{{ old('txtDireccion') }}">
                             </div>
                         </div>
                         <div class="col-lg-3">
@@ -119,7 +136,8 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input class="IngresoDatos form-control" type="text" name="txtCiudad" required>
+                                <input class="IngresoDatos form-control" type="text" name="txtCiudad" id="txtCiudad"
+                                    value="{{ old('txtCiudad') }}">
                             </div>
                         </div>
 
@@ -133,10 +151,12 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="number" class="form-control" placeholder="Telefono(s)" name="">
+                                <input type="number" class="form-control" placeholder="Telefono(s)" name="txtTelefonos"
+                                    id="txtTelefonos" value="{{ old('txtTelefonos') }}">
                             </div>
                         </div>
                         <div class="col-lg-3">
+                            <input type="hidden" name="txtEstado" id="txtEstado" class="form-control" value="1">
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -147,6 +167,12 @@
             </div>
         </div>
     </div>
+
+    @if (session('mensaje'))
+        <div class="alert alert-success" role="alert">
+            {{ session('mensaje') }}
+        </div>
+    @endif
 
     <table id="myTable" class="table text-center align-middle display">
         <thead>
@@ -168,7 +194,7 @@
             @forelse ($clientes as $cliente)
                 <tr>
                     <td>{{ $cliente->id }}</td>
-                    <td>{{ $cliente->Nombres }}</td>
+                    <td><a href="{{ route('clienteIndex', $cliente->id) }}">{{ $cliente->Nombres }}</a></td>
                     <td>{{ $cliente->Apellidos }}</td>
                     <td>{{ $cliente->unionTipoDoc->Abreviatura }}</td>
                     <td>{{ $cliente->Documento }}</td>
@@ -177,18 +203,23 @@
                     <td>{{ $cliente->Direccion }}</td>
                     <td>{{ $cliente->Telefonos }}</td>
                     <td>
-                        <form action="#" method="post" style="display:inline-flex">
-                            <button type="button" class="btn btn-warning boton-listado" data-bs-toggle="modal"
+                        {{-- <a class="btn btn-warning boton-listado" href="{{ route('viewCliente',$cliente->id)}}" role="button"><i class="bi bi-pencil-fill"></i></a> --}}
+
+                        <form action="#" method="get" style="display:inline-flex">
+                            <button type="submit" class="btn btn-warning boton-listado" data-bs-toggle="modal"
                                 data-bs-target="#FormularioEdicionClientes"><i class="bi bi-pencil-fill"></i></button>
                             <div class="form-check form-switch switchEstado">
-                                @if ($cliente->Estado==1)
-                                <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault"
-                                checked>
+                                @if ($cliente->Estado == 1)
+                                    <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault"
+                                        checked>
                                 @else
-                                <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault">
+                                    <input class="form-check-input switchEstado" type="checkbox"
+                                        id="flexSwitchCheckDefault">
                                 @endif
                             </div>
                         </form>
+
+
                         <div class="modal fade" id="FormularioEdicionClientes" tabindex="-1"
                             aria-labelledby="FormularioEdicionClientesLabel" aria-hidden="true">
                             <div class="modal-dialog modal-xl">
@@ -337,4 +368,13 @@
             @endforelse
         </tbody>
     </table>
+@endsection()
+@section('scripts')
+    @if ($errors->any())
+        <script>
+            $(document).ready(function() {
+                $('#FormularioRegistroClientes').modal('show')
+            })
+        </script>
+    @endif
 @endsection
