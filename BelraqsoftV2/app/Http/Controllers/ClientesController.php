@@ -33,13 +33,30 @@ class ClientesController extends Controller
 
     Cliente::create($validated);
     return redirect()->route('clienteIndex')->with('mensaje', 'Registro Exitoso');
-}
+    }
 
-    // public function view($idCliente){
-    //     $cliente= Cliente::find($idCliente);
-    //     $modulo="Clientes";
-    //     $TipoDocumentos=Tipo_Documento::all();
-    //     $clientes=Cliente::all();
-    //     return view("$modulo.$modulo",compact('modulo','TipoDocumentos','cliente','clientes'));
-    // } 
+    public function actualizar(Cliente $cliente){
+        $campos = request()->validate([
+            'Nombres'=>'required|min:3',
+                'Apellidos'=>'required',
+                'TipoDocumento'=>'required',
+                'Documento'=>'required',
+                'Correo'=>'required|email',
+                'Telefonos'=>'required',
+                'FechaNacimiento'=>'required',
+                'Direccion'=>'required',
+                'Ciudad_Municipio'=>'required',
+                'Estado'=>'required',
+        ]);
+    
+        $cliente->update($campos);
+        return redirect()->route('clienteIndex')->with('clienteActualizado', 'Cliente actualizado');
+    }
+
+    public function eliminar(Cliente $cliente){
+        $cliente->delete();
+        return redirect()->route('clienteIndex')->with('clienteEliminado', 'Cliente eliminado');
+    }
+
+
 }
