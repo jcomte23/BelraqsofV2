@@ -6,7 +6,6 @@
     <nav class="navbar navbar-light">
         <div class="container-fluid barraSuperior">
             <h1 class="fw-bold">{{ $modulo }}</h1>
-
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#FormularioRegistroClientes"><i class="bi bi-person-plus-fill"></i> Nuevo</button>
         </div>
@@ -25,12 +24,6 @@
                         action="{{ route('clienteRegistrar') }}" method="POST">
                         @csrf
 
-                        @if ($errors->any())
-                            @foreach ($errors->all() as $error)
-                                <p>{{ $error }}</p>
-                            @endforeach
-                        @endif
-
                         <!-- NIVEL 1 -->
                         <div class="col-lg-6">
                             <!--- Nombre Cliente --->
@@ -40,16 +33,13 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="text" class="form-control" placeholder="Nombres del cliente"
-                                    name="txtNombreCliente" id="txtNombreCliente" value="{{ old('txtNombreCliente') }}">
+                                <input type="text" class="form-control" placeholder="Nombres del cliente" name="Nombres"
+                                    id="Nombres" value="{{ old('Nombres') }}">
                             </div>
-                            <br>
-                            <small class="text-danger">{{$errors->first('txtNombreCliente')}}</small>
+                            <small class="text-danger">{{ $errors->first('Nombres') }}</small>
                         </div>
                         <div class="col-lg-6">
                             <!-- Apellido -->
-                            <br>
-                            <br>
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Apellido</label>
                             </div>
@@ -57,9 +47,9 @@
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
                                 <input type="text" class="form-control" placeholder="Apellidos de cliente"
-                                    name="txtApellidosCliente" id="txtApellidosCliente"
-                                    value="{{ old('txtApellidosCliente') }}">
+                                    name="Apellidos" id="Apellidos" value="{{ old('Apellidos') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Apellidos') }}</small>
                         </div>
 
                         <!-- NIVEL 2 -->
@@ -72,12 +62,13 @@
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
                                 <select class="form-select IngresoDatos form-control" aria-label="Default select example"
-                                    name="txtTipo_Doc" id="txtTipo_Doc" value="{{ old('txtTipo_Doc') }}">
+                                    name="TipoDocumento" id="TipoDocumento" value="{{ old('TipoDocumento') }}">
                                     @foreach ($TipoDocumentos as $tipo)
                                         <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}</option>
                                     @endforeach
                                 </select>
                             </div>
+                            <small class="text-danger">{{ $errors->first('TipoDocumento') }}</small>
                         </div>
                         <div class="col-lg-3">
                             <!-- Documento -->
@@ -87,9 +78,10 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="Text" class="form-control" placeholder="Documento" name="txtDocumento"
-                                    id="txtDocumento" value="{{ old('txtDocumento') }}">
+                                <input type="Text" class="form-control" placeholder="Documento" name="Documento"
+                                    id="Documento" value="{{ old('Documento') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Documento') }}</small>
                         </div>
                         <div class="col-lg-6">
                             <div class="d-flex justify-content-center">
@@ -98,9 +90,10 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="text" class="form-control" placeholder="Correo del cliente" name="txtCorreo"
-                                    id="txtCorreo" value="{{ old('txtCorreo') }}">
+                                <input type="text" class="form-control" placeholder="Correo del cliente" name="Correo"
+                                    id="Correo" value="{{ old('Correo') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Correo') }}</small>
                         </div>
 
                         <!-- NIVEL 3-->
@@ -113,8 +106,9 @@
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
                                 <input type="date" class="form-control" placeholder="Fecha de nacimiento del cliente"
-                                    name="txtFecha" id="txtFecha" value="{{ old('txtFecha') }}">
+                                    name="FechaNacimiento" id="FechaNacimiento" value="{{ old('FechaNacimiento') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('FechaNacimiento') }}</small>
                         </div>
                         <div class="col-lg-6">
                             <!-- Dirección -->
@@ -125,8 +119,9 @@
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
                                 <input type="text" class="form-control" placeholder="Dirección del cliente"
-                                    name="txtDireccion" id="txtDireccion" value="{{ old('txtDireccion') }}">
+                                    name="Direccion" id="Direccion" value="{{ old('Direccion') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Direccion') }}</small>
                         </div>
                         <div class="col-lg-3">
                             <!-- Ciudad o municipio -->
@@ -136,9 +131,10 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input class="IngresoDatos form-control" type="text" name="txtCiudad" id="txtCiudad"
-                                    value="{{ old('txtCiudad') }}">
+                                <input class="IngresoDatos form-control" type="text" name="Ciudad_Municipio"
+                                    id="Ciudad_Municipio" value="{{ old('Ciudad_Municipio') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Ciudad_Municipio') }}</small>
                         </div>
 
                         <!-- NIVEL 4-->
@@ -151,12 +147,13 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="number" class="form-control" placeholder="Telefono(s)" name="txtTelefonos"
-                                    id="txtTelefonos" value="{{ old('txtTelefonos') }}">
+                                <input type="number" class="form-control" placeholder="Telefono(s)" name="Telefonos"
+                                    id="Telefonos" value="{{ old('Telefonos') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Telefonos') }}</small>
                         </div>
                         <div class="col-lg-3">
-                            <input type="hidden" name="txtEstado" id="txtEstado" class="form-control" value="1">
+                            <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -167,12 +164,13 @@
             </div>
         </div>
     </div>
-
     @if (session('mensaje'))
-        <div class="alert alert-success" role="alert">
-            {{ session('mensaje') }}
-        </div>
+        <script>
+           registroExitosoCompleto();
+        </script>
     @endif
+
+    
 
     <table id="myTable" class="table text-center align-middle display">
         <thead>
@@ -368,8 +366,7 @@
             @endforelse
         </tbody>
     </table>
-@endsection()
-@section('scripts')
+
     @if ($errors->any())
         <script>
             $(document).ready(function() {
@@ -377,4 +374,21 @@
             })
         </script>
     @endif
-@endsection
+
+@endsection()
+
+
+
+
+
+{{-- @section('scripts')
+
+           
+    {{-- @if ($errors->any())
+        <script>
+            alert("chanchito feliz");
+            $(document).ready(function() {
+                $('#FormularioRegistroClientes').modal('show')
+            })
+        </script>
+    @endif --}}
