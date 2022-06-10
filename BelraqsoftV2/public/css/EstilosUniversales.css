@@ -3,12 +3,17 @@
     margin-left: 22px;
 }
 
-.navegation {
+/* .navegation {
     background-color: #FDEDFE !important;
-}
+} */
 
 .titulo {
-    color: black !important;
+    color: white !important;
+}
+
+.barraSuperior{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
 .alineacion_boton {
@@ -38,11 +43,15 @@ footer {
     margin-right: 0;
 }
 
+.boton-listado{
+    margin-right: 4px !important;
+}
+
 .switchEstado{
     font-size: 25px;
     margin-left: 0px!important;
-    margin-right: 15px !important;
-    
+    margin-right: 0px !important;
+    padding-left: 0px !important;
 }
 
 .buscador {
@@ -50,6 +59,6 @@ footer {
 }
 
 .formulario {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 15% !important;
+    margin-right: 15% !important;
 }

@@ -42,13 +42,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-icons-1.8.3/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/EstilosUniversales.css') }}">
-    <link href="{{ asset('css/pagination.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/sweetAlert.js') }}"></script>
+    <script src="{{ asset('js/alertas.js') }}"></script>
     <title>@yield('title')</title>
 </head>
 
@@ -83,7 +85,7 @@
                 </p>
                 <h5 class="centered titulo">User logeado</h5>
                 <li>
-                    <a href="{{ route('reporteIndex') }}">
+                    <a href="{{ route('reporteIndex') }}" class="active">
                         <i class="bi bi-speedometer2"></i>
                         <span>Reportes</span>
                     </a>
@@ -159,54 +161,12 @@
         </div>
     </footer>
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-    </script>
-    <script src="https://templatemag.com/demo/templates/Dashio/lib/jquery/jquery.min.js"></script>
-    <script src="https://templatemag.com/demo/templates/Dashio/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript"
-        src="https://templatemag.com/demo/templates/Dashio/lib/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="https://templatemag.com/demo/templates/Dashio/lib/jquery.scrollTo.min.js"></script>
-    <script src="https://templatemag.com/demo/templates/Dashio/lib/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="https://templatemag.com/demo/templates/Dashio/lib/jquery.sparkline.js"></script>
-    <script src="https://templatemag.com/demo/templates/Dashio/lib/common-scripts.js"></script>
-    <script type="text/javascript" src="https://templatemag.com/demo/templates/Dashio/lib/gritter/js/jquery.gritter.js">
-    </script>
-    <script type="text/javascript" src="https://templatemag.com/demo/templates/Dashio/lib/gritter-conf.js"></script>
-    <script src="https://templatemag.com/demo/templates/Dashio/lib/sparkline-chart.js"></script>
-    <script src="https://templatemag.com/demo/templates/Dashio/lib/zabuto_calendar.js"></script>
-    <script>
-        if (window.self == window.top) {
-            (function(i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function() {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
-            ga('create', 'UA-55234356-6', 'auto');
-            ga('send', 'pageview');
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script> --}}
+    <script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTableSite.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    
 </body>
 
 </html>

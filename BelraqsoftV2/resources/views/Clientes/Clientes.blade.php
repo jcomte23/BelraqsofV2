@@ -3,17 +3,11 @@
 @section('title', $modulo)
 
 @section('content')
-    <h1 class="fw-bold">{{ $modulo }}</h1>
-    <nav class="navbar">
-        <div class="container p-0">
-            <form class="d-flex" action="{{ url('/' . $modulo) }}" method="get">
-                <input class="form-control me-2 " placeholder="Buscar">
-                <button class="btn btn-primary" type="submit">Buscar</button>
-            </form>
-
+    <nav class="navbar navbar-light">
+        <div class="container-fluid barraSuperior">
+            <h1 class="fw-bold">{{ $modulo }}</h1>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#FormularioRegistroClientes"><i class="bi bi-person-plus-fill"></i> Nuevo</button>
-
         </div>
     </nav>
 
@@ -26,7 +20,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="text-center fst-italic needs-validation row formulario" method="get">
+                    <form class="text-center fst-italic needs-validation row formulario"
+                        action="{{ route('clienteRegistrar') }}" method="POST">
+                        @csrf
+
                         <!-- NIVEL 1 -->
                         <div class="col-lg-6">
                             <!--- Nombre Cliente --->
@@ -36,9 +33,10 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="text" class="form-control" placeholder="Nombres del cliente" name=""
-                                    required>
+                                <input type="text" class="form-control" placeholder="Nombres del cliente" name="Nombres"
+                                    id="Nombres" value="{{ old('Nombres') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Nombres') }}</small>
                         </div>
                         <div class="col-lg-6">
                             <!-- Apellido -->
@@ -48,13 +46,15 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="text" class="form-control" placeholder="Apellidos de cliente" name="">
+                                <input type="text" class="form-control" placeholder="Apellidos de cliente"
+                                    name="Apellidos" id="Apellidos" value="{{ old('Apellidos') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Apellidos') }}</small>
                         </div>
 
                         <!-- NIVEL 2 -->
                         <div class="col-lg-3">
-                            <!-- Apellido -->
+                            <!-- tipo documento -->
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Tipo</label>
                             </div>
@@ -62,10 +62,13 @@
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
                                 <select class="form-select IngresoDatos form-control" aria-label="Default select example"
-                                    name="txtTipo_Doc" required>
-                                    <option value="">Seleccione...</option>
+                                    name="TipoDocumento" id="TipoDocumento" value="{{ old('TipoDocumento') }}">
+                                    @foreach ($TipoDocumentos as $tipo)
+                                        <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}</option>
+                                    @endforeach
                                 </select>
                             </div>
+                            <small class="text-danger">{{ $errors->first('TipoDocumento') }}</small>
                         </div>
                         <div class="col-lg-3">
                             <!-- Documento -->
@@ -75,8 +78,10 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="Text" class="form-control" placeholder="Documento" name="">
+                                <input type="Text" class="form-control" placeholder="Documento" name="Documento"
+                                    id="Documento" value="{{ old('Documento') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Documento') }}</small>
                         </div>
                         <div class="col-lg-6">
                             <div class="d-flex justify-content-center">
@@ -85,8 +90,10 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="text" class="form-control" placeholder="Correo del cliente" name="">
+                                <input type="text" class="form-control" placeholder="Correo del cliente" name="Correo"
+                                    id="Correo" value="{{ old('Correo') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Correo') }}</small>
                         </div>
 
                         <!-- NIVEL 3-->
@@ -99,8 +106,9 @@
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
                                 <input type="date" class="form-control" placeholder="Fecha de nacimiento del cliente"
-                                    name="">
+                                    name="FechaNacimiento" id="FechaNacimiento" value="{{ old('FechaNacimiento') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('FechaNacimiento') }}</small>
                         </div>
                         <div class="col-lg-6">
                             <!-- Dirección -->
@@ -110,8 +118,10 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="text" class="form-control" placeholder="Dirección del cliente" name="">
+                                <input type="text" class="form-control" placeholder="Dirección del cliente"
+                                    name="Direccion" id="Direccion" value="{{ old('Direccion') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Direccion') }}</small>
                         </div>
                         <div class="col-lg-3">
                             <!-- Ciudad o municipio -->
@@ -121,8 +131,10 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input class="IngresoDatos form-control" type="text" name="txtCiudad" required>
+                                <input class="IngresoDatos form-control" type="text" name="Ciudad_Municipio"
+                                    id="Ciudad_Municipio" value="{{ old('Ciudad_Municipio') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Ciudad_Municipio') }}</small>
                         </div>
 
                         <!-- NIVEL 4-->
@@ -135,10 +147,13 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="material-icons align-middle"></i></span>
-                                <input type="number" class="form-control" placeholder="Telefono(s)" name="">
+                                <input type="number" class="form-control" placeholder="Telefono(s)" name="Telefonos"
+                                    id="Telefonos" value="{{ old('Telefonos') }}">
                             </div>
+                            <small class="text-danger">{{ $errors->first('Telefonos') }}</small>
                         </div>
                         <div class="col-lg-3">
+                            <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -150,7 +165,25 @@
         </div>
     </div>
 
-    <table id="myTable" class="table text-center align-middle">
+    @if (session('mensaje'))
+        <script>
+            registroExitosoCompleto();
+        </script>
+    @endif
+
+    @if (session('clienteActualizado'))
+        <script>
+            registroActualizoCompleto();
+        </script>
+    @endif
+
+    @if (session('clienteEliminado'))
+    <script>
+        registroEliminadoCompleto();
+    </script>
+@endif
+
+    <table id="myTable" class="table text-center align-middle display">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -161,182 +194,398 @@
                 <th scope="col">Correo</th>
                 <th scope="col">Fecha Nacimiento</th>
                 <th scope="col">Dirección</th>
-                <th scope="col">Telefono</th>
+                <th scope="col">Teléfono</th>
                 <th scope="col">Operaciones</th>
             </tr>
             </tr>
         </thead>
         <tbody>
             @forelse ($clientes as $cliente)
-            <tr>
-                <td>{{$cliente->id}}</td>
-                <td>{{$cliente->Nombres}}</td>
-                <td>{{$cliente->Apellidos}}</td>
-                <td>{{$cliente->unionTipoDoc->Abreviatura}}</td>
-                <td>{{$cliente->Documento}}</td>
-                <td>{{$cliente->Correo}}</td>
-                <td>{{$cliente->FechaNacimiento}}</td>
-                <td>{{$cliente->Direccion}}</td>
-                <td>{{$cliente->Telefonos}}</td>
-                <td>
-                    <div class="row">
-                        <div class="col-lg-6 botones-operaciones">
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                data-bs-target="#FormularioEdicionClientes"><i class="bi bi-pencil-fill"></i></button>
-                            <div class="modal fade" id="FormularioEdicionClientes" tabindex="-1"
-                                aria-labelledby="FormularioEdicionClientesLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-xl">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="FormularioEdicionClientesLabel">Edicion de
-                                                {{ $modulo }}</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form class="text-center fst-italic needs-validation row formulario"
-                                                method="get">
-                                                <!-- NIVEL 1 -->
-                                                <div class="col-lg-6">
-                                                    <!--- Nombre Cliente --->
-                                                    <div class="d-flex justify-content-center">
-                                                        <label class="form-label ">Nombres</label>
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" id="basic-addon1"><i
-                                                                class="material-icons align-middle"></i></span>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Nombres del cliente" name="" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <!-- Apellido -->
-                                                    <div class="d-flex justify-content-center">
-                                                        <label class="form-label">Apellido</label>
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" id="basic-addon1"><i
-                                                                class="material-icons align-middle"></i></span>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Apellidos de cliente" name="">
-                                                    </div>
-                                                </div>
+                <tr>
+                    <td>{{ $cliente->id }}</td>
+                    <td><a href="{{ route('clienteIndex', $cliente->id) }}">{{ $cliente->Nombres }}</a></td>
+                    <td>{{ $cliente->Apellidos }}</td>
+                    <td>{{ $cliente->unionTipoDoc->Abreviatura }}</td>
+                    <td>{{ $cliente->Documento }}</td>
+                    <td>{{ $cliente->Correo }}</td>
+                    <td>{{ $cliente->FechaNacimiento }}</td>
+                    <td>{{ $cliente->Direccion }}</td>
+                    <td>{{ $cliente->Telefonos }}</td>
+                    <td>
+                        <form action="{{route('clienteEliminar',$cliente)}}" method="post" style="display:inline-flex">
+                            <a href="#DetallesClientes{{ $cliente->id }}" class="btn btn-success boton-listado"
+                                data-bs-toggle="modal" data-bs-target="#DetallesClientes{{ $cliente->id }}"><i
+                                    class="bi bi-eye-fill"></i></a>
 
-                                                <!-- NIVEL 2 -->
-                                                <div class="col-lg-3">
-                                                    <!-- Apellido -->
-                                                    <div class="d-flex justify-content-center">
-                                                        <label class="form-label">Tipo</label>
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" id="basic-addon1"><i
-                                                                class="material-icons align-middle"></i></span>
-                                                        <select class="form-select IngresoDatos form-control"
-                                                            aria-label="Default select example" name="txtTipo_Doc" required>
-                                                            <option value="">Seleccione...</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <!-- Documento -->
-                                                    <div class="d-flex justify-content-center">
-                                                        <label class="form-label">Documento</label>
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" id="basic-addon1"><i
-                                                                class="material-icons align-middle"></i></span>
-                                                        <input type="Text" class="form-control" placeholder="Documento"
-                                                            name="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="d-flex justify-content-center">
-                                                        <label class="form-label">Correo</label>
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" id="basic-addon1"><i
-                                                                class="material-icons align-middle"></i></span>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Correo del cliente" name="">
-                                                    </div>
-                                                </div>
+                            <a href="#EdicionClientes{{ $cliente->id }}" class="btn btn-warning boton-listado"
+                                data-bs-toggle="modal" data-bs-target="#EdicionClientes{{ $cliente->id }}"><i
+                                    class="bi bi-pencil-fill"></i></a>
+                            @csrf @method('DELETE')
+                            <button class="btn btn-danger" type="submit"><i class="bi bi-trash-fill"></i></button>
 
-                                                <!-- NIVEL 3-->
-                                                <div class="col-lg-3">
-                                                    <!-- Fecha de nacimiento -->
-                                                    <div class="d-flex justify-content-center">
-                                                        <label class="form-label">Fecha de nacimiento </label>
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" id="basic-addon1"><i
-                                                                class="material-icons align-middle"></i></span>
-                                                        <input type="date" class="form-control"
-                                                            placeholder="Fecha de nacimiento del cliente" name="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <!-- Dirección -->
-                                                    <div class="d-flex justify-content-center">
-                                                        <label class="form-label">Direccion</label>
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" id="basic-addon1"><i
-                                                                class="material-icons align-middle"></i></span>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Dirección del cliente" name="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <!-- Ciudad o municipio -->
-                                                    <div class="d-flex justify-content-center">
-                                                        <label class="form-label">Ciudad/Municipio</label>
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" id="basic-addon1"><i
-                                                                class="material-icons align-middle"></i></span>
-                                                        <input class="IngresoDatos form-control" type="text"
-                                                            name="txtCiudad" required>
-                                                    </div>
-                                                </div>
-
-                                                <!-- NIVEL 4-->
-                                                <div class="col-lg-3">
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="d-flex justify-content-center">
-                                                        <label class="form-label">Telefono</label>
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" id="basic-addon1"><i
-                                                                class="material-icons align-middle"></i></span>
-                                                        <input type="number" class="form-control"
-                                                            placeholder="Telefono(s)" name="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancelar</button>
-                                            <input class="btn btn-success confirmar_o_cancelar" type="submit"
-                                                value="Guardar">
-                                        </div>
-                                        </form>
-                                    </div>
-                                </div>
+                            <div class="form-check form-switch switchEstado">
+                                @if ($cliente->Estado == 1)
+                                    <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault"
+                                        checked>
+                                @else
+                                    <input class="form-check-input switchEstado" type="checkbox"
+                                        id="flexSwitchCheckDefault">
+                                @endif
                             </div>
-                        </div>
-                        <div class="col-lg-6 botones-operaciones form-check form-switch">
-                            <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckChecked"
-                                checked>
+                        </form>
+                    </td>
+                </tr>
+
+                <div class="modal fade" id="DetallesClientes{{ $cliente->id }}" tabindex="-1"
+                    aria-labelledby="DetallesClientesLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="DetallesClientesClientesLabel">Vista de
+                                    {{ $modulo }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body formulario row">
+                                <form class="text-center fst-italic needs-validation "
+                                    action="{{ route('clienteRegistrar') }}" method="POST">
+                                    @csrf
+
+                                    <!-- NIVEL 1 -->
+                                    <div class="col-lg-6">
+                                        <!--- Nombre Cliente --->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label ">Nombres</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="text" class="form-control" Disabled
+                                                placeholder="Nombres del cliente" name="Nombres" id="Nombres"
+                                                value="{{ old('Nombres', $cliente->Nombres) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <!-- Apellido -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Apellido</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="text" class="form-control" placeholder="Apellidos de cliente"
+                                                Disabled name="Apellidos" id="Apellidos"
+                                                value="{{ old('Apellidos', $cliente->Apellidos) }}">
+                                        </div>
+                                    </div>
+
+                                    <!-- NIVEL 2 -->
+                                    <div class="col-lg-3">
+                                        <!-- tipo documento -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Tipo</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <select Disabled class="form-select IngresoDatos form-control"
+                                                aria-label="Default select example" name="TipoDocumento" id="TipoDocumento"
+                                                value="{{ old('TipoDocumento', $cliente->unionTipoDoc->Abreviatura) }}">
+                                                @foreach ($TipoDocumentos as $tipo)
+                                                    <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <!-- Documento -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Documento</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="Text" class="form-control" Disabled placeholder="Documento"
+                                                name="Documento" id="Documento"
+                                                value="{{ old('Documento', $cliente->Documento) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Correo</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="text" class="form-control" Disabled
+                                                placeholder="Correo del cliente" name="Correo" id="Correo"
+                                                value="{{ old('Correo', $cliente->Correo) }}">
+                                        </div>
+                                    </div>
+
+                                    <!-- NIVEL 3-->
+                                    <div class="col-lg-3">
+                                        <!-- Fecha de nacimiento -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Fecha de nacimiento </label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="date" class="form-control"
+                                                placeholder="Fecha de nacimiento del cliente" Disabled
+                                                name="FechaNacimiento" id="FechaNacimiento"
+                                                value="{{ old('FechaNacimiento', $cliente->FechaNacimiento) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <!-- Dirección -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Direccion</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="text" class="form-control" placeholder="Dirección del cliente"
+                                                Disabled name="Direccion" id="Direccion"
+                                                value="{{ old('Direccion', $cliente->Direccion) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <!-- Ciudad o municipio -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Ciudad/Municipio</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input class="IngresoDatos form-control" type="text" name="Ciudad_Municipio"
+                                                Disabled id="Ciudad_Municipio"
+                                                value="{{ old('Ciudad_Municipio', $cliente->Ciudad_Municipio) }}">
+                                        </div>
+                                    </div>
+
+                                    <!-- NIVEL 4-->
+                                    <div class="col-lg-3">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Telefono</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="number" Disabled class="form-control" placeholder="Telefono(s)"
+                                                name="Telefonos" id="Telefonos"
+                                                value="{{ old('Telefonos', $cliente->Telefonos) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <input type="hidden" Disabled name="Estado" id="Estado" class="form-control"
+                                            value="1">
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                            </form>
                         </div>
                     </div>
-                </td>
-            </tr>
+                </div>
+
+                <div class="modal fade" id="EdicionClientes{{ $cliente->id }}" tabindex="-1"
+                    aria-labelledby="EdicionClientesLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="EdicionClientesLabel">Vista de
+                                    {{ $modulo }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body formulario row">
+                                <form class="text-center fst-italic needs-validation "
+                                    action="{{ route('clienteActualizar',$cliente) }}" method="POST">
+                                    @csrf @method('PUT')
+
+                                    <!-- NIVEL 1 -->
+                                    <div class="col-lg-6">
+                                        <!--- Nombre Cliente --->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label ">Nombres</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="text" class="form-control" placeholder="Nombres del cliente"
+                                                name="Nombres" id="Nombres"
+                                                value="{{ old('Nombres', $cliente->Nombres) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <!-- Apellido -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Apellido</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="text" class="form-control" placeholder="Apellidos de cliente"
+                                                 name="Apellidos" id="Apellidos"
+                                                value="{{ old('Apellidos', $cliente->Apellidos) }}">
+                                        </div>
+                                    </div>
+
+                                    <!-- NIVEL 2 -->
+                                    <div class="col-lg-3">
+                                        <!-- tipo documento -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Tipo</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <select  class="form-select IngresoDatos form-control"
+                                                aria-label="Default select example" name="TipoDocumento" id="TipoDocumento"
+                                                value="{{ old('TipoDocumento', $cliente->unionTipoDoc->Abreviatura) }}">
+                                                @foreach ($TipoDocumentos as $tipo)
+                                                    <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <!-- Documento -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Documento</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="Text" class="form-control"  placeholder="Documento"
+                                                name="Documento" id="Documento"
+                                                value="{{ old('Documento', $cliente->Documento) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Correo</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="text" class="form-control" 
+                                                placeholder="Correo del cliente" name="Correo" id="Correo"
+                                                value="{{ old('Correo', $cliente->Correo) }}">
+                                        </div>
+                                    </div>
+
+                                    <!-- NIVEL 3-->
+                                    <div class="col-lg-3">
+                                        <!-- Fecha de nacimiento -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Fecha de nacimiento </label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="date" class="form-control"
+                                                placeholder="Fecha de nacimiento del cliente" 
+                                                name="FechaNacimiento" id="FechaNacimiento"
+                                                value="{{ old('FechaNacimiento', $cliente->FechaNacimiento) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <!-- Dirección -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Direccion</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="text" class="form-control" placeholder="Dirección del cliente"
+                                                 name="Direccion" id="Direccion"
+                                                value="{{ old('Direccion', $cliente->Direccion) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <!-- Ciudad o municipio -->
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Ciudad/Municipio</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input class="IngresoDatos form-control" type="text" name="Ciudad_Municipio"
+                                                 id="Ciudad_Municipio"
+                                                value="{{ old('Ciudad_Municipio', $cliente->Ciudad_Municipio) }}">
+                                        </div>
+                                    </div>
+
+                                    <!-- NIVEL 4-->
+                                    <div class="col-lg-3">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="d-flex justify-content-center">
+                                            <label class="form-label">Telefono</label>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="material-icons align-middle"></i></span>
+                                            <input type="number"  class="form-control" placeholder="Telefono(s)"
+                                                name="Telefonos" id="Telefonos"
+                                                value="{{ old('Telefonos', $cliente->Telefonos) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <input type="hidden" name="Estado" id="Estado" class="form-control"
+                                            value="1">
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
+                                <input class="btn btn-success confirmar_o_cancelar" type="submit"
+                                            value="Actualizar">
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             @empty
                 <tr>Sin clientes</tr>
             @endforelse
         </tbody>
-    </table>    
-@endsection
+
+    </table>
+
+
+
+
+
+    @if ($errors->any())
+        <script>
+            $(document).ready(function() {
+                $('#FormularioRegistroClientes').modal('show')
+            })
+        </script>
+    @endif
+
+@endsection()
+
+
+
+
+
+{{-- @section('scripts')
+
+           
+    {{-- @if ($errors->any())
+        <script>
+            alert("chanchito feliz");
+            $(document).ready(function() {
+                $('#FormularioRegistroClientes').modal('show')
+            })
+        </script>
+    @endif --}}

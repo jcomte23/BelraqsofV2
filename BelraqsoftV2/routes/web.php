@@ -26,6 +26,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LoginsController::class,"index"])->name('loginIndex');
 Route::get('Reportes',[ReportesController::class,"index"])->name('reporteIndex');
 Route::get('Clientes',[ClientesController::class,"index"])->name('clienteIndex');
+Route::post('Clientes',[ClientesController::class,"create"])->name('clienteRegistrar');
+Route::put('Clientes/{cliente?}',[ClientesController::class,"actualizar"])->name('clienteActualizar');
+Route::delete('Clientes/{cliente?}',[ClientesController::class,"eliminar"])->name('clienteEliminar');
+// Route::get('Clientes/{idCliente}',[ClientesController::class,"view"])->name('viewCliente');
+
 Route::get('Usuarios',[UsuariosController::class,"index"])->name('usuarioIndex');
 
 Route::get('Compras',[ComprasController::class,"index"])->name('compraIndex');
