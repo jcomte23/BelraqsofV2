@@ -6,10 +6,6 @@
     <nav class="navbar navbar-light">
         <div class="container-fluid barraSuperior">
             <h1 class="fw-bold">{{ $modulo }}</h1>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Prueba
-              </button>
-
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#FormularioRegistroClientes"><i class="bi bi-person-plus-fill"></i> Nuevo</button>
         </div>
@@ -209,7 +205,36 @@
                                 data-bs-toggle="modal" data-bs-target="#EdicionClientes{{ $cliente->id }}"><i
                                     class="bi bi-pencil-fill"></i></a>
                             @csrf @method('DELETE')
-                            <button class="btn btn-danger" type="submit"><i class="bi bi-trash-fill"></i></button>
+                            <button class="btn btn-danger" data-bs-toggle="modal" onclick="" data-bs-target="#exampleModal" type="button"><i class="bi bi-trash-fill"></i></button>
+
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                  <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="swal2-icon swal2-warning swal2-icon-show" style="display: flex;">
+                                            <img class="swal2-image" style="display: none;" >
+                                            <div class="swal2-icon-content">!</div>
+                                        </div>
+                                        <h2 class="swal2-title" id="swal2-title" style="display: block;">¿Estas seguro?</h2>
+                                        <div class="swal2-html-container" id="swal2-html-container" style="display: block;">¡El cliente sera eliminado y no podras revertir este cambio!</div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                      <button type="submit" class="btn btn-success">Eliminar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+
+
+
+
+
+
 
                             <div class="form-check form-switch switchEstado">
                                 @if ($cliente->Estado == 1)
@@ -264,7 +289,7 @@
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="EdicionClientesLabel">Vista de
+                                <h5 class="modal-title" id="EdicionClientesLabel">Edicion de
                                     {{ $modulo }}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
@@ -422,14 +447,7 @@
                 <tr>Sin clientes</tr>
             @endforelse
         </tbody>
-
     </table>
-
-
-
-
-
-
 
     @if ($errors->any())
         <script>
