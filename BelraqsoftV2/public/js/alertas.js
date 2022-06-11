@@ -83,4 +83,12 @@ function registroEliminadoCompleto(){
     })
 }
 
+function registroNoEliminado(){
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Este cliente ya tiene una venta asociada,para mantener un mejor historial te recomendamos desactivalo',
+  })
+}
+
 

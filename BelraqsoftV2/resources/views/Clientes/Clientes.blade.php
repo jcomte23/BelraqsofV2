@@ -162,10 +162,16 @@
     @endif
 
     @if (session('clienteEliminado'))
-    <script>
-        registroEliminadoCompleto();
-    </script>
-@endif
+        <script>
+            registroEliminadoCompleto();
+        </script>
+    @endif
+
+    @if (session('ErrorEliminacionCliente'))
+        <script>
+            registroNoEliminado();
+        </script>
+    @endif
 
     <table id="myTable" class="table text-center align-middle display">
         <thead>
@@ -205,7 +211,7 @@
                                 data-bs-toggle="modal" data-bs-target="#EdicionClientes{{ $cliente->id }}"><i
                                     class="bi bi-pencil-fill"></i></a>
                             @csrf @method('DELETE')
-                            <button class="btn btn-danger" data-bs-toggle="modal" onclick="" data-bs-target="#exampleModal" type="button"><i class="bi bi-trash-fill"></i></button>
+                            <button class="btn btn-danger boton-listado"  data-bs-toggle="modal" onclick="" data-bs-target="#exampleModal" type="button"><i class="bi bi-trash-fill"></i></button>
 
 
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
