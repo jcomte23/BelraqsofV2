@@ -45,7 +45,10 @@ Route::get('Ventas',[VentasController::class,"index"])->name('ventaIndex');
 Route::get('Proveedores',[ProveedoresController::class,"index"])->name('proveedorIndex');
 Route::get('Existencias',[ExistenciasController::class,"index"])->name('existenciaIndex');
 
- Route::get('{modulo}/{opcion?}',[generalController::class,"index"]);
+// Route::get('{modulo}/{opcion?}',[generalController::class,"index"]);
+
+
+
  Route::middleware([
      'auth:sanctum',
      config('jetstream.auth_session'),

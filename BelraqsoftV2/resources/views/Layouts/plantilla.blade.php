@@ -55,6 +55,28 @@
 </head>
 
 <body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="FormularioRegistro{{ $modulo }}" tabindex="-1"
+    aria-labelledby="FormularioRegistro{{ $modulo }}Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="FormularioRegistro{{ $modulo }}Label">Registro de {{ $modulo }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            @yield('modalRegistrar')
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Guardar">
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
     <!--<Barra de navegacion">-->
     <header class="header navegation black-bg sticky-top">
         <div class="row">
@@ -166,7 +188,6 @@
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('js/dataTableSite.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    
 </body>
 
 </html>
