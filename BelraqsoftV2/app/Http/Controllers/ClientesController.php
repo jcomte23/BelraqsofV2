@@ -62,5 +62,21 @@ class ClientesController extends Controller
         }
     }
 
+    public function UpdateStatusNoti(Request $request){ 
+
+        $NotiUpdate = Cliente::findOrFail($request->id)->update(['Estado' => $request->Estado]); 
+    
+        if($request->estatus == 0)  {
+            $newStatus ='<br> <button type="button" class="btn btn-sm btn-danger">Inactiva</button>';
+        }else{
+            $newStatus ='<br> <button type="button" class="btn btn-sm btn-success">Activa</button>';
+        }
+    
+        return response()->json(['var'=>''.$newStatus.'']);
+    }
+    
+        
+    
+
 
 }
