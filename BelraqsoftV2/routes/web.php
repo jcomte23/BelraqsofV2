@@ -10,6 +10,7 @@ use App\Http\Controllers\VentasController;
 use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\ExistenciasController;
 use App\Http\Controllers\LoginsController;
+use App\Models\Proveedor;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +46,7 @@ Route::get('Pedidos/Editar',[PedidosController::class,"editar"])->name('pedidoEd
 
 Route::get('Ventas',[VentasController::class,"index"])->name('ventaIndex');
 Route::get('Proveedores',[ProveedoresController::class,"index"])->name('proveedorIndex');
+Route::post('Proveedores',[ProveedoresController::class,"create"])->name('proveedorRegistrar');
 Route::get('Existencias',[ExistenciasController::class,"index"])->name('existenciaIndex');
 
 // Route::get('{modulo}/{opcion?}',[generalController::class,"index"]);
