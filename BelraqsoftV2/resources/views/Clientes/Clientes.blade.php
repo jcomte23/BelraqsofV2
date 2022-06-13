@@ -170,6 +170,12 @@
 </script>
 @endif
 
+@if(session('EstadoActualizado'))
+<script>
+    cambioEstado();
+</script>
+@endif
+
 <table id="myTable" class="table text-center align-middle display">
     <thead>
         <tr>
@@ -182,7 +188,7 @@
             <th scope="col">Dirección</th>
             <th scope="col">Teléfono</th>
             <th scope="col">Operaciones</th>
-        </tr>
+            <th scope="col">Estado</th>
         </tr>
     </thead>
     <tbody>
@@ -224,13 +230,15 @@
                             </div>
                         </div>
                     </div>
+                </form>
 
-                    <div id="resp{{ $cliente->id }}" class="form-check form-switch switchEstado">
-                        @if($cliente->Estado == 1)
-                        <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault" checked>
-                        @else
-                        <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault">
-                        @endif
+            </td>
+            <td>
+                <form id="myForm" action="{{ route('clienteCambioEstado',$cliente) }}" method="post" style="margin-left: 5%">
+                    @csrf 
+                    <input type="hidden" name="Estado" id="Estado" class="form-control" value="0">
+                    <div class="form-check form-switch switchEstado">
+                        <input class="form-check-input switchEstado" type="checkbox" id="myCheckBox" checked>
                     </div>
                 </form>
             </td>
@@ -279,7 +287,7 @@
                     </div>
                     <div class="modal-body formulario row">
                         <form class="text-center fst-italic needs-validation " action="{{ route('clienteActualizar',$cliente) }}" method="POST">
-                            @csrf@method('PUT')
+                            @csrf @method('PUT')
 
                             <!-- NIVEL 1 -->
                             <div class="col-lg-6">
@@ -416,5 +424,11 @@
     })
 </script>
 @endif
+
+<script>
+    $("#myCheckBox").change(function() {
+        $("#myForm").submit();
+    })
+</script>
 
 @endsection()
