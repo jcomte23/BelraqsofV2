@@ -22,74 +22,177 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="text-center fst-italic needs-validation row formulario" method="post">
-                        <form class="text-center fst-italic needs-validation row formulario" method="POST">
-                            <!-- NIVEL 1 -->
-                            <div class="col-lg-5">
+                    <form class="text-center fst-italic needs-validation row formulario"
+                        action="{{ route('proveedorRegistrar') }}" method="POST">
+                        @csrf
+                        <!-- NIVEL 1 -->
+                        <!-- Nombre razon social 1 -->
+                        <div class="col-lg-5">
+                            <div class="d-flex justify-content-center">
+
                                 <label class="label">Ingrese nombre o razon
                                     social:</label><br>
-                                <input class="IngresoDatos form-control" type="text" name="txtNombre" placeholder=""
-                                    required>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="material-icons align-middle"></i></span>
+                                <input type="text" class="form-control" placeholder="Nombres del cliente"
+                                    name="NombreRazonSocial" id="NombreRazonSocial"
+                                    value="{{ old('NombreRazonSocial') }}">
+                            </div>
+                            <small class="text-danger">{{ $errors->first('NombreRazonSocial') }}</small>
+                        </div>
+
+                        <!-- Tipo de documento -->
+                        <div class="col-lg-3">
+                            <div class="d-flex justify-content-center">
                                 <label class="label">Tipo:</label><br>
-                                <select class="form-select IngresoDatos form-control">
-                                    @foreach ($Documentos as $Documento)
-                                        <option value="">{{ $Documento->Abreviatura }}</option>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="material-icons align-middle"></i></span>
+                                <select class="form-select IngresoDatos form-control" aria-label="Default select example"
+                                    name="TipoDocumento" id="TipoDocumento" value="{{ old('TipoDocumento') }}">
+                                    @foreach ($Documentos as $tipo)
+                                        <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-lg-4">
+                            <small class="text-danger">{{ $errors->first('TipoDocumento') }}</small>
+                        </div>
+
+
+
+
+                        <!-- nit -->
+
+                        <div class="col-lg-4">
+                            <div class="d-flex justify-content-center">
                                 <label class="label">Numero / NIT:</label><br>
-                                <input class="IngresoDatos form-control" type="text" name="txtNumero" placeholder=""
-                                    required>
                             </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="material-icons align-middle"></i></span>
+                                <input type="text" class="form-control" placeholder="NumeroIdenNit" name="NumeroIdenNit"
+                                    id="NumeroIdenNit" value="{{ old('NumeroIdenNit') }}">
+                            </div>
+                            <small class="text-danger">{{ $errors->first('NumeroIdenNit') }}</small>
+                        </div>
 
-                            <!-- NIVEL 2 -->
-                            <!---->
-                            <div class="col-lg-3">
+                        <!-- NIVEL 2 -->
+                        <!--telefono  -->
+                        <div class="col-lg-3">
+                            <div class="d-flex justify-content-center">
                                 <label class="label">Telefono</label><br>
-                                <input class="IngresoDatos form-control" type="text" name="txttelefono" placeholder=""
-                                    required>
                             </div>
-                            <div class="col-lg-6">
-                                <label class="label">Direccion</label><br>
-                                <input class="IngresoDatos form-control" type="text" name="txtDireccion" placeholder=""
-                                    required>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="material-icons align-middle"></i></span>
+                                <input type="text" class="form-control" placeholder="Telefonos" name="Telefonos"
+                                    id="Telefonos" value="{{ old('Telefonos') }}">
                             </div>
-                            <div class="col-lg-3">
-                                <label class="label">Ciudad / Municipio</label><br>
-                                <input class="IngresoDatos form-control" type="text" name="txtCiudad" placeholder=""
-                                    required>
-                            </div>
+                            <small class="text-danger">{{ $errors->first('Telefonos') }}</small>
+                        </div>
 
-                            <!-- NIVEL 3 -->
-                            <!---->
-                            <div class="col-lg-8">
+
+                        <!--Direccion -->
+                        <div class="col-lg-6">
+                            <div class="d-flex justify-content-center">
+                                <label class="label">Direccion</label><br>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="material-icons align-middle"></i></span>
+                                <input type="text" class="form-control" placeholder="Direccion" name="Direccion"
+                                    id="Direccion" value="{{ old('Direccion') }}">
+                            </div>
+                            <small class="text-danger">{{ $errors->first('Direccion') }}</small>
+                        </div>
+
+                        <!-- Ciudad -->
+
+
+
+                        <div class="col-lg-3">
+                            <div class="d-flex justify-content-center">
+                                <label class="label">Ciudad / Municipio</label><br>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="material-icons align-middle"></i></span>
+                                <input type="text" class="form-control" placeholder="Ciudad_Municipio"
+                                    name="Ciudad_Municipio" id="Ciudad_Municipio" value="{{ old('Ciudad_Municipio') }}">
+                            </div>
+                            <small class="text-danger">{{ $errors->first('Ciudad_Municipio') }}</small>
+                        </div>
+
+                        <!-- NIVEL 3 -->
+                        <!--Nombre de contacto-->
+                        <div class="col-lg-8">
+                            <div class="d-flex justify-content-center">
                                 <label class="label">Ingrese nombre del
                                     contacto:</label><br>
-                                <input class="IngresoDatos form-control" type="text" name="txtContacto" placeholder=""
-                                    required>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="material-icons align-middle"></i></span>
+                                <input type="text" class="form-control" placeholder="NombreContacto" name="NombreContacto"
+                                    id="NombreContacto" value="{{ old('NombreContacto') }}">
+                            </div>
+                            <small class="text-danger">{{ $errors->first('NombreContacto') }}</small>
+                        </div>
+
+                        <!--Numero de contacto -->
+
+
+
+
+                        <div class="col-lg-4">
+                            <div class="d-flex justify-content-center">
                                 <label class="label">Ingrese numero del
                                     contacto:</label><br>
-                                <input class="IngresoDatos form-control" type="text" name="txtNumeroContacto" placeholder=""
-                                    required>
                             </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="material-icons align-middle"></i></span>
+                                <input type="text" class="form-control" placeholder="NumeroContacto" name="NumeroContacto"
+                                    id="NumeroContacto" value="{{ old('NumeroContacto') }}">
+                            </div>
+                            <small class="text-danger">{{ $errors->first('NumeroContacto') }}</small>
+                        </div>
 
-                            <!-- NIVEL 4-->
-                            <!---->
-                            <div class="col-lg-12">
+                        <!-- NIVEL 4-->
+                        <!--Correo-->
+                        <div class="col-lg-12">
+                            <div class="d-flex justify-content-center">
                                 <label class="label">Correo:</label><br>
-                                <input class="IngresoDatos form-control" type="text" name="txtCorreo" required>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="material-icons align-middle"></i></span>
+                                <input type="text" class="form-control" placeholder="Correo" name="Correo" id="Correo"
+                                    value="{{ old('Correo') }}">
+                            </div>
+                            <small class="text-danger">{{ $errors->first('Correo') }}</small>
+                        </div>
+
+                        <!-- Descripcion -->
+
+
+                        <div class="col-lg-12">
+                            <div class="d-flex justify-content-center">
                                 <label class="label">Descripcion del proveedor:</label><br>
-                                <input class="IngresoDatos form-control" style="height: 80px;" type="textarea"
-                                    name="txtDescripcion" placeholder=" ">
                             </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i
+                                    class="material-icons align-middle"></i></span>
+                            <input type="textarea" class="form-control" placeholder="Descripcion" name="Descripcion"
+                                id="Descripcion" value="{{ old('Descripcion') }}">
+                        </div>
+                        <small class="text-danger">{{ $errors->first('Descripcion') }}</small>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Actualizar">
@@ -98,6 +201,24 @@
             </div>
         </div>
     </div>
+
+    @if (session('mensaje'))
+        <script>
+            registroExitosoSimple();
+        </script>
+    @endif
+
+    @if (session('proveedorActualizado'))
+        <script>
+            registroActualizoSimple();
+        </script>
+    @endif
+
+    @if (session('proveedorEliminado'))
+        <script>
+            registroEliminadoSimple();
+        </script>
+    @endif
 
     <table id="myTable" class="table text-center align-middle display">
         <thead>
@@ -129,11 +250,12 @@
                             <button type="button" class="btn btn-warning boton-listado" data-bs-toggle="modal"
                                 data-bs-target="#FormularioEdicionProveedores"><i class="bi bi-pencil-fill"></i></button>
                             <div class="form-check form-switch switchEstado">
-                                @if ($Proveedor->Estado==1)
-                                <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault"
-                                checked>
+                                @if ($Proveedor->Estado == 1)
+                                    <input class="form-check-input switchEstado" type="checkbox"
+                                        id="flexSwitchCheckDefault" checked>
                                 @else
-                                <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault">
+                                    <input class="form-check-input switchEstado" type="checkbox"
+                                        id="flexSwitchCheckDefault">
                                 @endif
                             </div>
                         </form>
@@ -180,8 +302,8 @@
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <label class="label">Direccion</label><br>
-                                                    <input class="IngresoDatos form-control" type="text" name="txtDireccion"
-                                                        placeholder="" required>
+                                                    <input class="IngresoDatos form-control" type="text"
+                                                        name="txtDireccion" placeholder="" required>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="label">Ciudad / Municipio</label><br>
@@ -212,7 +334,8 @@
                                                         required>
                                                 </div>
                                                 <div class="col-lg-12">
-                                                    <label class="label">Descripcion del proveedor:</label><br>
+                                                    <label class="label">Descripcion del
+                                                        proveedor:</label><br>
                                                     <input class="IngresoDatos form-control" style="height: 80px;"
                                                         type="textarea" name="txtDescripcion" placeholder=" ">
                                                 </div>
