@@ -10,8 +10,7 @@
     <meta name="robots" content="index,follow">
     <meta name="revisit-after" content="15days">
     <meta name="googlebot" content="index,follow">
-    <meta name="author"
-        content="Javier Cómbita Téllez, Sebastián Velásquez, Kevin Orlando Hernández Ruiz,Santiago Garcia Uribe">
+    <meta name="author" content="Javier Cómbita Téllez, Sebastián Velásquez, Kevin Orlando Hernández Ruiz,Santiago Garcia Uribe">
     <!--icono de la pagina:https://www.favicon-generator.org/ solo imagenes .png-->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('img/Favicon/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/Favicon/apple-icon-60x60.png') }}">
@@ -55,10 +54,6 @@
 </head>
 
 <body>
-
-
-  
-
     <!--<Barra de navegacion">-->
     <header class="header navegation black-bg sticky-top">
         <div class="row">
@@ -84,8 +79,7 @@
     <aside>
         <div id="sidebar" class="nav-collapse navegation">
             <ul class="sidebar-menu navegation" id="nav-accordion">
-                <p class="centered"><a href="{{ url('/Reportes') }}"><img class="logo"
-                            src="{{ asset('img/FondoLogo.jpg') }}" width="100"></a>
+                <p class="centered"><a href="{{ url('/Reportes') }}"><img class="logo" src="{{ asset('img/FondoLogo.jpg') }}" width="100"></a>
                 </p>
                 <h5 class="centered titulo">User logeado</h5>
                 <li>
@@ -171,5 +165,4 @@
     <script src="{{ asset('js/dataTableSite.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 </body>
-
 </html>
