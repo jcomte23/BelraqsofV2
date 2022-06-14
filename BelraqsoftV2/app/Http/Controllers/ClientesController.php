@@ -13,7 +13,7 @@ class ClientesController extends Controller
         $modulo="Clientes";
         //carga para el combo
         $TipoDocumentos=Tipo_Documento::all();
-        $clientes=Cliente::all();
+        $clientes=Cliente::orderBy('id','desc')->get();
         return view("$modulo.$modulo",compact('modulo','TipoDocumentos'),['clientes'=>$clientes]);
     }
 
