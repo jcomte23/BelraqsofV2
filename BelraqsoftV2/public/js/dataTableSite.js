@@ -13,7 +13,8 @@ $(document).ready( function () {
                 'next':'Siguiente',
                 'previous':'Anterior'
             }
-        }
+        },
+        "order":[ [9, 'asc'],[0, 'asc']]
     });
     
 } );
