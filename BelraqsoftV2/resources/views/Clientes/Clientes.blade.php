@@ -198,7 +198,7 @@
         </script>
     @endif
 
-    <table id="myTable" class="table text-center table-striped align-middle display" style="width:100%">
+    <table id="TableClientes" class="table text-center table-striped align-middle display" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">ID</th>

@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('existencias', function (Blueprint $table) {
             $table->id();
-            $table->string('Codigo',25);
-            $table->string('Nombre',50);
-            $table->string('Descripcion');
-            $table->double('ValorUnitario');
+            $table->string('Nombre');
+            $table->string('Marca',25);
             $table->integer('Stock');
+            $table->double('ValorUnitario');
             $table->double('PrecioDedal');
             $table->double('PrecioMayor');
             $table->boolean('Estado')->default(true);
