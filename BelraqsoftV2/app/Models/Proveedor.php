@@ -9,6 +9,7 @@ class Proveedor extends Model
 {
     use HasFactory;
     protected $table="proveedores";
+    protected $guarded= [];
 
     public function unionTipoDoc(){
         return $this->belongsTo(tipo_documento::class,'TipoDocumento');

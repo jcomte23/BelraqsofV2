@@ -54,9 +54,19 @@ class ClientesController extends Controller
     }
 
     public function eliminar(Cliente $cliente){
-        $cliente->delete();
-        return redirect()->route('clienteIndex')->with('clienteEliminado', 'Cliente eliminado');
+        try {
+            $cliente->delete();
+            return redirect()->route('clienteIndex')->with('clienteEliminado', 'Cliente eliminado');
+        } catch (\Throwable $th) {
+            return redirect()->route('clienteIndex')->with('ErrorEliminacionCliente', 'Cliente No eliminado');;
+        }
     }
 
-
+    public function actualizarEstado(Cliente $cliente){ 
+        $campo = request()->validate([
+                'Estado'=>'required',
+        ]);
+        $cliente->update($campo);
+        return redirect()->route('clienteIndex')->with('EstadoActualizado', 'Estado cambiado');
+    }
 }

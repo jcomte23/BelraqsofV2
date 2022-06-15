@@ -11,16 +11,18 @@
         </div>
     </nav>
 
-    <div class="modal fade" id="FormularioRegistroClientes" tabindex="-1"
-        aria-labelledby="FormularioRegistroClientesLabel" aria-hidden="true">
+    <!-- Modal Registro de Clientes-->
+    <div class="modal fade" id="FormularioRegistro{{ $modulo }}" tabindex="-1"
+        aria-labelledby="FormularioRegistro{{ $modulo }}Label" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="FormularioRegistroClientesLabel">Registro de {{ $modulo }}</h5>
+                    <h5 class="modal-title" id="FormularioRegistro{{ $modulo }}Label">Registro de
+                        {{ $modulo }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="text-center fst-italic needs-validation row formulario"
+                    <form class="text-center fst-italic needs-vblaalidation row formulario"
                         action="{{ route('clienteRegistrar') }}" method="POST">
                         @csrf
 
@@ -155,6 +157,7 @@
                         <div class="col-lg-3">
                             <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                         </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -178,12 +181,24 @@
     @endif
 
     @if (session('clienteEliminado'))
-    <script>
-        registroEliminadoCompleto();
-    </script>
-@endif
+        <script>
+            registroEliminadoCompleto();
+        </script>
+    @endif
 
-    <table id="myTable" class="table text-center align-middle display">
+    @if (session('ErrorEliminacionCliente'))
+        <script>
+            registroNoEliminado();
+        </script>
+    @endif
+
+    @if (session('EstadoActualizado'))
+        <script>
+            cambioEstado();
+        </script>
+    @endif
+
+    <table id="TableClientes" class="table text-center table-striped align-middle display" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -191,28 +206,27 @@
                 <th scope="col">Apellidos</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Documento</th>
-                <th scope="col">Correo</th>
                 <th scope="col">Fecha Nacimiento</th>
                 <th scope="col">Dirección</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col">Operaciones</th>
-            </tr>
+                <th scope="col">Estado</th>
             </tr>
         </thead>
         <tbody>
-            @forelse ($clientes as $cliente)
+            @forelse($clientes as $cliente)
                 <tr>
                     <td>{{ $cliente->id }}</td>
-                    <td><a href="{{ route('clienteIndex', $cliente->id) }}">{{ $cliente->Nombres }}</a></td>
+                    <td>{{ $cliente->Nombres }}</td>
                     <td>{{ $cliente->Apellidos }}</td>
                     <td>{{ $cliente->unionTipoDoc->Abreviatura }}</td>
                     <td>{{ $cliente->Documento }}</td>
-                    <td>{{ $cliente->Correo }}</td>
                     <td>{{ $cliente->FechaNacimiento }}</td>
                     <td>{{ $cliente->Direccion }}</td>
                     <td>{{ $cliente->Telefonos }}</td>
                     <td>
-                        <form action="{{route('clienteEliminar',$cliente)}}" method="post" style="display:inline-flex">
+                        <form action="{{ route('clienteEliminar', $cliente) }}" method="post"
+                            style="display:inline-flex">
                             <a href="#DetallesClientes{{ $cliente->id }}" class="btn btn-success boton-listado"
                                 data-bs-toggle="modal" data-bs-target="#DetallesClientes{{ $cliente->id }}"><i
                                     class="bi bi-eye-fill"></i></a>
@@ -221,175 +235,78 @@
                                 data-bs-toggle="modal" data-bs-target="#EdicionClientes{{ $cliente->id }}"><i
                                     class="bi bi-pencil-fill"></i></a>
                             @csrf @method('DELETE')
-                            <button class="btn btn-danger" type="submit"><i class="bi bi-trash-fill"></i></button>
+                            <button class="btn btn-danger boton-listado" data-bs-toggle="modal"
+                                data-bs-target="#EliminarCliente" type="button"><i class="bi bi-trash-fill"></i></button>
 
-                            <div class="form-check form-switch switchEstado">
-                                @if ($cliente->Estado == 1)
-                                    <input class="form-check-input switchEstado" type="checkbox" id="flexSwitchCheckDefault"
-                                        checked>
-                                @else
-                                    <input class="form-check-input switchEstado" type="checkbox"
-                                        id="flexSwitchCheckDefault">
-                                @endif
+                            <div class="modal fade" id="EliminarCliente" tabindex="-1"
+                                aria-labelledby="EliminarClienteLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="swal2-icon swal2-warning swal2-icon-show" style="display: flex;">
+                                                <img class="swal2-image" style="display: none;">
+                                                <div class="swal2-icon-content">!</div>
+                                            </div>
+                                            <h2 class="swal2-title" id="swal2-title" style="display: block;">¿Estas
+                                                seguro?</h2>
+                                            <div class="swal2-html-container" id="swal2-html-container"
+                                                style="display: block;">¡El cliente sera eliminado y no podras revertir
+                                                este cambio!</div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-success">Eliminar</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{ route('clienteEstado', $cliente) }}" method="post">
+                            @csrf
+                            @if ($cliente->Estado == 1)
+                                <input type="hidden" name="Estado" id="Estado" class="form-control" value="0">
+                                <button type="submit" class="btn btn-primary">Activo</button>
+                            @else
+                                <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
+                                <button type="submit" class="btn btn-secondary">Inactivo</button>
+                            @endif
                         </form>
                     </td>
                 </tr>
 
                 <div class="modal fade" id="DetallesClientes{{ $cliente->id }}" tabindex="-1"
                     aria-labelledby="DetallesClientesLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
+                    <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="DetallesClientesClientesLabel">Vista de
-                                    {{ $modulo }}</h5>
+                                <h5 class="modal-title" id="DetallesClientesLabel">Detalles de
+                                    {{ $cliente->Nombres }} {{ $cliente->Apellidos }}
+                                </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div class="modal-body formulario row">
-                                <form class="text-center fst-italic needs-validation "
-                                    action="{{ route('clienteRegistrar') }}" method="POST">
-                                    @csrf
-
-                                    <!-- NIVEL 1 -->
-                                    <div class="col-lg-6">
-                                        <!--- Nombre Cliente --->
-                                        <div class="d-flex justify-content-center">
-                                            <label class="form-label ">Nombres</label>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
-                                            <input type="text" class="form-control" Disabled
-                                                placeholder="Nombres del cliente" name="Nombres" id="Nombres"
-                                                value="{{ old('Nombres', $cliente->Nombres) }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <!-- Apellido -->
-                                        <div class="d-flex justify-content-center">
-                                            <label class="form-label">Apellido</label>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
-                                            <input type="text" class="form-control" placeholder="Apellidos de cliente"
-                                                Disabled name="Apellidos" id="Apellidos"
-                                                value="{{ old('Apellidos', $cliente->Apellidos) }}">
-                                        </div>
-                                    </div>
-
-                                    <!-- NIVEL 2 -->
-                                    <div class="col-lg-3">
-                                        <!-- tipo documento -->
-                                        <div class="d-flex justify-content-center">
-                                            <label class="form-label">Tipo</label>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
-                                            <select Disabled class="form-select IngresoDatos form-control"
-                                                aria-label="Default select example" name="TipoDocumento" id="TipoDocumento"
-                                                value="{{ old('TipoDocumento', $cliente->unionTipoDoc->Abreviatura) }}">
-                                                @foreach ($TipoDocumentos as $tipo)
-                                                    <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <!-- Documento -->
-                                        <div class="d-flex justify-content-center">
-                                            <label class="form-label">Documento</label>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
-                                            <input type="Text" class="form-control" Disabled placeholder="Documento"
-                                                name="Documento" id="Documento"
-                                                value="{{ old('Documento', $cliente->Documento) }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="d-flex justify-content-center">
-                                            <label class="form-label">Correo</label>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
-                                            <input type="text" class="form-control" Disabled
-                                                placeholder="Correo del cliente" name="Correo" id="Correo"
-                                                value="{{ old('Correo', $cliente->Correo) }}">
-                                        </div>
-                                    </div>
-
-                                    <!-- NIVEL 3-->
-                                    <div class="col-lg-3">
-                                        <!-- Fecha de nacimiento -->
-                                        <div class="d-flex justify-content-center">
-                                            <label class="form-label">Fecha de nacimiento </label>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
-                                            <input type="date" class="form-control"
-                                                placeholder="Fecha de nacimiento del cliente" Disabled
-                                                name="FechaNacimiento" id="FechaNacimiento"
-                                                value="{{ old('FechaNacimiento', $cliente->FechaNacimiento) }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <!-- Dirección -->
-                                        <div class="d-flex justify-content-center">
-                                            <label class="form-label">Direccion</label>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
-                                            <input type="text" class="form-control" placeholder="Dirección del cliente"
-                                                Disabled name="Direccion" id="Direccion"
-                                                value="{{ old('Direccion', $cliente->Direccion) }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <!-- Ciudad o municipio -->
-                                        <div class="d-flex justify-content-center">
-                                            <label class="form-label">Ciudad/Municipio</label>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
-                                            <input class="IngresoDatos form-control" type="text" name="Ciudad_Municipio"
-                                                Disabled id="Ciudad_Municipio"
-                                                value="{{ old('Ciudad_Municipio', $cliente->Ciudad_Municipio) }}">
-                                        </div>
-                                    </div>
-
-                                    <!-- NIVEL 4-->
-                                    <div class="col-lg-3">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="d-flex justify-content-center">
-                                            <label class="form-label">Telefono</label>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
-                                            <input type="number" Disabled class="form-control" placeholder="Telefono(s)"
-                                                name="Telefonos" id="Telefonos"
-                                                value="{{ old('Telefonos', $cliente->Telefonos) }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <input type="hidden" Disabled name="Estado" id="Estado" class="form-control"
-                                            value="1">
-                                    </div>
+                            <div class="modal-body">
+                                <h5> <strong>Nombre(s): </strong> {{ $cliente->Nombres }}</h5>
+                                <h5> <strong>Apellido(s): </strong> {{ $cliente->Apellidos }}</h5>
+                                <h5> <strong>Tipo Doc. : </strong> {{ $cliente->unionTipoDoc->Abreviatura }}</h5>
+                                <h5> <strong># Documento: </strong> {{ $cliente->Documento }}</h5>
+                                <h5> <strong>Fecha Nac: </strong> {{ $cliente->FechaNacimiento }}</h5>
+                                <h5> <strong>Correo: </strong> {{ $cliente->Correo }}</h5>
+                                <h5> <strong>Telefono(s): </strong> {{ $cliente->Telefonos }}</h5>
+                                <h5> <strong>Direccion: </strong> {{ $cliente->Direccion }}</h5>
+                                <h5> <strong>Ciudad/Municipio: </strong> {{ $cliente->Ciudad_Municipio }}</h5>
+                                @if ($cliente->Estado == 1)
+                                    <h5 style="color: green"><strong style="color: gray">Estado: </strong>Activo</h5>
+                                @else
+                                    <h5 style="color: red"><strong style="color: gray">Estado: </strong>InActivo</h5>
+                                @endif
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -399,14 +316,15 @@
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="EdicionClientesLabel">Vista de
-                                    {{ $modulo }}</h5>
+                                <h5 class="modal-title" id="EdicionClientesLabel">Edicion de
+                                    {{ $modulo }}
+                                </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body formulario row">
                                 <form class="text-center fst-italic needs-validation "
-                                    action="{{ route('clienteActualizar',$cliente) }}" method="POST">
+                                    action="{{ route('clienteActualizar', $cliente) }}" method="POST">
                                     @csrf @method('PUT')
 
                                     <!-- NIVEL 1 -->
@@ -432,7 +350,7 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
                                             <input type="text" class="form-control" placeholder="Apellidos de cliente"
-                                                 name="Apellidos" id="Apellidos"
+                                                name="Apellidos" id="Apellidos"
                                                 value="{{ old('Apellidos', $cliente->Apellidos) }}">
                                         </div>
                                     </div>
@@ -446,7 +364,7 @@
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
-                                            <select  class="form-select IngresoDatos form-control"
+                                            <select class="form-select IngresoDatos form-control"
                                                 aria-label="Default select example" name="TipoDocumento" id="TipoDocumento"
                                                 value="{{ old('TipoDocumento', $cliente->unionTipoDoc->Abreviatura) }}">
                                                 @foreach ($TipoDocumentos as $tipo)
@@ -464,7 +382,7 @@
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
-                                            <input type="Text" class="form-control"  placeholder="Documento"
+                                            <input type="Text" class="form-control" placeholder="Documento"
                                                 name="Documento" id="Documento"
                                                 value="{{ old('Documento', $cliente->Documento) }}">
                                         </div>
@@ -476,9 +394,8 @@
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
-                                            <input type="text" class="form-control" 
-                                                placeholder="Correo del cliente" name="Correo" id="Correo"
-                                                value="{{ old('Correo', $cliente->Correo) }}">
+                                            <input type="text" class="form-control" placeholder="Correo del cliente"
+                                                name="Correo" id="Correo" value="{{ old('Correo', $cliente->Correo) }}">
                                         </div>
                                     </div>
 
@@ -492,8 +409,8 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
                                             <input type="date" class="form-control"
-                                                placeholder="Fecha de nacimiento del cliente" 
-                                                name="FechaNacimiento" id="FechaNacimiento"
+                                                placeholder="Fecha de nacimiento del cliente" name="FechaNacimiento"
+                                                id="FechaNacimiento"
                                                 value="{{ old('FechaNacimiento', $cliente->FechaNacimiento) }}">
                                         </div>
                                     </div>
@@ -506,7 +423,7 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
                                             <input type="text" class="form-control" placeholder="Dirección del cliente"
-                                                 name="Direccion" id="Direccion"
+                                                name="Direccion" id="Direccion"
                                                 value="{{ old('Direccion', $cliente->Direccion) }}">
                                         </div>
                                     </div>
@@ -519,7 +436,7 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
                                             <input class="IngresoDatos form-control" type="text" name="Ciudad_Municipio"
-                                                 id="Ciudad_Municipio"
+                                                id="Ciudad_Municipio"
                                                 value="{{ old('Ciudad_Municipio', $cliente->Ciudad_Municipio) }}">
                                         </div>
                                     </div>
@@ -534,35 +451,36 @@
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
-                                            <input type="number"  class="form-control" placeholder="Telefono(s)"
+                                            <input type="number" class="form-control" placeholder="Telefono(s)"
                                                 name="Telefonos" id="Telefonos"
                                                 value="{{ old('Telefonos', $cliente->Telefonos) }}">
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
-                                        <input type="hidden" name="Estado" id="Estado" class="form-control"
-                                            value="1">
+                                        <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                                     </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
-                                <input class="btn btn-success confirmar_o_cancelar" type="submit"
-                                            value="Actualizar">
+                                <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Actualizar">
                             </div>
                             </form>
+
+
+
+
+
+
+
                         </div>
                     </div>
                 </div>
+
             @empty
                 <tr>Sin clientes</tr>
             @endforelse
         </tbody>
-
     </table>
-
-
-
-
 
     @if ($errors->any())
         <script>
@@ -571,21 +489,4 @@
             })
         </script>
     @endif
-
 @endsection()
-
-
-
-
-
-{{-- @section('scripts')
-
-           
-    {{-- @if ($errors->any())
-        <script>
-            alert("chanchito feliz");
-            $(document).ready(function() {
-                $('#FormularioRegistroClientes').modal('show')
-            })
-        </script>
-    @endif --}}

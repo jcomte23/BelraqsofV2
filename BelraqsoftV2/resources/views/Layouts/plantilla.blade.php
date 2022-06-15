@@ -10,8 +10,7 @@
     <meta name="robots" content="index,follow">
     <meta name="revisit-after" content="15days">
     <meta name="googlebot" content="index,follow">
-    <meta name="author"
-        content="Javier Cómbita Téllez, Sebastián Velásquez, Kevin Orlando Hernández Ruiz,Santiago Garcia Uribe">
+    <meta name="author" content="Javier Cómbita Téllez, Sebastián Velásquez, Kevin Orlando Hernández Ruiz,Santiago Garcia Uribe">
     <!--icono de la pagina:https://www.favicon-generator.org/ solo imagenes .png-->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('img/Favicon/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/Favicon/apple-icon-60x60.png') }}">
@@ -44,7 +43,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.bootstrap5.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-icons-1.8.3/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/EstilosUniversales.css') }}">
@@ -80,8 +81,7 @@
     <aside>
         <div id="sidebar" class="nav-collapse navegation">
             <ul class="sidebar-menu navegation" id="nav-accordion">
-                <p class="centered"><a href="{{ url('/Reportes') }}"><img class="logo"
-                            src="{{ asset('img/FondoLogo.jpg') }}" width="100"></a>
+                <p class="centered"><a href="{{ url('/Reportes') }}"><img class="logo" src="{{ asset('img/FondoLogo.jpg') }}" width="100"></a>
                 </p>
                 <h5 class="centered titulo">User logeado</h5>
                 <li>
@@ -166,7 +166,8 @@
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('js/dataTableSite.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    
+    <script src="{{ asset('js/dataTables.bootstrap5.min.js') }}"></script> 
+    <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('js/responsive.bootstrap5.min.js') }}"></script> 
 </body>
-
 </html>
