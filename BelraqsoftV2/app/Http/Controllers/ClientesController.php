@@ -69,6 +69,4 @@ class ClientesController extends Controller
         $cliente->update($campo);
         return redirect()->route('clienteIndex')->with('EstadoActualizado', 'Estado cambiado');
     }
-    
-
 }

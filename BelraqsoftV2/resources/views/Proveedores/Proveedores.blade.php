@@ -183,7 +183,7 @@
 </script>
 @endif
 
-<table id="myTable" class="table text-center align-middle display">
+<table id="TableProveedores" class="table text-center align-middle display">
     <thead>
         <tr>
             <th scope="col">Razon social</th>

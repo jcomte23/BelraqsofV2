@@ -9,4 +9,5 @@ class Existencia extends Model
 {
     use HasFactory;
     protected $table="existencias";
+    protected $guarded= [];
 }

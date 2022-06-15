@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoDocumentoSeeder::class);
         Cliente::factory(50)->create();
         Proveedor::factory(50)->create();
-        Existencia::factory(50)->create();
+        Existencia::factory(15)->create();
         Venta::factory(50)->create();
     }
 }

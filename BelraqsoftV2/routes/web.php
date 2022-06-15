@@ -48,7 +48,12 @@ Route::get('Ventas',[VentasController::class,"index"])->name('ventaIndex');
 
 Route::get('Proveedores',[ProveedoresController::class,"index"])->name('proveedorIndex');
 Route::post('Proveedores',[ProveedoresController::class,"create"])->name('proveedorRegistrar');
+
 Route::get('Existencias',[ExistenciasController::class,"index"])->name('existenciaIndex');
+Route::post('Existencias',[ExistenciasController::class,"create"])->name('existenciaRegistrar');
+Route::post('Existencias/{producto?}', [ExistenciasController::class,"actualizarEstado"])->name('productoEstado');
+Route::put('Existencias/{producto?}',[ExistenciasController::class,"actualizar"])->name('existenciaActualizar');
+Route::delete('Existencias/{producto?}',[ExistenciasController::class,"eliminar"])->name('existenciaEliminar');
 
 // Route::get('{modulo}/{opcion?}',[generalController::class,"index"]);
 
