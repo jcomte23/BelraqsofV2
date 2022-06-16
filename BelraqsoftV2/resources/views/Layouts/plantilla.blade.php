@@ -81,53 +81,53 @@
     <aside>
         <div id="sidebar" class="nav-collapse navegation">
             <ul class="sidebar-menu navegation" id="nav-accordion">
-                <p class="centered"><a href="{{ url('/Reportes') }}"><img class="logo" src="{{ asset('img/FondoLogo.jpg') }}" width="100"></a>
+                <p class="centered"><a href="{{ route('reporteIndex') }}"><img class="logo" src="{{ asset('img/FondoLogo.jpg') }}" width="100"></a>
                 </p>
-                <h5 class="centered titulo">User logeado</h5>
+                <h5 class="centered titulo">Usuario</h5>
                 <li>
-                    <a href="{{ route('reporteIndex') }}" class="active">
+                    <a href="{{ route('reporteIndex') }}" class="{{request()->routeIs('reporteIndex') ? 'active' : ''}}">
                         <i class="bi bi-speedometer2"></i>
                         <span>Reportes</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('clienteIndex') }}">
+                    <a href="{{ route('clienteIndex') }}" class="{{request()->routeIs('clienteIndex') ? 'active' : ''}}">
                         <i class="bi bi-person-square"></i>
                         <span>Clientes</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('usuarioIndex') }}">
+                    <a href="{{ route('usuarioIndex') }}" class="{{request()->routeIs('usuarioIndex') ? 'active' : ''}}">
                         <i class="bi bi-person-circle"></i>
                         <span>Usuarios</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('compraIndex') }}">
+                    <a href="{{ route('compraIndex') }}" class="{{request()->routeIs('compraIndex') ? 'active' : ''}}">
                         <i class="bi bi-cart-plus-fill"></i>
                         <span>Compras</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('pedidoIndex') }}">
+                    <a href="{{ route('pedidoIndex') }}" class="{{request()->routeIs('pedidoIndex') ? 'active' : ''}}">
                         <i class="bi bi-bag-plus-fill"></i>
                         <span>Pedidos</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('ventaIndex') }}">
+                    <a href="{{ route('ventaIndex') }}" class="{{request()->routeIs('ventaIndex') ? 'active' : ''}}">
                         <i class="bi bi-bag-check-fill"></i>
                         <span>Ventas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('proveedorIndex') }}">
+                    <a href="{{ route('proveedorIndex') }}" class="{{request()->routeIs('proveedorIndex') ? 'active' : ''}}">
                         <i class="bi bi-person-bounding-box"></i>
                         <span>Proveedores</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('existenciaIndex') }}">
+                    <a href="{{ route('existenciaIndex') }}" class="{{request()->routeIs('existenciaIndex') ? 'active' : ''}}">
                         <i class="bi bi-archive"></i>
                         <span>Existencias</span>
                     </a>
