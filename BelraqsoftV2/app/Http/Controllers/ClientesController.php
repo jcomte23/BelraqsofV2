@@ -32,7 +32,7 @@ class ClientesController extends Controller
     ]);
 
     Cliente::create($validated);
-    return redirect()->route('clienteIndex')->with('mensaje', 'Registro Exitoso');
+    return redirect()->route('clienteIndex')->with('RegistroGuardado', 'Registro Exitoso');
     }
 
     public function actualizar(Cliente $cliente){
@@ -50,15 +50,15 @@ class ClientesController extends Controller
         ]);
     
         $cliente->update($campos);
-        return redirect()->route('clienteIndex')->with('clienteActualizado', 'Cliente actualizado');
+        return redirect()->route('clienteIndex')->with('RegistroActualizado', 'Registro actualizado');
     }
 
     public function eliminar(Cliente $cliente){
         try {
             $cliente->delete();
-            return redirect()->route('clienteIndex')->with('clienteEliminado', 'Cliente eliminado');
+            return redirect()->route('clienteIndex')->with('RegistroEliminado', 'Registro eliminado');
         } catch (\Throwable $th) {
-            return redirect()->route('clienteIndex')->with('ErrorEliminacionCliente', 'Cliente No eliminado');;
+            return redirect()->route('clienteIndex')->with('ErrorEliminacionRegistro', 'Registro No eliminado');;
         }
     }
 
