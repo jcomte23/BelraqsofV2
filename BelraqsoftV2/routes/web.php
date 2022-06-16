@@ -33,8 +33,8 @@ Route::post('Clientes/{cliente?}', [ClientesController::class,"actualizarEstado"
 Route::put('Clientes/{cliente?}',[ClientesController::class,"actualizar"])->name('clienteActualizar');
 Route::delete('Clientes/{cliente?}',[ClientesController::class,"eliminar"])->name('clienteEliminar');
 
-
-Route::get('Usuarios',[UsuariosController::class,"index"])->name('usuarioIndex');
+Route::get('usuario', [UsuariosController::class, "index"])->name('usuarioIndex');
+Route::get('users', [UsuariosController::class, "index"])->name('users');
 
 Route::get('Compras',[ComprasController::class,"index"])->name('compraIndex');
 Route::get('Compras/Registrar',[ComprasController::class,"registrar"])->name('compraRegistrar');
@@ -55,16 +55,15 @@ Route::post('Existencias/{producto?}', [ExistenciasController::class,"actualizar
 Route::put('Existencias/{producto?}',[ExistenciasController::class,"actualizar"])->name('existenciaActualizar');
 Route::delete('Existencias/{producto?}',[ExistenciasController::class,"eliminar"])->name('existenciaEliminar');
 
-// Route::get('{modulo}/{opcion?}',[generalController::class,"index"]);
+Route::get('dashboard', [LoginsController::class, "dashboard"])->name('dashboard.dashboard');
 
-
-
- Route::middleware([
-     'auth:sanctum',
-     config('jetstream.auth_session'),
-     'verified'
- ])->group(function () {
-     Route::get('/dashboard', function () {
-         return view('dashboard');
-     })->name('dashboard');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    //  Route::get('/dashboard', function () {
+    //      return view('dashboard');
+    //  })->name('dashboard');
+    Route::get('dashboard', [ReportesController::class, "index"])->name('reporteIndex');
 });
