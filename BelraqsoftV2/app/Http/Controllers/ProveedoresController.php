@@ -39,14 +39,14 @@ class ProveedoresController extends Controller
         return redirect()->route('proveedorIndex')->with('mensaje', 'Registro Exitoso');
     }
 
-    public function actualizar(Proveedor $proveedor)
+    public function actualizar(Proveedor $Proveedor)
     {
         $campos = request()->validate([
             'NombreRazonSocial' => 'required|min:3',
             'NombreContacto' => 'required',
             'NumeroContacto' => 'required',
             'TipoDocumento ' => 'required',
-            'NumeroIdenNit' => 'required|email',
+            'NumeroIdenNit' => 'required',
             'Correo' => 'required',
             'Telefonos' => 'required',
             'Descripcion' => 'required',
@@ -55,31 +55,25 @@ class ProveedoresController extends Controller
             'Estado' => 'required',
         ]);
 
-        $proveedor->update($campos);
-        return redirect()->route('proveedorIndex')->with('clienteActualizado', 'Cliente actualizado');
+        $Proveedor->update($campos);
+        return redirect()->route('proveedorIndex')->with('proveedorActualizado', 'Proveedor actualizado');
     }
 
-    public function eliminar(Proveedor $proveedor)
+    public function eliminar(Proveedor $Proveedor)
     {
         try {
-            $proveedor->delete();
-            return redirect()->route('proveedorIndex')->with('clienteEliminado', 'Cliente eliminado');
+            $Proveedor->delete();
+            return redirect()->route('proveedorIndex')->with('proveedorEliminado', 'Proveedor eliminado');
         } catch (\Throwable $th) {
-            return redirect()->route('proveedorIndex')->with('ErrorEliminacionCliente', 'Cliente No eliminado');;
+            return redirect()->route('proveedorIndex')->with('ErrorEliminacionProveedor', 'Proveedor No eliminado');;
         }
     }
 
-    public function UpdateStatusNoti(Request $request)
-    {
-
-        $NotiUpdate = Proveedor::findOrFail($request->id)->update(['Estado' => $request->Estado]);
-
-        if ($request->estatus == 0) {
-            $newStatus = '<br> <button type="button" class="btn btn-sm btn-danger">Inactiva</button>';
-        } else {
-            $newStatus = '<br> <button type="button" class="btn btn-sm btn-success">Activa</button>';
-        }
-
-        return response()->json(['var' => '' . $newStatus . '']);
+    public function actualizarEstado(Proveedor $Proveedor){
+        $campo = request()->validate([
+                'Estado'=>'required',
+        ]);
+        $Proveedor->update($campo);
+        return redirect()->route('proveedorIndex')->with('EstadoActualizado', 'Estado cambiado');
     }
 }
