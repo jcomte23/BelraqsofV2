@@ -190,37 +190,38 @@
         </div>
     </div>
 
-    @if (session('mensaje'))
+    @if (session('RegistroGuardado'))
         <script>
-            registroExitosoSimple();
+            registroExitosoCompleto("Proveedor registrado");
         </script>
     @endif
 
-    @if (session('proveedorctualizado'))
+    @if (session('RegistroActualizado'))
         <script>
-            registroActualizoSimple();
+            registroActualizoCompleto("Proveedor actualizado correctamente");
         </script>
     @endif
 
-    @if (session('proveedorEliminado'))
+    @if (session('RegistroEliminado'))
         <script>
-            registroEliminadoSimple();
+            registroEliminadoCompleto("Proveedor Eliminado");
         </script>
     @endif
 
-    @if (session('ErrorEliminacionProveedor'))
+    @if (session('ErrorEliminacionRegistro'))
         <script>
-            registroNoEliminado();
+            registroNoEliminado(
+                "Este proveedor ya tiene una venta asociada,para mantener un mejor historial te recomendamos desactivalo");
         </script>
     @endif
 
     @if (session('EstadoActualizado'))
         <script>
-            cambioEstado();
+            cambioEstado("Estado Actualizado");
         </script>
     @endif
 
-    <table id="TableProveedores" class="table text-center align-middle display">
+    <table id="TableProveedores" class="table text-center table-striped align-middle display" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">Razon social</th>
@@ -231,6 +232,7 @@
                 <th scope="col">Correo</th>
                 <th scope="col">Direccion</th>
                 <th scope="col">Operaciones</th>
+                <th scope="col">Estado</th>
             </tr>
         </thead>
         <tbody>
@@ -299,7 +301,6 @@
                     </td>
                 </tr>
 
-
                 <div class="modal fade" id="DetallesProveedores{{ $Proveedor->id }}" tabindex="-1"
                     aria-labelledby="DetallesProveedoresLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -332,8 +333,6 @@
                     </div>
                 </div>
 
-
-
                 <!-- Modal -->
                 <div class="modal fade" id="EdicionProveedores{{ $Proveedor->id }}" tabindex="-1"
                     aria-labelledby="EdicionProveedoresLabel" aria-hidden="true">
@@ -359,9 +358,9 @@
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
-                                            <input type="text" class="form-control" placeholder="Nombres del cliente"
-                                                name="NombreRazonSocial" id="NombreRazonSocial"
-                                                value="{{ old('NombreRazonSocial') }}">
+                                            <input type="text" class="form-control"
+                                                placeholder="Nombres del proveedor" name="NombreRazonSocial"
+                                                id="NombreRazonSocial" value="{{ old('NombreRazonSocial', $Proveedor->NombreRazonSocial) }}">
                                         </div>
                                         <small class="text-danger">{{ $errors->first('NombreRazonSocial') }}</small>
                                     </div>
@@ -376,7 +375,7 @@
                                                     class="material-icons align-middle"></i></span>
                                             <select class="form-select IngresoDatos form-control"
                                                 aria-label="Default select example" name="TipoDocumento"
-                                                id="TipoDocumento" value="{{ old('TipoDocumento') }}">
+                                                id="TipoDocumento" value="{{ old('TipoDocumento', $Proveedor->unionTipoDoc->Abreviatura) }}">
                                                 @foreach ($Documentos as $tipo)
                                                     <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}
                                                     </option>
@@ -396,7 +395,7 @@
                                                     class="material-icons align-middle"></i></span>
                                             <input type="text" class="form-control" placeholder="NumeroIdenNit"
                                                 name="NumeroIdenNit" id="NumeroIdenNit"
-                                                value="{{ old('NumeroIdenNit') }}">
+                                                value="{{ old('NumeroIdenNit', $Proveedor->NumeroIdenNit) }}">
                                         </div>
                                         <small class="text-danger">{{ $errors->first('NumeroIdenNit') }}</small>
                                     </div>
@@ -411,7 +410,7 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
                                             <input type="text" class="form-control" placeholder="Telefonos"
-                                                name="Telefonos" id="Telefonos" value="{{ old('Telefonos') }}">
+                                                name="Telefonos" id="Telefonos" value="{{ old('Telefonos', $Proveedor->Telefonos) }}">
                                         </div>
                                         <small class="text-danger">{{ $errors->first('Telefonos') }}</small>
                                     </div>
@@ -426,7 +425,7 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
                                             <input type="text" class="form-control" placeholder="Direccion"
-                                                name="Direccion" id="Direccion" value="{{ old('Direccion') }}">
+                                                name="Direccion" id="Direccion" value="{{ old('Direccion', $Proveedor->Direccion) }}">
                                         </div>
                                         <small class="text-danger">{{ $errors->first('Direccion') }}</small>
                                     </div>
@@ -446,7 +445,7 @@
                                                 name="Ciudad_Municipio" id="Ciudad_Municipio"
                                                 value="{{ old('Ciudad_Municipio') }}">
                                         </div>
-                                        <small class="text-danger">{{ $errors->first('Ciudad_Municipio') }}</small>
+                                        <small class="text-danger">{{ $errors->first('Ciudad_Municipio', $Proveedor->Ciudad_Municipio) }}</small>
                                     </div>
 
                                     <!-- NIVEL 3 -->
@@ -461,7 +460,7 @@
                                                     class="material-icons align-middle"></i></span>
                                             <input type="text" class="form-control" placeholder="NombreContacto"
                                                 name="NombreContacto" id="NombreContacto"
-                                                value="{{ old('NombreContacto') }}">
+                                                value="{{ old('NombreContacto', $Proveedor->NombreContacto) }}">
                                         </div>
                                         <small class="text-danger">{{ $errors->first('NombreContacto') }}</small>
                                     </div>
@@ -477,7 +476,7 @@
                                                     class="material-icons align-middle"></i></span>
                                             <input type="text" class="form-control" placeholder="NumeroContacto"
                                                 name="NumeroContacto" id="NumeroContacto"
-                                                value="{{ old('NumeroContacto') }}">
+                                                value="{{ old('NumeroContacto', $Proveedor->NumeroContacto) }}">
                                         </div>
                                         <small class="text-danger">{{ $errors->first('NumeroContacto') }}</small>
                                     </div>
@@ -492,7 +491,7 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="material-icons align-middle"></i></span>
                                             <input type="text" class="form-control" placeholder="Correo"
-                                                name="Correo" id="Correo" value="{{ old('Correo') }}">
+                                                name="Correo" id="Correo" value="{{ old('Correo', $Proveedor->Correo) }}">
                                         </div>
                                         <small class="text-danger">{{ $errors->first('Correo') }}</small>
                                     </div>
@@ -509,7 +508,7 @@
                                         <input type="hidden" name="Estado" id="Estado" class="form-control"
                                             value="1">
                                         <input type="textarea" class="form-control" placeholder="Descripcion"
-                                            name="Descripcion" id="Descripcion" value="{{ old('Descripcion') }}">
+                                            name="Descripcion" id="Descripcion" value="{{ old('Descripcion', $Proveedor->Descripcion) }}">
                                     </div>
                                     <small class="text-danger">{{ $errors->first('Descripcion') }}</small>
                             </div>

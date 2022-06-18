@@ -36,7 +36,7 @@ class ProveedoresController extends Controller
         ]);
 
         Proveedor::create($validated);
-        return redirect()->route('proveedorIndex')->with('mensaje', 'Registro Exitoso');
+        return redirect()->route('proveedorIndex')->with('RegistroGuardado', 'Registro Exitoso');
     }
 
     public function actualizar(Proveedor $Proveedor)
@@ -56,16 +56,16 @@ class ProveedoresController extends Controller
         ]);
 
         $Proveedor->update($campos);
-        return redirect()->route('proveedorIndex')->with('proveedorActualizado', 'Proveedor actualizado');
+        return redirect()->route('proveedorIndex')->with('RegistroActualizado', 'Proveedor actualizado');
     }
 
     public function eliminar(Proveedor $Proveedor)
     {
         try {
             $Proveedor->delete();
-            return redirect()->route('proveedorIndex')->with('proveedorEliminado', 'Proveedor eliminado');
+            return redirect()->route('proveedorIndex')->with('RegistroEliminado', 'Proveedor eliminado');
         } catch (\Throwable $th) {
-            return redirect()->route('proveedorIndex')->with('ErrorEliminacionProveedor', 'Proveedor No eliminado');;
+            return redirect()->route('proveedorIndex')->with('ErrorEliminacionRegistro', 'Proveedor No eliminado');;
         }
     }
 

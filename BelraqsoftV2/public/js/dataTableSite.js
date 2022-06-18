@@ -31,7 +31,8 @@ $(document).ready( function () {
                 'next':'Siguiente',
                 'previous':'Anterior'
             }
-        }
+        },
+        "order":[ [8, 'asc'],[0, 'asc']]
     });
 
     $('#TableExistencias').DataTable({
