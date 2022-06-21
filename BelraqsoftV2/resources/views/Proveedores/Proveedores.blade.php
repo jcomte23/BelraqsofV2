@@ -220,7 +220,7 @@
             cambioEstado("Estado Actualizado");
         </script>
     @endif
-
+    
     <table id="TableProveedores" class="table text-center table-striped align-middle display" style="width:100%">
         <thead>
             <tr>
