@@ -10,6 +10,7 @@ class Venta extends Model
 {
     use HasFactory;
     protected $table="ventas";
+    protected $guarded= [];
 
     public function unionCliente(){
         return $this->belongsTo(Cliente::class,'Cliente');

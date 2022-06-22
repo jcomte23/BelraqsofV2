@@ -83,8 +83,8 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="bi bi-currency-dollar"></i></span>
-                                <input type="number" class="form-control" placeholder="Valor unitario"
-                                    name="ValorUnitario" id="ValorUnitario" value="{{ old('ValorUnitario') }}">
+                                <input type="number" class="form-control" placeholder="Valor unitario" name="ValorUnitario"
+                                    id="ValorUnitario" value="{{ old('ValorUnitario') }}">
                             </div>
                             <small class="text-danger">{{ $errors->first('ValorUnitario') }}</small>
                         </div>
@@ -139,33 +139,33 @@
         </div>
     </div>
 
-    @if (session('mensaje'))
+    @if (session('RegistroGuardado'))
         <script>
-            registroExitosoCompleto();
+            registroExitosoCompleto("Producto registrado");
         </script>
     @endif
 
-    @if (session('EstadoActualizado'))
+    @if (session('RegistroActualizado'))
         <script>
-            cambioEstado();
+            registroActualizoCompleto("Producto actualizado correctamente");
         </script>
     @endif
 
-    @if (session('registroActualizado'))
+    @if (session('RegistroEliminado'))
         <script>
-            registroActualizoCompleto();
-        </script>
-    @endif
-
-    @if (session('registroEliminado'))
-        <script>
-            registroEliminadoCompleto();
+            registroEliminadoCompleto("Producto Eliminado");
         </script>
     @endif
 
     @if (session('ErrorEliminacionRegistro'))
         <script>
-            registroNoEliminado();
+            registroNoEliminado("Este producto ya tiene una venta asociada,para mantener un mejor historial te recomendamos desactivalo");
+        </script>
+    @endif
+
+    @if (session('EstadoActualizado'))
+        <script>
+            cambioEstado("Estado Actualizado");
         </script>
     @endif
 
@@ -206,7 +206,8 @@
                                     class="bi bi-pencil-fill"></i></a>
                             @csrf @method('DELETE')
                             <button class="btn btn-danger boton-listado" data-bs-toggle="modal"
-                                data-bs-target="#EliminarProducto" type="button"><i class="bi bi-trash-fill"></i></button>
+                                data-bs-target="#EliminarProducto" type="button"><i
+                                    class="bi bi-trash-fill"></i></button>
 
                             <div class="modal fade" id="EliminarProducto" tabindex="-1"
                                 aria-labelledby="EliminarProductoLabel" aria-hidden="true">
@@ -237,10 +238,12 @@
                         <form action="{{ route('productoEstado', $producto) }}" method="post">
                             @csrf
                             @if ($producto->Estado == 1)
-                                <input type="hidden" name="Estado" id="Estado" class="form-control" value="0">
+                                <input type="hidden" name="Estado" id="Estado" class="form-control"
+                                    value="0">
                                 <button type="submit" class="btn btn-primary">Activo</button>
                             @else
-                                <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
+                                <input type="hidden" name="Estado" id="Estado" class="form-control"
+                                    value="1">
                                 <button type="submit" class="btn btn-secondary">Inactivo</button>
                             @endif
                         </form>
@@ -304,7 +307,8 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-caret-right-fill"></i></span>
                                             <input type="text" class="form-control" placeholder="Nombre del producto"
-                                                name="Nombre" id="Nombre" value="{{ old('Nombre', $producto->Nombre) }}">
+                                                name="Nombre" id="Nombre"
+                                                value="{{ old('Nombre', $producto->Nombre) }}">
                                         </div>
                                     </div>
 
@@ -317,7 +321,8 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-caret-right-fill"></i></span>
                                             <input type="text" class="form-control" placeholder="Marca del producto"
-                                                name="Marca" id="Marca" value="{{ old('Marca', $producto->Marca) }}">
+                                                name="Marca" id="Marca"
+                                                value="{{ old('Marca', $producto->Marca) }}">
                                         </div>
                                     </div>
 
@@ -333,7 +338,8 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-asterisk"></i></span>
                                             <input type="number" class="form-control" placeholder="Stock Actual"
-                                                name="Stock" id="Stock" value="{{ old('Stock', $producto->Stock) }}">
+                                                name="Stock" id="Stock"
+                                                value="{{ old('Stock', $producto->Stock) }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -370,7 +376,8 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-currency-dollar"></i></span>
                                             <input type="number" class="form-control" placeholder="Valor dedal"
-                                                name="PrecioDedal" id="PrecioDedal" value="{{ old('PrecioDedal', $producto->PrecioDedal) }}">
+                                                name="PrecioDedal" id="PrecioDedal"
+                                                value="{{ old('PrecioDedal', $producto->PrecioDedal) }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -388,15 +395,18 @@
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-currency-dollar"></i></i></span>
                                             <input type="number" class="form-control" placeholder="Valor mayor"
-                                                name="PrecioMayor" id="PrecioMayor" value="{{ old('PrecioMayor', $producto->PrecioMayor) }}">
+                                                name="PrecioMayor" id="PrecioMayor"
+                                                value="{{ old('PrecioMayor', $producto->PrecioMayor) }}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
+                                        <input type="hidden" name="Estado" id="Estado" class="form-control"
+                                            value="1">
                                     </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">cancelar</button>
                                 <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Actualizar">
                             </div>
                             </form>

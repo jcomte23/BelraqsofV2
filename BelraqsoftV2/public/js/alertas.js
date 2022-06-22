@@ -1,4 +1,4 @@
-function registroExitosoSimple(){
+function registroExitosoSimple(mensaje){
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -13,20 +13,20 @@ function registroExitosoSimple(){
       
       Toast.fire({
         icon: 'success',
-        title: 'Registro Exitoso'
+        title: mensaje
       })
 }
 
-function registroExitosoCompleto(){
+function registroExitosoCompleto(mensaje){
     Swal.fire({
         icon: 'success',
-        title: 'Registro Exitoso',
+        title: mensaje,
         showConfirmButton: false,
         timer: 2000
       })
 }
 
-function registroActualizoSimple(){
+function registroActualizoSimple(mensaje){
   const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -41,21 +41,21 @@ function registroActualizoSimple(){
     
     Toast.fire({
       icon: 'success',
-      title: 'Cliente Actualizado'
+      title: mensaje
     })
 }
 
-function registroActualizoCompleto(){
+function registroActualizoCompleto(mensaje){
   Swal.fire({
       icon: 'success',
-      title: 'Cliente Actualizado',
+      title: mensaje,
       showConfirmButton: false,
       timer: 2000
     })
 }
 
 
-function registroEliminadoSimple(){
+function registroEliminadoSimple(mensaje){
   const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -70,29 +70,29 @@ function registroEliminadoSimple(){
     
     Toast.fire({
       icon: 'success',
-      title: 'Cliente Eliminado'
+      title: mensaje
     })
 }
 
-function registroEliminadoCompleto(){
+function registroEliminadoCompleto(mensaje){
   Swal.fire({
       icon: 'success',
-      title: 'Cliente Eliminado',
+      title: mensaje,
       showConfirmButton: false,
       timer: 2000
     })
 }
 
-function registroNoEliminado(){
+function registroNoEliminado(mensaje){
   Swal.fire({
     icon: 'error',
     title: 'Oops...',
-    text: 'Este cliente ya tiene una venta asociada,para mantener un mejor historial te recomendamos desactivalo',
+    text: mensaje,
   })
 }
 
 
-function cambioEstado(){
+function cambioEstado(mensaje){
   const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -107,7 +107,7 @@ function cambioEstado(){
     
     Toast.fire({
       icon: 'success',
-      title: 'Estado Actualizado'
+      title: mensaje
     })
 }
 

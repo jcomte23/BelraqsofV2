@@ -12,4 +12,12 @@ class VentasController extends Controller
         $ventas=Venta::all();
         return view("$modulo.$modulo",compact('modulo'),['ventas'=>$ventas]);
     }
+
+    public function actualizarEstado(Venta $venta){ 
+        $campo = request()->validate([
+                'Estado'=>'required',
+        ]);
+        $venta->update($campo);
+        return redirect()->route('ventaIndex')->with('EstadoActualizado', 'Estado cambiado');
+    }
 }

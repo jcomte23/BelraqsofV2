@@ -45,9 +45,13 @@ Route::get('Pedidos/Registrar',[PedidosController::class,"registrar"])->name('pe
 Route::get('Pedidos/Editar',[PedidosController::class,"editar"])->name('pedidoEditar');
 
 Route::get('Ventas',[VentasController::class,"index"])->name('ventaIndex');
+Route::post('Ventas/{venta?}', [VentasController::class,"actualizarEstado"])->name('ventaEstado');
 
 Route::get('Proveedores',[ProveedoresController::class,"index"])->name('proveedorIndex');
 Route::post('Proveedores',[ProveedoresController::class,"create"])->name('proveedorRegistrar');
+Route::post('Proveedores/{Proveedor?}', [ProveedoresController::class,"actualizarEstado"])->name('proveedorEstado');
+Route::put('Proveedores/{Proveedor?}',[ProveedoresController::class,"actualizar"])->name('proveedorActualizar');
+Route::delete('Proveedores/{Proveedor?}',[ProveedoresController::class,"eliminar"])->name('ProveedorEliminar');
 
 Route::get('Existencias',[ExistenciasController::class,"index"])->name('existenciaIndex');
 Route::post('Existencias',[ExistenciasController::class,"create"])->name('existenciaRegistrar');

@@ -25,7 +25,7 @@ class ExistenciasController extends Controller
         ]);
     
         Existencia::create($validated);
-        return redirect()->route('existenciaIndex')->with('mensaje', 'Registro Exitoso');
+        return redirect()->route('existenciaIndex')->with('RegistroGuardado', 'Registro Exitoso');
     }
 
     public function actualizar(Existencia $producto){
@@ -40,15 +40,15 @@ class ExistenciasController extends Controller
         ]);
     
         $producto->update($campos);
-        return redirect()->route('existenciaIndex')->with('registroActualizado', 'Registro actualizado');
+        return redirect()->route('existenciaIndex')->with('RegistroActualizado', 'Registro actualizado');
     }
 
     public function eliminar(Existencia $producto){
         try {
             $producto->delete();
-            return redirect()->route('existenciaIndex')->with('registroEliminado', 'Cliente eliminado');
+            return redirect()->route('existenciaIndex')->with('RegistroEliminado', 'Registro eliminado');
         } catch (\Throwable $th) {
-            return redirect()->route('existenciaIndex')->with('ErrorEliminacionRegistro', 'Cliente No eliminado');;
+            return redirect()->route('existenciaIndex')->with('ErrorEliminacionRegistro', 'Registro No eliminado');;
         }
     }
 
