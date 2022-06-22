@@ -65,12 +65,18 @@
                         <a href="{{ url('/Reportes') }}" class="logo titulo"><b><span>S.O.S</span>Belleza</b></a>
                     </div>
                     <div class="col-lg-2">
+                        <form action="{{ route('logout') }}" method="post" name="logout">
+                            @csrf
                         <div class="top-menu ">
                             <ul class="nav pull-right top-menu rounded boton_cerrar_session">
-                                <li class="alineacion_boton"><a class="logout" href="{{ url('/') }}">Cerrar
-                                        sesion</a></li>
+                                
+                                    <li class="alineacion_boton"><button type="submit" class="logout">Cerrar Sesion</button></li>
+                                
+                                
+                                
                             </ul>
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>
