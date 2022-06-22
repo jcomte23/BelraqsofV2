@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('existencias', function (Blueprint $table) {
             $table->id();
             $table->string('Nombre');
-            $table->string('Marca',25);
+            $table->string('Marca');
             $table->integer('Stock');
             $table->double('ValorUnitario');
             $table->double('PrecioDedal');
