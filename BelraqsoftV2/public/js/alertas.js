@@ -111,3 +111,9 @@ function cambioEstado(mensaje){
     })
 }
 
+
+$(document).ready(function () {
+
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+});
