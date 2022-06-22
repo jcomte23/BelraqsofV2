@@ -168,33 +168,33 @@
         </div>
     </div>
 
-    @if (session('mensaje'))
+    @if (session('RegistroGuardado'))
         <script>
-            registroExitosoCompleto();
+            registroExitosoCompleto("Cliente registrado");
         </script>
     @endif
 
-    @if (session('clienteActualizado'))
+    @if (session('RegistroActualizado'))
         <script>
-            registroActualizoCompleto();
+            registroActualizoCompleto("Cliente actualizado correctamente");
         </script>
     @endif
 
-    @if (session('clienteEliminado'))
+    @if (session('RegistroEliminado'))
         <script>
-            registroEliminadoCompleto();
+            registroEliminadoCompleto("cliente Eliminado");
         </script>
     @endif
 
-    @if (session('ErrorEliminacionCliente'))
+    @if (session('ErrorEliminacionRegistro'))
         <script>
-            registroNoEliminado();
+            registroNoEliminado("Este cliente ya tiene una venta asociada,para mantener un mejor historial te recomendamos desactivalo");
         </script>
     @endif
 
     @if (session('EstadoActualizado'))
         <script>
-            cambioEstado();
+            cambioEstado("Estado Actualizado");
         </script>
     @endif
 
