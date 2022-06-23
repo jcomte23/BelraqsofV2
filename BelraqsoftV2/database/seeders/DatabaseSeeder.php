@@ -29,8 +29,8 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
         $this->call(TipoDocumentoSeeder::class);
         Cliente::factory(50)->create();
-        Proveedor::factory(50)->create();
-        Existencia::factory(15)->create();
-        Venta::factory(50)->create();
+        Proveedor::factory(15)->create();
+        Existencia::factory(20)->create();
+        Venta::factory(200)->create();
     }
 }

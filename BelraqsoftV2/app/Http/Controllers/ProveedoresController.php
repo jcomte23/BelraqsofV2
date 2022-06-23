@@ -70,10 +70,11 @@ class ProveedoresController extends Controller
     }
 
     public function actualizarEstado(Proveedor $Proveedor){
-        $campo = request()->validate([
-                'Estado'=>'required',
-        ]);
-        $Proveedor->update($campo);
+        if($Proveedor->Estado==1)
+            $Proveedor->Estado=0;
+        else        
+            $Proveedor->Estado=1;
+        $Proveedor->update();
         return redirect()->route('proveedorIndex')->with('EstadoActualizado', 'Estado cambiado');
     }
 }

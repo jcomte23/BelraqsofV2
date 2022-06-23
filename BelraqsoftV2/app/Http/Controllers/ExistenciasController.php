@@ -53,10 +53,11 @@ class ExistenciasController extends Controller
     }
 
     public function actualizarEstado(Existencia $producto){ 
-        $campo = request()->validate([
-                'Estado'=>'required',
-        ]);
-        $producto->update($campo);
+        if($producto->Estado==1)
+            $producto->Estado=0;
+        else        
+            $producto->Estado=1;
+        $producto->update();
         return redirect()->route('existenciaIndex')->with('EstadoActualizado', 'Estado cambiado');
     }
 

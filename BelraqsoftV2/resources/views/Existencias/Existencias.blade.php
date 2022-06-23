@@ -235,16 +235,12 @@
                         </form>
                     </td>
                     <td>
-                        <form action="{{ route('productoEstado', $producto) }}" method="post">
+                        <form class="form-check form-switch form-switch-md" action="{{ route('productoEstado', $producto) }}" method="post">
                             @csrf
                             @if ($producto->Estado == 1)
-                                <input type="hidden" name="Estado" id="Estado" class="form-control"
-                                    value="0">
-                                <button type="submit" class="btn btn-primary">Activo</button>
+                                <input type="checkbox" onChange="this.form.submit()" class="form-check-input" id="flexSwitchCheckChecked" checked>
                             @else
-                                <input type="hidden" name="Estado" id="Estado" class="form-control"
-                                    value="1">
-                                <button type="submit" class="btn btn-secondary">Inactivo</button>
+                            <input type="checkbox" onChange="this.form.submit()" class="form-check-input" id="flexSwitchCheckDefault">
                             @endif
                         </form>
                     </td>
