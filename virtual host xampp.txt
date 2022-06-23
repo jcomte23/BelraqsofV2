@@ -1,0 +1,28 @@
+1)Abrir bloc de notas como administrador y luego abrir el archivo "host"
+C:\Windows\System32\drivers\etc y
+127.0.0.1 https://misitio.com
+127.0.0.1 misitio.com
+
+2) Abrir el archivo
+C:\xampp\apache\conf\extra\httpd-vhosts.conf
+con bloc de notas
+
+3)Colocar debajo de todo
+
+<VirtualHost *:80>
+DocumentRoot C:/xampp/htdocs/
+ServerName localhost
+</VirtualHost>
+
+<VirtualHost *:80>
+ServerName misitio.com
+DocumentRoot C:/xampp/htdocs/el_nombre_de_la_carpeta
+</VirtualHost>
+
+<VirtualHost *:443>
+DocumentRoot C:/xampp/htdocs/el_nombre_de_la_carpeta
+ServerName misitio.com
+SSLEngine on
+SSLCertificateFile conf/ssl.crt/server.crt
+SSLCertificateKeyFile conf/ssl.key/server.key
+</VirtualHost>

@@ -43,12 +43,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.bootstrap5.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-icons-1.8.3/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/EstilosUniversales.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/toggle.css') }}">
     <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
     <script src="{{ asset('js/sweetAlert.js') }}"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
@@ -69,8 +72,12 @@
                             @csrf
                         <div class="top-menu ">
                             <ul class="nav pull-right top-menu rounded boton_cerrar_session">
+<<<<<<< HEAD
                                 
                                     <li class="alineacion_boton"><button type="submit" class="logout">Cerrar Sesion</button></li>
+=======
+                                <li class="alineacion_boton"><button type="submit" class="logout">Cerrar Sesion</button></li>
+>>>>>>> 3912cffd05a22eeb76896365c685f7c98490804b
                             </ul>
                         </div>
                     </form>

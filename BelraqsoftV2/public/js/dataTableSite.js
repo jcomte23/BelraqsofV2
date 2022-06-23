@@ -14,7 +14,7 @@ $(document).ready( function () {
                 'previous':'Anterior'
             }
         },
-        "order":[ [9, 'asc'],[0, 'asc']]
+        "order":[ [9, 'desc'],[0, 'asc']]
     });
 
     $('#TableProveedores').DataTable({

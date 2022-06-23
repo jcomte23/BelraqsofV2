@@ -31,8 +31,7 @@
                                 <label class="label">Ingrese nombre o razon social:</label><br>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                 <input type="text" class="form-control" placeholder="Nombres del cliente"
                                     name="NombreRazonSocial" id="NombreRazonSocial"
                                     value="{{ old('NombreRazonSocial') }}">
@@ -47,7 +46,7 @@
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                    class="bi bi-caret-right-fill"></i></span>
                                 <select class="form-select IngresoDatos form-control" aria-label="Default select example"
                                     name="TipoDocumento" id="TipoDocumento" value="{{ old('TipoDocumento') }}">
                                     @foreach ($Documentos as $tipo)
@@ -64,8 +63,7 @@
                                 <label class="label">Numero / NIT:</label><br>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-asterisk"></i></span>
                                 <input type="text" class="form-control" placeholder="NumeroIdenNit" name="NumeroIdenNit"
                                     id="NumeroIdenNit" value="{{ old('NumeroIdenNit') }}">
                             </div>
@@ -76,11 +74,10 @@
                         <!--telefono  -->
                         <div class="col-lg-3">
                             <div class="d-flex justify-content-center">
-                                <label class="label">Telefono</label><br>
+                                <label class="label">Teléfono</label><br>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
                                 <input type="text" class="form-control" placeholder="Telefonos" name="Telefonos"
                                     id="Telefonos" value="{{ old('Telefonos') }}">
                             </div>
@@ -91,11 +88,10 @@
                         <!--Direccion -->
                         <div class="col-lg-6">
                             <div class="d-flex justify-content-center">
-                                <label class="label">Direccion</label><br>
+                                <label class="label">Dirección</label><br>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
                                 <input type="text" class="form-control" placeholder="Direccion" name="Direccion"
                                     id="Direccion" value="{{ old('Direccion') }}">
                             </div>
@@ -111,8 +107,7 @@
                                 <label class="label">Ciudad / Municipio</label><br>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
                                 <input type="text" class="form-control" placeholder="Ciudad_Municipio"
                                     name="Ciudad_Municipio" id="Ciudad_Municipio"
                                     value="{{ old('Ciudad_Municipio') }}">
@@ -128,8 +123,7 @@
                                     contacto:</label><br>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                 <input type="text" class="form-control" placeholder="NombreContacto"
                                     name="NombreContacto" id="NombreContacto" value="{{ old('NombreContacto') }}">
                             </div>
@@ -139,12 +133,11 @@
                         <!--Numero de contacto -->
                         <div class="col-lg-4">
                             <div class="d-flex justify-content-center">
-                                <label class="label">Ingrese numero del
+                                <label class="label">Ingrese número del
                                     contacto:</label><br>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
                                 <input type="text" class="form-control" placeholder="NumeroContacto"
                                     name="NumeroContacto" id="NumeroContacto" value="{{ old('NumeroContacto') }}">
                             </div>
@@ -158,8 +151,7 @@
                                 <label class="label">Correo:</label><br>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-at"></i></span>
                                 <input type="text" class="form-control" placeholder="Correo" name="Correo"
                                     id="Correo" value="{{ old('Correo') }}">
                             </div>
@@ -173,8 +165,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1"><i
-                                    class="material-icons align-middle"></i></span>
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-blockquote-left"></i></span>
                             <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                             <input type="textarea" class="form-control" placeholder="Descripcion" name="Descripcion"
                                 id="Descripcion" value="{{ old('Descripcion') }}">
@@ -356,8 +347,7 @@
                                             <label class="label">Ingrese nombre o razon social:</label><br>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                             <input type="text" class="form-control"
                                                 placeholder="Nombres del proveedor" name="NombreRazonSocial"
                                                 id="NombreRazonSocial" value="{{ old('NombreRazonSocial', $Proveedor->NombreRazonSocial) }}">
@@ -372,7 +362,7 @@
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                                class="bi bi-caret-right-fill"></i></span>
                                             <select class="form-select IngresoDatos form-control"
                                                 aria-label="Default select example" name="TipoDocumento"
                                                 id="TipoDocumento" value="{{ old('TipoDocumento', $Proveedor->unionTipoDoc->Abreviatura) }}">
@@ -391,8 +381,7 @@
                                             <label class="label">Numero / NIT:</label><br>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-asterisk"></i></span>
                                             <input type="text" class="form-control" placeholder="NumeroIdenNit"
                                                 name="NumeroIdenNit" id="NumeroIdenNit"
                                                 value="{{ old('NumeroIdenNit', $Proveedor->NumeroIdenNit) }}">
@@ -407,8 +396,7 @@
                                             <label class="label">Telefono</label><br>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
                                             <input type="text" class="form-control" placeholder="Telefonos"
                                                 name="Telefonos" id="Telefonos" value="{{ old('Telefonos', $Proveedor->Telefonos) }}">
                                         </div>
@@ -422,8 +410,7 @@
                                             <label class="label">Direccion</label><br>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
                                             <input type="text" class="form-control" placeholder="Direccion"
                                                 name="Direccion" id="Direccion" value="{{ old('Direccion', $Proveedor->Direccion) }}">
                                         </div>
@@ -439,8 +426,7 @@
                                             <label class="label">Ciudad / Municipio</label><br>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
                                             <input type="text" class="form-control" placeholder="Ciudad_Municipio"
                                                 name="Ciudad_Municipio" id="Ciudad_Municipio"
                                                 value="{{ old('Ciudad_Municipio') }}">
@@ -456,8 +442,7 @@
                                                 contacto:</label><br>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                             <input type="text" class="form-control" placeholder="NombreContacto"
                                                 name="NombreContacto" id="NombreContacto"
                                                 value="{{ old('NombreContacto', $Proveedor->NombreContacto) }}">
@@ -472,8 +457,7 @@
                                                 contacto:</label><br>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
                                             <input type="text" class="form-control" placeholder="NumeroContacto"
                                                 name="NumeroContacto" id="NumeroContacto"
                                                 value="{{ old('NumeroContacto', $Proveedor->NumeroContacto) }}">
@@ -488,8 +472,7 @@
                                             <label class="label">Correo:</label><br>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-at"></i></span>
                                             <input type="text" class="form-control" placeholder="Correo"
                                                 name="Correo" id="Correo" value="{{ old('Correo', $Proveedor->Correo) }}">
                                         </div>
@@ -503,8 +486,7 @@
                                         </div>
                                     </div>
                                     <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1"><i
-                                                class="material-icons align-middle"></i></span>
+                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-blockquote-left"></i></span>
                                         <input type="hidden" name="Estado" id="Estado" class="form-control"
                                             value="1">
                                         <input type="textarea" class="form-control" placeholder="Descripcion"

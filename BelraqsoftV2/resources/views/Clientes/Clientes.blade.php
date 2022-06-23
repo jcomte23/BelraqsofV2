@@ -33,8 +33,7 @@
                                 <label class="form-label ">Nombres</label>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                 <input type="text" class="form-control" placeholder="Nombres del cliente" name="Nombres"
                                     id="Nombres" value="{{ old('Nombres') }}">
                             </div>
@@ -46,8 +45,7 @@
                                 <label class="form-label">Apellido</label>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                 <input type="text" class="form-control" placeholder="Apellidos de cliente"
                                     name="Apellidos" id="Apellidos" value="{{ old('Apellidos') }}">
                             </div>
@@ -62,7 +60,7 @@
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                    class="bi bi-caret-right-fill"></i></span>
                                 <select class="form-select IngresoDatos form-control" aria-label="Default select example"
                                     name="TipoDocumento" id="TipoDocumento" value="{{ old('TipoDocumento') }}">
                                     @foreach ($TipoDocumentos as $tipo)
@@ -78,8 +76,7 @@
                                 <label class="form-label">Documento</label>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-asterisk"></i></span>
                                 <input type="Text" class="form-control" placeholder="Documento" name="Documento"
                                     id="Documento" value="{{ old('Documento') }}">
                             </div>
@@ -90,8 +87,7 @@
                                 <label class="form-label">Correo</label>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-at"></i></span>
                                 <input type="text" class="form-control" placeholder="Correo del cliente" name="Correo"
                                     id="Correo" value="{{ old('Correo') }}">
                             </div>
@@ -105,8 +101,7 @@
                                 <label class="form-label">Fecha de nacimiento </label>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar3"></i></span>
                                 <input type="date" class="form-control" placeholder="Fecha de nacimiento del cliente"
                                     name="FechaNacimiento" id="FechaNacimiento" value="{{ old('FechaNacimiento') }}">
                             </div>
@@ -115,11 +110,10 @@
                         <div class="col-lg-6">
                             <!-- Dirección -->
                             <div class="d-flex justify-content-center">
-                                <label class="form-label">Direccion</label>
+                                <label class="form-label">Dirección</label>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
                                 <input type="text" class="form-control" placeholder="Dirección del cliente"
                                     name="Direccion" id="Direccion" value="{{ old('Direccion') }}">
                             </div>
@@ -131,8 +125,7 @@
                                 <label class="form-label">Ciudad/Municipio</label>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
                                 <input class="IngresoDatos form-control" type="text" name="Ciudad_Municipio"
                                     id="Ciudad_Municipio" value="{{ old('Ciudad_Municipio') }}">
                             </div>
@@ -144,11 +137,10 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="d-flex justify-content-center">
-                                <label class="form-label">Telefono</label>
+                                <label class="form-label">Teléfono</label>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="material-icons align-middle"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
                                 <input type="number" class="form-control" placeholder="Telefono(s)" name="Telefonos"
                                     id="Telefonos" value="{{ old('Telefonos') }}">
                             </div>
@@ -264,14 +256,12 @@
                         </form>
                     </td>
                     <td>
-                        <form action="{{ route('clienteEstado', $cliente) }}" method="post">
+                        <form class="form-check form-switch form-switch-md" action="{{ route('clienteEstado', $cliente) }}" method="post">
                             @csrf
                             @if ($cliente->Estado == 1)
-                                <input type="hidden" name="Estado" id="Estado" class="form-control" value="0">
-                                <button type="submit" class="btn btn-primary">Activo</button>
+                                <input type="checkbox" onChange="this.form.submit()" class="form-check-input" id="flexSwitchCheckChecked" checked>
                             @else
-                                <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
-                                <button type="submit" class="btn btn-secondary">Inactivo</button>
+                            <input type="checkbox" onChange="this.form.submit()" class="form-check-input" id="flexSwitchCheckDefault">
                             @endif
                         </form>
                     </td>
@@ -334,8 +324,7 @@
                                             <label class="form-label ">Nombres</label>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                             <input type="text" class="form-control" placeholder="Nombres del cliente"
                                                 name="Nombres" id="Nombres"
                                                 value="{{ old('Nombres', $cliente->Nombres) }}">
@@ -347,8 +336,7 @@
                                             <label class="form-label">Apellido</label>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
                                             <input type="text" class="form-control" placeholder="Apellidos de cliente"
                                                 name="Apellidos" id="Apellidos"
                                                 value="{{ old('Apellidos', $cliente->Apellidos) }}">
@@ -363,7 +351,7 @@
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                                class="bi bi-caret-right-fill"></i></span>
                                             <select class="form-select IngresoDatos form-control"
                                                 aria-label="Default select example" name="TipoDocumento" id="TipoDocumento"
                                                 value="{{ old('TipoDocumento', $cliente->unionTipoDoc->Abreviatura) }}">
@@ -380,8 +368,7 @@
                                             <label class="form-label">Documento</label>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-asterisk"></i></span>
                                             <input type="Text" class="form-control" placeholder="Documento"
                                                 name="Documento" id="Documento"
                                                 value="{{ old('Documento', $cliente->Documento) }}">
@@ -392,8 +379,7 @@
                                             <label class="form-label">Correo</label>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-at"></i></span>
                                             <input type="text" class="form-control" placeholder="Correo del cliente"
                                                 name="Correo" id="Correo" value="{{ old('Correo', $cliente->Correo) }}">
                                         </div>
@@ -406,8 +392,7 @@
                                             <label class="form-label">Fecha de nacimiento </label>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar3"></i></span>
                                             <input type="date" class="form-control"
                                                 placeholder="Fecha de nacimiento del cliente" name="FechaNacimiento"
                                                 id="FechaNacimiento"
@@ -417,11 +402,10 @@
                                     <div class="col-lg-6">
                                         <!-- Dirección -->
                                         <div class="d-flex justify-content-center">
-                                            <label class="form-label">Direccion</label>
+                                            <label class="form-label">Dirección</label>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
                                             <input type="text" class="form-control" placeholder="Dirección del cliente"
                                                 name="Direccion" id="Direccion"
                                                 value="{{ old('Direccion', $cliente->Direccion) }}">
@@ -433,8 +417,7 @@
                                             <label class="form-label">Ciudad/Municipio</label>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
                                             <input class="IngresoDatos form-control" type="text" name="Ciudad_Municipio"
                                                 id="Ciudad_Municipio"
                                                 value="{{ old('Ciudad_Municipio', $cliente->Ciudad_Municipio) }}">
@@ -446,11 +429,10 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="d-flex justify-content-center">
-                                            <label class="form-label">Telefono</label>
+                                            <label class="form-label">Teléfono</label>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i
-                                                    class="material-icons align-middle"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
                                             <input type="number" class="form-control" placeholder="Telefono(s)"
                                                 name="Telefonos" id="Telefonos"
                                                 value="{{ old('Telefonos', $cliente->Telefonos) }}">

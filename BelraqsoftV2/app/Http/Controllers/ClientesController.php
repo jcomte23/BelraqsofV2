@@ -63,10 +63,12 @@ class ClientesController extends Controller
     }
 
     public function actualizarEstado(Cliente $cliente){ 
-        $campo = request()->validate([
-                'Estado'=>'required',
-        ]);
-        $cliente->update($campo);
+
+        if($cliente->Estado==1)
+            $cliente->Estado=0;
+        else        
+            $cliente->Estado=1;
+        $cliente->update();
         return redirect()->route('clienteIndex')->with('EstadoActualizado', 'Estado cambiado');
     }
 }
