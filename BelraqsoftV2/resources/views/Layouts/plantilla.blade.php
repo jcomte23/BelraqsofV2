@@ -71,9 +71,6 @@
                             <ul class="nav pull-right top-menu rounded boton_cerrar_session">
                                 
                                     <li class="alineacion_boton"><button type="submit" class="logout">Cerrar Sesion</button></li>
-                                
-                                
-                                
                             </ul>
                         </div>
                     </form>
