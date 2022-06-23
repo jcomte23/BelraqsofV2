@@ -14,10 +14,11 @@ class VentasController extends Controller
     }
 
     public function actualizarEstado(Venta $venta){ 
-        $campo = request()->validate([
-                'Estado'=>'required',
-        ]);
-        $venta->update($campo);
+        if($venta->Estado==1)
+            $venta->Estado=0;
+        else        
+            $venta->Estado=1;
+        $venta->update();
         return redirect()->route('ventaIndex')->with('EstadoActualizado', 'Estado cambiado');
     }
 }

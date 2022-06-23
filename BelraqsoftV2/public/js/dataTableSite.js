@@ -32,7 +32,7 @@ $(document).ready( function () {
                 'previous':'Anterior'
             }
         },
-        "order":[ [8, 'asc'],[0, 'asc']]
+        "order":[ [8, 'desc'],[0, 'asc']]
     });
 
     $('#TableExistencias').DataTable({
@@ -50,7 +50,7 @@ $(document).ready( function () {
                 'previous':'Anterior'
             }
         },
-        "order":[ [8, 'asc'],[0, 'asc']]
+        "order":[ [8, 'desc'],[0, 'asc']]
     });
 
     $('#TableVentas').DataTable({
@@ -68,7 +68,7 @@ $(document).ready( function () {
                 'previous':'Anterior'
             }
         },
-        "order":[ [8, 'asc'],[0, 'asc']]
+        "order":[ [8, 'desc'],[0, 'asc']]
     });
     
 } );

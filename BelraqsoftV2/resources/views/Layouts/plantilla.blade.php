@@ -72,12 +72,7 @@
                             @csrf
                         <div class="top-menu ">
                             <ul class="nav pull-right top-menu rounded boton_cerrar_session">
-<<<<<<< HEAD
-                                
-                                    <li class="alineacion_boton"><button type="submit" class="logout">Cerrar Sesion</button></li>
-=======
                                 <li class="alineacion_boton"><button type="submit" class="logout">Cerrar Sesion</button></li>
->>>>>>> 3912cffd05a22eeb76896365c685f7c98490804b
                             </ul>
                         </div>
                     </form>
