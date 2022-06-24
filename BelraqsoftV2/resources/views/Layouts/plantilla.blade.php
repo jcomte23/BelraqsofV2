@@ -142,10 +142,10 @@
     </aside>
 
     <!-- CUERPO DEL DOCUMENTO-->
-    <section id="main-content" class="contenedor">
+    <section id="main-content" class="contenedor ">
         <section class="wrapper">
             <div class="row">
-                <div class="col-lg-12 main-chart">
+                <div id="SeccionPrincipal" class="main-chart   ">
                     @yield('content')
                 </div>
             </div>

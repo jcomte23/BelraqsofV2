@@ -10,8 +10,8 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Nombre') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-label for="name" value="{{ __('Documento') }}" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="document" :value="old('document')" required autofocus autocomplete="document" />
             </div>
 
             <div class="mt-4">
