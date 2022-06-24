@@ -157,11 +157,10 @@
     <footer class="site-footer">
         <div class="text-center">
             <p>
-                &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
+                &copy; Copyrights <strong>Belraqsoft</strong>. Todos los derechos reservados
             </p>
             <div class="credits">
-
-                Created with Dashio template by <a href="">TemplateMag</a>
+                Proyecto educativo creado con el <a href="">Sena</a>
             </div>
         </div>
     </footer>
