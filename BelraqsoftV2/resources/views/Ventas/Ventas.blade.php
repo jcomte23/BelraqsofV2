@@ -11,7 +11,7 @@
         </script>
     @endif
 
-    <table id="TableVentas" class="table text-center table-striped align-middle display" style="width:100%">
+    <table id="TableVentas" class="table text-center table-striped  display" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">CODG</th>

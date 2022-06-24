@@ -12,8 +12,24 @@ body {
     font-size: 13px;
 }
 
+#SeccionPrincipal nav {
+    padding: 0;
+}
+
+#SeccionPrincipal nav div {
+    padding: 0;
+}
+
 ul li {
     list-style: none;
+}
+
+td {
+    vertical-align: middle !important;
+}
+
+th {
+    vertical-align: middle !important;
 }
 
 a,
@@ -23,15 +39,6 @@ a:focus {
     outline: none;
 }
 
-/* ::selection {
-    background: blue;
-    color: blue;
-} */
-
-/* ::-moz-selection {                                                                                                                                      
-    background: ;
-    color: #fff;
-} */
 
 #container {
     width: 100%;
@@ -39,7 +46,7 @@ a:focus {
 }
 
 
-/* Bootstrap Modifications */
+/* Bootstrap Modificaciones */
 
 .header{
     background: rgb(36, 36, 36);
