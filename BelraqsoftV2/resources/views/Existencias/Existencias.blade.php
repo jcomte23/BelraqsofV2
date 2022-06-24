@@ -4,7 +4,7 @@
 
 @section('content')
     <nav class="navbar navbar-light">
-        <div class="container-fluid barraSuperior">
+        <div class="container-fluid">
             <h1 class="fw-bold">{{ $modulo }}</h1>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#FormularioRegistro{{ $modulo }}"><i class="bi bi-person-plus-fill"></i> Nuevo</button>

@@ -12,6 +12,14 @@ body {
     font-size: 13px;
 }
 
+#SeccionPrincipal nav{
+    padding: 0;
+}
+
+#SeccionPrincipal nav div{
+    padding: 0;
+}
+
 ul li {
     list-style: none;
 }

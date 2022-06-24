@@ -5,7 +5,7 @@
 @section('content')
 
     <nav class="navbar navbar-light">
-        <div class="container-fluid barraSuperior">
+        <div class="container-fluid">
             <h1 class="fw-bold">{{ $modulo }}</h1>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#FormularioRegistroProveedores"><i class="bi bi-person-plus-fill"></i> Nuevo</button>
@@ -217,10 +217,10 @@
             <tr>
                 <th scope="col">Razon social</th>
                 <th scope="col">Documento</th>
-                <th scope="col">Descripcion</th>
                 <th scope="col">Contacto Interno</th>
                 <th scope="col">Teléfono Contacto</th>
                 <th scope="col">Correo</th>
+                <th scope="col">Telefonos</th>
                 <th scope="col">Direccion</th>
                 <th scope="col">Operaciones</th>
                 <th scope="col">Estado</th>
@@ -231,10 +231,10 @@
                 <tr>
                     <td>{{ $Proveedor->NombreRazonSocial }}</td>
                     <td>{{ $Proveedor->unionTipoDoc->Abreviatura }}-{{ $Proveedor->NumeroIdenNit }}</td>
-                    <td>{{ $Proveedor->Descripcion }}</td>
                     <td>{{ $Proveedor->NombreContacto }}</td>
                     <td>{{ $Proveedor->NumeroContacto }}</td>
                     <td>{{ $Proveedor->Correo }}</td>
+                    <td>{{ $Proveedor->Telefonos }}</td>
                     <td>{{ $Proveedor->Direccion }}</td>
                     <td>
                         <form action="{{ route('ProveedorEliminar', $Proveedor) }}" method="post"
