@@ -142,7 +142,7 @@
     </aside>
 
     <!-- CUERPO DEL DOCUMENTO-->
-    <section id="main-content" class="contenedor">
+    <section id="main-content" class="contenedor ">
         <section class="wrapper">
             <div class="row">
                 <div id="SeccionPrincipal" class="main-chart">

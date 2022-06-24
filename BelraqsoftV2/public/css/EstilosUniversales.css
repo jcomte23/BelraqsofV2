@@ -41,12 +41,6 @@ footer {
     margin-right: 2.5% !important;
 }
 
-.switchEstado{
-    font-size: 25px;
-    margin-left: 0px!important;
-    margin-right: 0px !important;
-    padding-left: 0px !important;
-}
 
 .swal2-icon.swal2-warning{
     border-color: red !important;
