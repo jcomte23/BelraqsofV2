@@ -65,7 +65,7 @@
             <div class="col-lg-12 superior">
                 <div class="row">
                     <div class="col-lg-10">
-                        <a href="{{ url('/Reportes') }}" class="logo titulo"><b><span>S.O.S</span>Belleza</b></a>
+                        <a href="{{ url('/Reportes') }}" class="logo titulo"><b><span>S.O.S</span> Belleza</b></a>
                     </div>
                     <div class="col-lg-2">
                         <form action="{{ route('logout') }}" method="post" name="logout">
@@ -145,7 +145,7 @@
     <section id="main-content" class="contenedor ">
         <section class="wrapper">
             <div class="row">
-                <div id="SeccionPrincipal" class="main-chart   ">
+                <div id="SeccionPrincipal" class="main-chart">
                     @yield('content')
                 </div>
             </div>

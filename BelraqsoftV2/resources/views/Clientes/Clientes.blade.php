@@ -11,6 +11,7 @@
         </div>
     </nav>
 
+
     <!-- Modal Registro de Clientes-->
     <div class="modal fade" id="FormularioRegistro{{ $modulo }}" tabindex="-1"
         aria-labelledby="FormularioRegistro{{ $modulo }}Label" aria-hidden="true">

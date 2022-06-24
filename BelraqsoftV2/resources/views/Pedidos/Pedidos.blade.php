@@ -4,7 +4,7 @@
 
 @section('content')
 
-<nav class="navbar">
+<nav class="navbar" >
     <div class="container p-0">
         <form class="d-flex" action="{{ url('/'.$modulo)}}" method="post">
             <h1 class="fw-bold">{{$modulo}}</h1>
