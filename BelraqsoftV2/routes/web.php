@@ -33,7 +33,8 @@ Route::post('Clientes/{cliente?}', [ClientesController::class, "actualizarEstado
 Route::put('Clientes/{cliente?}', [ClientesController::class, "actualizar"])->name('clienteActualizar');
 Route::delete('Clientes/{cliente?}', [ClientesController::class, "eliminar"])->name('clienteEliminar');
 
-Route::get('usuario', [UsuariosController::class, "index"])->name('usuarioIndex');
+Route::get('Usuarios', [UsuariosController::class, "index"])->name('usuarioIndex');
+Route::post('Usuarios', [UsuariosController::class,"create"])->name('usuarioRegistrar');
 Route::get('users', [UsuariosController::class, "index"])->name('users');
 
 Route::get('Compras', [ComprasController::class, "index"])->name('compraIndex');
@@ -66,8 +67,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    //  Route::get('/dashboard', function () {
-    //      return view('dashboard');
-    //  })->name('dashboard');
-    // Route::get('dashboard', [ReportesController::class, "index"])->name('reporteIndex');
+     Route::get('/dashboard', function () {
+         return view('dashboard');
+     })->name('dashboard');
+    Route::get('dashboard', [ReportesController::class, "index"])->name('reporteIndex');
 });
