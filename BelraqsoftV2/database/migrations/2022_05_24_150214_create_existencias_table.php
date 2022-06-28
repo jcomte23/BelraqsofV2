@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Marca');
             $table->integer('Stock');
             $table->double('ValorUnitario');
-            $table->double('PrecioDedal');
+            $table->double('PrecioDetal');
             $table->double('PrecioMayor');
             $table->boolean('Estado')->default(true);
             $table->timestamps();

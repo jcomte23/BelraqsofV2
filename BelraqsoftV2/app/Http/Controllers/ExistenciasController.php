@@ -19,7 +19,7 @@ class ExistenciasController extends Controller
             'Marca'=>'required',
             'Stock'=>'required',
             'ValorUnitario'=>'required',
-            'PrecioDedal'=>'required',
+            'PrecioDetal'=>'required',
             'PrecioMayor'=>'required',
             'Estado'=>'required',
         ]);
@@ -34,7 +34,7 @@ class ExistenciasController extends Controller
             'Marca'=>'required',
             'Stock'=>'required',
             'ValorUnitario'=>'required',
-            'PrecioDedal'=>'required',
+            'PrecioDetal'=>'required',
             'PrecioMayor'=>'required',
             'Estado'=>'required',
         ]);

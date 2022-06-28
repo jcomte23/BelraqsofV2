@@ -13,7 +13,7 @@
 
     <div class="modal fade" id="FormularioRegistro{{ $modulo }}" tabindex="-1"
         aria-labelledby="FormularioRegistro{{ $modulo }}Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="FormularioRegistro{{ $modulo }}Label">Registro de
@@ -21,14 +21,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="text-center fst-italic needs-validation row formulario"
+                    <form class=" fst-italic needs-validation row "
                         action="{{ route('existenciaRegistrar') }}" method="POST">
                         @csrf
 
                         <!-- Nivel 1-->
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <!-- Nombre producto -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Nombre</label>
                             </div>
                             <div class="input-group mb-3">
@@ -40,9 +40,9 @@
                             <small class="text-danger">{{ $errors->first('Nombre') }}</small>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <!-- Marca -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Marca</label>
                             </div>
                             <div class="input-group mb-3">
@@ -55,11 +55,9 @@
                         </div>
 
                         <!-- Nivel 2-->
-                        <div class="col-md-3">
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <!-- Stock -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Stock</label>
                             </div>
                             <div class="input-group mb-3">
@@ -69,15 +67,11 @@
                             </div>
                             <small class="text-danger">{{ $errors->first('Stock') }}</small>
                         </div>
-                        <div class="col-md-3">
-                        </div>
 
                         <!-- Nivel 3-->
-                        <div class="col-md-3">
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <!-- Valor unitario -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Valor unitario</label>
                             </div>
                             <div class="input-group mb-3">
@@ -88,34 +82,26 @@
                             </div>
                             <small class="text-danger">{{ $errors->first('ValorUnitario') }}</small>
                         </div>
-                        <div class="col-md-3">
-                        </div>
 
                         <!-- Nivel 4-->
-                        <div class="col-md-3">
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <!-- Valor a detal -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Valor detal</label>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="bi bi-currency-dollar"></i></span>
-                                <input type="number" class="form-control" placeholder="Valor dedal" name="PrecioDedal"
+                                <input type="number" class="form-control" placeholder="Valor detal" name="PrecioDedal"
                                     id="PrecioDedal" value="{{ old('PrecioDedal') }}">
                             </div>
                             <small class="text-danger">{{ $errors->first('PrecioDedal') }}</small>
                         </div>
-                        <div class="col-md-3">
-                        </div>
 
                         <!-- Nivel 5-->
-                        <div class="col-md-3">
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <!-- Valor a por mayor -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Valor mayor</label>
                             </div>
                             <div class="input-group mb-3">
@@ -126,11 +112,9 @@
                             </div>
                             <small class="text-danger">{{ $errors->first('PrecioMayor') }}</small>
                         </div>
-                        <div class="col-md-3">
-                            <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
-                        </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Guardar">
                 </div>
@@ -172,13 +156,12 @@
     <table id="TableExistencias" class="table text-center table-striped align-middle display" style="width:100%">
         <thead>
             <tr>
-                <th scope="col">ID</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Stock</th>
-                <th scope="col">ValorUnitario</th>
-                <th scope="col">PrecioDedal</th>
-                <th scope="col">PrecioMayor</th>
+                <th scope="col">Valor unitario</th>
+                <th scope="col">Precio detal</th>
+                <th scope="col">Precio mayor</th>
                 <th scope="col">Operaciones</th>
                 <th scope="col">Estado</th>
             </tr>
@@ -187,12 +170,11 @@
         <tbody>
             @forelse ($existencias as $producto)
                 <tr>
-                    <td>{{ $producto->id }}</td>
                     <td>{{ $producto->Nombre }}</td>
                     <td>{{ $producto->Marca }}</td>
                     <td>{{ $producto->Stock }}</td>
                     <td>${{ $producto->ValorUnitario }}</td>
-                    <td>${{ $producto->PrecioDedal }}</td>
+                    <td>${{ $producto->PrecioDetal }}</td>
                     <td>${{ $producto->PrecioMayor }}</td>
                     <td>
                         <form action="{{ route('existenciaEliminar', $producto) }}" method="post"
@@ -218,10 +200,10 @@
                                                 <img class="swal2-image" style="display: none;">
                                                 <div class="swal2-icon-content">!</div>
                                             </div>
-                                            <h2 class="swal2-title" id="swal2-title" style="display: block;">¿Estas
+                                            <h2 class="swal2-title" id="swal2-title" style="display: block;">¿Estás
                                                 seguro?</h2>
                                             <div class="swal2-html-container" id="swal2-html-container"
-                                                style="display: block;">¡El Producto sera eliminado y no podras revertir
+                                                style="display: block;">¡El Producto será eliminado y no podrás revertir
                                                 este cambio!</div>
                                         </div>
                                         <div class="modal-footer">
@@ -262,7 +244,7 @@
                                 <h5> <strong>Marca: </strong> {{ $producto->Marca }}</h5>
                                 <h5> <strong>Stock: </strong> {{ $producto->Stock }}</h5>
                                 <h5> <strong>Valor Unitario: </strong> {{ $producto->ValorUnitario }}</h5>
-                                <h5> <strong>Precio al X dedal: </strong> {{ $producto->PrecioDedal }}</h5>
+                                <h5> <strong>Precio al X detal: </strong> {{ $producto->PrecioDetal }}</h5>
                                 <h5> <strong>Precio al X mayor: </strong> {{ $producto->PrecioMayor }}</h5>
                                 @if ($producto->Estado == 1)
                                     <h5 style="color: green"><strong style="color: gray">Estado: </strong>Activo</h5>
@@ -279,7 +261,7 @@
 
                 <div class="modal fade" id="EdicionExistencias{{ $producto->id }}" tabindex="-1"
                     aria-labelledby="EdicionExistenciasLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
+                    <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="EdicionExistenciasLabel">Edicion de
@@ -288,15 +270,15 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div class="modal-body formulario row">
+                            <div class="modal-body row">
                                 <form class="text-center fst-italic needs-validation "
                                     action="{{ route('existenciaActualizar', $producto) }}" method="POST">
                                     @csrf @method('PUT')
 
                                     <!-- Nivel 1-->
-                                    <div class="col-md-8">
+                                    <div class="col-md-12">
                                         <!-- Nombre producto -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Nombre</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -308,9 +290,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <!-- Marca -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Marca</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -323,11 +305,9 @@
                                     </div>
 
                                     <!-- Nivel 2-->
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <!-- Stock -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Stock</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -338,15 +318,11 @@
                                                 value="{{ old('Stock', $producto->Stock) }}">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                    </div>
 
                                     <!-- Nivel 3-->
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <!-- Valor unitario -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Valor unitario</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -357,32 +333,24 @@
                                                 value="{{ old('ValorUnitario', $producto->ValorUnitario) }}">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                    </div>
 
                                     <!-- Nivel 4-->
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <!-- Valor a detal -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Valor detal</label>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-currency-dollar"></i></span>
-                                            <input type="number" class="form-control" placeholder="Valor dedal"
-                                                name="PrecioDedal" id="PrecioDedal"
-                                                value="{{ old('PrecioDedal', $producto->PrecioDedal) }}">
+                                            <input type="number" class="form-control" placeholder="Valor detal"
+                                                name="PrecioDetal" id="PrecioDetal"
+                                                value="{{ old('PrecioDetal', $producto->PrecioDetal) }}">
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
                                     </div>
 
                                     <!-- Nivel 5-->
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <!-- Valor a por mayor -->
                                         <div class="d-flex justify-content-center">
                                             <label class="form-label">Valor mayor</label>
@@ -395,15 +363,12 @@
                                                 value="{{ old('PrecioMayor', $producto->PrecioMayor) }}">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <input type="hidden" name="Estado" id="Estado" class="form-control"
-                                            value="1">
-                                    </div>
                             </div>
                             <div class="modal-footer">
+                                <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                                 <button type="button" class="btn btn-secondary"
                                     data-bs-dismiss="modal">cancelar</button>
-                                <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Actualizar">
+                                <input class="btn btn-info confirmar_o_cancelar" type="submit" value="Actualizar">
                             </div>
                             </form>
                         </div>
