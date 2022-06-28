@@ -160,7 +160,7 @@
                 &copy; Copyrights <strong>Belraqsoft</strong>. Todos los derechos reservados
             </p>
             <div class="credits">
-                Proyecto educativo creado con el <a href="">Sena</a>
+                Proyecto formativo <a href="">Sena</a>
             </div>
         </div>
     </footer>
