@@ -4,8 +4,8 @@ $(document).ready( function () {
         autoWidth:false,
         "language": {
             "lengthMenu": "Mostrar _MENU_ Registros por página",
-            "zeroRecords": "No se encontro ningun resultado",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "zeroRecords": "No se encontró ningún resultado",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
             "infoEmpty": "No records available",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
@@ -22,8 +22,8 @@ $(document).ready( function () {
         autoWidth:false,
         "language": {
             "lengthMenu": "Mostrar _MENU_ Registros por página",
-            "zeroRecords": "No se encontro ningun resultado",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "zeroRecords": "No se encontró ningún resultado",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
             "infoEmpty": "No records available",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
@@ -40,8 +40,8 @@ $(document).ready( function () {
         autoWidth:false,
         "language": {
             "lengthMenu": "Mostrar _MENU_ Registros por página",
-            "zeroRecords": "No se encontro ningun resultado",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "zeroRecords": "No se encontró ningún resultado",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
             "infoEmpty": "No records available",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
@@ -58,8 +58,8 @@ $(document).ready( function () {
         autoWidth:false,
         "language": {
             "lengthMenu": "Mostrar _MENU_ Registros por página",
-            "zeroRecords": "No se encontro ningun resultado",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "zeroRecords": "No se encontró ningún resultado",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
             "infoEmpty": "No records available",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
