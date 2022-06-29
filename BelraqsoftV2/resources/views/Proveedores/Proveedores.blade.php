@@ -14,7 +14,7 @@
 
     <div class="modal fade" id="FormularioRegistroProveedores" tabindex="-1"
         aria-labelledby="FormularioRegistroProveedoresLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="FormularioRegistroProveedoresLabel">Registro de {{ $modulo }}</h5>
@@ -27,8 +27,8 @@
                         <!-- NIVEL 1 -->
                         <!-- Nombre razon social 1 -->
                         <div class="col-lg-5">
-                            <div class="d-flex justify-content-center">
-                                <label class="label">Ingrese nombre o razon social:</label><br>
+                            <div class="d-flex">
+                                <label class="label">Ingrese nombre o razón social:</label><br>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
@@ -41,7 +41,7 @@
 
                         <!-- Tipo de documento -->
                         <div class="col-lg-3">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Tipo:</label><br>
                             </div>
                             <div class="input-group mb-3">
@@ -59,12 +59,12 @@
 
                         <!-- nit -->
                         <div class="col-lg-4">
-                            <div class="d-flex justify-content-center">
-                                <label class="label">Numero / NIT:</label><br>
+                            <div class="d-flex">
+                                <label class="label">Número / NIT:</label><br>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-asterisk"></i></span>
-                                <input type="text" class="form-control" placeholder="NumeroIdenNit" name="NumeroIdenNit"
+                                <input type="text" class="form-control" placeholder="Número / Nit" name="NumeroIdenNit"
                                     id="NumeroIdenNit" value="{{ old('NumeroIdenNit') }}">
                             </div>
                             <small class="text-danger">{{ $errors->first('NumeroIdenNit') }}</small>
@@ -73,37 +73,33 @@
                         <!-- NIVEL 2 -->
                         <!--telefono  -->
                         <div class="col-lg-3">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Teléfono</label><br>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
-                                <input type="text" class="form-control" placeholder="Telefonos" name="Telefonos"
+                                <input type="text" class="form-control" placeholder="Teléfonos" name="Telefonos"
                                     id="Telefonos" value="{{ old('Telefonos') }}">
                             </div>
                             <small class="text-danger">{{ $errors->first('Telefonos') }}</small>
                         </div>
 
-
                         <!--Direccion -->
                         <div class="col-lg-6">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Dirección</label><br>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
-                                <input type="text" class="form-control" placeholder="Direccion" name="Direccion"
+                                <input type="text" class="form-control" placeholder="Dirección" name="Direccion"
                                     id="Direccion" value="{{ old('Direccion') }}">
                             </div>
                             <small class="text-danger">{{ $errors->first('Direccion') }}</small>
                         </div>
 
                         <!-- Ciudad -->
-
-
-
                         <div class="col-lg-3">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Ciudad / Municipio</label><br>
                             </div>
                             <div class="input-group mb-3">
@@ -118,7 +114,7 @@
                         <!-- NIVEL 3 -->
                         <!--Nombre de contacto-->
                         <div class="col-lg-8">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Ingrese nombre del
                                     contacto:</label><br>
                             </div>
@@ -132,13 +128,13 @@
 
                         <!--Numero de contacto -->
                         <div class="col-lg-4">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Ingrese número del
                                     contacto:</label><br>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
-                                <input type="text" class="form-control" placeholder="NumeroContacto"
+                                <input type="text" class="form-control" placeholder="NúmeroContacto"
                                     name="NumeroContacto" id="NumeroContacto" value="{{ old('NumeroContacto') }}">
                             </div>
                             <small class="text-danger">{{ $errors->first('NumeroContacto') }}</small>
@@ -147,7 +143,7 @@
                         <!-- NIVEL 4-->
                         <!--Correo-->
                         <div class="col-lg-12">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Correo:</label><br>
                             </div>
                             <div class="input-group mb-3">
@@ -160,21 +156,21 @@
 
                         <!-- Descripcion -->
                         <div class="col-lg-12">
-                            <div class="d-flex justify-content-center">
-                                <label class="label">Descripcion del proveedor:</label><br>
+                            <div class="d-flex">
+                                <label class="label">Descripción del proveedor:</label><br>
                             </div>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-blockquote-left"></i></span>
                             <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
-                            <input type="textarea" class="form-control" placeholder="Descripcion" name="Descripcion"
+                            <input type="textarea" class="form-control" placeholder="Descripción" name="Descripcion"
                                 id="Descripcion" value="{{ old('Descripcion') }}">
                         </div>
                         <small class="text-danger">{{ $errors->first('Descripcion') }}</small>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Guardar">
+                    <input class="btn botonConfirmar" type="submit" value="Guardar">
                 </div>
                 </form>
             </div>
@@ -220,8 +216,8 @@
                 <th scope="col">Contacto Interno</th>
                 <th scope="col">Teléfono Contacto</th>
                 <th scope="col">Correo</th>
-                <th scope="col">Telefonos</th>
-                <th scope="col">Direccion</th>
+                <th scope="col">Teléfonos</th>
+                <th scope="col">Dirección</th>
                 <th scope="col">Operaciones</th>
                 <th scope="col">Estado</th>
             </tr>

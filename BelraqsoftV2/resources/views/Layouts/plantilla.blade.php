@@ -62,19 +62,18 @@
     <!--<Barra de navegacion">-->
     <header class="header navegation black-bg sticky-top">
         <div class="row">
-            <div class="col-lg-12 superior">
+            <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-lg-10">
+                    <div class="col-lg-11">
                         <a href="{{ url('/Reportes') }}" class="logo titulo"><b><span>S.O.S</span> Belleza</b></a>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-1">
                         <form action="{{ route('logout') }}" method="post" name="logout">
-                            @csrf
-                        <div class="top-menu ">
-                            <ul class="nav pull-right top-menu rounded boton_cerrar_session">
-                                <li class="alineacion_boton"><button type="submit" class="logout">Cerrar Sesion</button></li>
+                            @csrf      
+                            <ul class="nav pull-right top-menu rounded">
+                                <li class="alineacion_boton"><button type="submit" class="btn btn-link logout"><i class="bi bi-box-arrow-left"></i></button></li>
+                                {{-- <li class="alineacion_boton"><button type="submit" class="logout">Cerrar Sesion</button></li> --}}
                             </ul>
-                        </div>
                     </form>
                     </div>
                 </div>
@@ -160,7 +159,7 @@
                 &copy; Copyrights <strong>Belraqsoft</strong>. Todos los derechos reservados
             </p>
             <div class="credits">
-                Proyecto educativo creado con el <a href="">Sena</a>
+                Proyecto formativo <a href="">Sena</a>
             </div>
         </div>
     </footer>

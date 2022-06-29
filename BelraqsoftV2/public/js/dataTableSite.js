@@ -3,9 +3,9 @@ $(document).ready( function () {
         responsive:true,
         autoWidth:false,
         "language": {
-            "lengthMenu": "Mostrar _MENU_ Registros por pagina",
-            "zeroRecords": "No se encontro ningun resultado",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "lengthMenu": "Mostrar _MENU_ Registros por página",
+            "zeroRecords": "No se encontró ningún resultado",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
             "infoEmpty": "No records available",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
@@ -21,9 +21,9 @@ $(document).ready( function () {
         responsive:true,
         autoWidth:false,
         "language": {
-            "lengthMenu": "Mostrar _MENU_ Registros por pagina",
-            "zeroRecords": "No se encontro ningun resultado",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "lengthMenu": "Mostrar _MENU_ Registros por página",
+            "zeroRecords": "No se encontró ningún resultado",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
             "infoEmpty": "No records available",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
@@ -39,9 +39,9 @@ $(document).ready( function () {
         responsive:true,
         autoWidth:false,
         "language": {
-            "lengthMenu": "Mostrar _MENU_ Registros por pagina",
-            "zeroRecords": "No se encontro ningun resultado",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "lengthMenu": "Mostrar _MENU_ Registros por página",
+            "zeroRecords": "No se encontró ningún resultado",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
             "infoEmpty": "No records available",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
@@ -50,16 +50,16 @@ $(document).ready( function () {
                 'previous':'Anterior'
             }
         },
-        "order":[ [8, 'desc'],[0, 'asc']]
+        "order":[ [7, 'desc'],[0, 'asc']]
     });
 
     $('#TableVentas').DataTable({
         responsive:true,
         autoWidth:false,
         "language": {
-            "lengthMenu": "Mostrar _MENU_ Registros por pagina",
-            "zeroRecords": "No se encontro ningun resultado",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "lengthMenu": "Mostrar _MENU_ Registros por página",
+            "zeroRecords": "No se encontró ningún resultado",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
             "infoEmpty": "No records available",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',

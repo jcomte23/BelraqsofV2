@@ -21,7 +21,7 @@ class ExistenciaFactory extends Factory
             'Marca'=>$this->faker->name(),
             'Stock'=>$this->faker->biasedNumberBetween($min = 2, $max = 200, $function = 'sqrt'),
             'ValorUnitario'=>$this->faker->biasedNumberBetween($min = 2000, $max = 50000, $function = 'sqrt'),
-            'PrecioDedal'=>$this->faker->biasedNumberBetween($min = 2300, $max = 55000, $function = 'sqrt'),
+            'PrecioDetal'=>$this->faker->biasedNumberBetween($min = 2300, $max = 55000, $function = 'sqrt'),
             'PrecioMayor'=>$this->faker->biasedNumberBetween($min = 2500, $max = 60000, $function = 'sqrt'),
             'Estado'=>$this->faker->randomElement([0,1])
         ];
