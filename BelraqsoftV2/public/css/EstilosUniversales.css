@@ -2,10 +2,6 @@
     margin-left: 22px;
 }
 
-/* .navegation {
-    background-color: #FDEDFE !important;
-} */
-
 .titulo {
     color: white !important;
 }
@@ -25,6 +21,12 @@
 footer {
     margin-left: 15%;
     margin-top: auto;
+}
+
+.botonConfirmar{
+    background-color: #427AD4;
+    color: white;
+
 }
 
 
@@ -52,6 +54,5 @@ footer {
 }
 
 .formulario {
-    margin-left: 15% !important;
-    margin-right: 15% !important;
+    padding-left: 0px !important;
 }
