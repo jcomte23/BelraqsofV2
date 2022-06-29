@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+@import url(https://fonts.googleapis.com/css2?family=Lemonada:wght@300&family=Open+Sans:ital,wght@1,500&display=swap);
 
 /* BASIC THEME CONFIGURATION */
 
@@ -6,7 +7,7 @@ body {
     /*color de textos como titulos*/
     color: #797979;
     /*color de fondo*/
-    font-family: 'Ruda', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
     font-size: 13px;

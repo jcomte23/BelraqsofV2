@@ -13,7 +13,7 @@
 
     <div class="modal fade" id="FormularioRegistro{{ $modulo }}" tabindex="-1"
         aria-labelledby="FormularioRegistro{{ $modulo }}Label" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="FormularioRegistro{{ $modulo }}Label">Registro de
@@ -116,7 +116,7 @@
                 <div class="modal-footer">
                     <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Guardar">
+                    <input class="btn botonConfirmar" type="submit" value="Guardar">
                 </div>
                 </form>
             </div>
@@ -217,7 +217,7 @@
                         </form>
                     </td>
                     <td>
-                        <form class="form-check form-switch form-switch-md" action="{{ route('productoEstado', $producto) }}" method="post">
+                        <form class="form-check form-switch form-switch-md formulario" action="{{ route('productoEstado', $producto) }}" method="post">
                             @csrf
                             @if ($producto->Estado == 1)
                                 <input type="checkbox" onChange="this.form.submit()" class="form-check-input" id="flexSwitchCheckChecked" checked>
@@ -261,10 +261,10 @@
 
                 <div class="modal fade" id="EdicionExistencias{{ $producto->id }}" tabindex="-1"
                     aria-labelledby="EdicionExistenciasLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="EdicionExistenciasLabel">Edicion de
+                                <h5 class="modal-title" id="EdicionExistenciasLabel">Edición de
                                     {{ $modulo }}
                                 </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -352,7 +352,7 @@
                                     <!-- Nivel 5-->
                                     <div class="col-md-12">
                                         <!-- Valor a por mayor -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Valor mayor</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -368,7 +368,7 @@
                                 <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                                 <button type="button" class="btn btn-secondary"
                                     data-bs-dismiss="modal">cancelar</button>
-                                <input class="btn btn-info confirmar_o_cancelar" type="submit" value="Actualizar">
+                                <input class="btn botonConfirmar" type="submit" value="Actualizar">
                             </div>
                             </form>
                         </div>

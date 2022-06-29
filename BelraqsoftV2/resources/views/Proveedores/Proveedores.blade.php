@@ -14,7 +14,7 @@
 
     <div class="modal fade" id="FormularioRegistroProveedores" tabindex="-1"
         aria-labelledby="FormularioRegistroProveedoresLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="FormularioRegistroProveedoresLabel">Registro de {{ $modulo }}</h5>
@@ -27,7 +27,7 @@
                         <!-- NIVEL 1 -->
                         <!-- Nombre razon social 1 -->
                         <div class="col-lg-5">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Ingrese nombre o razon social:</label><br>
                             </div>
                             <div class="input-group mb-3">
@@ -41,7 +41,7 @@
 
                         <!-- Tipo de documento -->
                         <div class="col-lg-3">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Tipo:</label><br>
                             </div>
                             <div class="input-group mb-3">
@@ -59,7 +59,7 @@
 
                         <!-- nit -->
                         <div class="col-lg-4">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Numero / NIT:</label><br>
                             </div>
                             <div class="input-group mb-3">
@@ -73,7 +73,7 @@
                         <!-- NIVEL 2 -->
                         <!--telefono  -->
                         <div class="col-lg-3">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Teléfono</label><br>
                             </div>
                             <div class="input-group mb-3">
@@ -87,7 +87,7 @@
 
                         <!--Direccion -->
                         <div class="col-lg-6">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Dirección</label><br>
                             </div>
                             <div class="input-group mb-3">
@@ -103,7 +103,7 @@
 
 
                         <div class="col-lg-3">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Ciudad / Municipio</label><br>
                             </div>
                             <div class="input-group mb-3">
@@ -118,7 +118,7 @@
                         <!-- NIVEL 3 -->
                         <!--Nombre de contacto-->
                         <div class="col-lg-8">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Ingrese nombre del
                                     contacto:</label><br>
                             </div>
@@ -132,7 +132,7 @@
 
                         <!--Numero de contacto -->
                         <div class="col-lg-4">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Ingrese número del
                                     contacto:</label><br>
                             </div>
@@ -147,7 +147,7 @@
                         <!-- NIVEL 4-->
                         <!--Correo-->
                         <div class="col-lg-12">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Correo:</label><br>
                             </div>
                             <div class="input-group mb-3">
@@ -160,7 +160,7 @@
 
                         <!-- Descripcion -->
                         <div class="col-lg-12">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="label">Descripcion del proveedor:</label><br>
                             </div>
                         </div>
