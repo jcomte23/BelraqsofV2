@@ -216,7 +216,7 @@
     @endif
 
     
-    <table class="table table-striped text-center display" style="width:100%">
+    <table class="table table-striped text-center display" id="TableUsuarios" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">Nombres</th>
