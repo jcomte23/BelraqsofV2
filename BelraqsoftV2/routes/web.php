@@ -35,6 +35,9 @@ Route::delete('Clientes/{cliente?}', [ClientesController::class, "eliminar"])->n
 
 Route::get('Usuarios', [UsuariosController::class, "index"])->name('usuarioIndex');
 Route::post('Usuarios', [UsuariosController::class,"create"])->name('usuarioRegistrar');
+Route::put('Usuarios/{usuario?}', [UsuariosController::class,"update"])->name('usuarioActualizar');
+Route::delete('Usuarios/{usuario?}', [UsuariosController::class, "delete"])->name('usuarioEliminar');
+Route::post('Usuarios/{usuario?}', [UsuariosController::class, "updateStatus"])->name('usuarioEstado');
 Route::get('users', [UsuariosController::class, "index"])->name('users');
 
 Route::get('Compras', [ComprasController::class, "index"])->name('compraIndex');
