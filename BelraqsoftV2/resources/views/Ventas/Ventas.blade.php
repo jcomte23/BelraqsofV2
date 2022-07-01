@@ -15,7 +15,6 @@
         <thead>
             <tr>
                 <th scope="col">CODG</th>
-                <th scope="col">Usuario Vendedor</th>
                 <th scope="col">Fecha Venta</th>
                 <th scope="col">Cantidad Productos</th>
                 <th scope="col">Ganancia</th>
@@ -29,7 +28,6 @@
             @forelse ($ventas as $venta)
                 <tr>
                     <td>{{ $venta->Codigo }}</td>
-                    <td>{{ $venta->unionCliente->Nombres }} {{ $venta->unionCliente->Apellidos }}</td>
                     <td>{{ $venta->Fecha }}</td>
                     <td>{{ $venta->CantidadProductos }}</td>
                     <td>${{ $venta->Total }}</td>
@@ -46,7 +44,7 @@
                         </form>
                     </td>
                     <td>
-                        <form class="form-check form-switch form-switch-md" action="{{ route('ventaEstado', $venta) }}" method="post">
+                        <form class="form-check form-switch form-switch-md formulario" action="{{ route('ventaEstado', $venta) }}" method="post">
                             @csrf
                             @if ($venta->Estado == 1)
                                 <input type="checkbox" onChange="this.form.submit()" class="form-check-input" id="flexSwitchCheckChecked" checked>
