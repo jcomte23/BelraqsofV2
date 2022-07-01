@@ -15,7 +15,7 @@
     <!-- Modal Registro de Clientes-->
     <div class="modal fade" id="FormularioRegistro{{ $modulo }}" tabindex="-1"
         aria-labelledby="FormularioRegistro{{ $modulo }}Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="FormularioRegistro{{ $modulo }}Label">Registro de
@@ -28,7 +28,7 @@
                         @csrf
 
                         <!-- NIVEL 1 -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <!--- Nombre Cliente --->
                             <div class="d-flex justify-content-center">
                                 <label class="form-label ">Nombres</label>
@@ -40,7 +40,7 @@
                             </div>
                             <small class="text-danger">{{ $errors->first('Nombres') }}</small>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <!-- Apellido -->
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Apellido</label>
@@ -54,7 +54,7 @@
                         </div>
 
                         <!-- NIVEL 2 -->
-                        <div class="col-lg-3">
+                        <div class="col-lg-12">
                             <!-- tipo documento -->
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Tipo</label>
@@ -71,7 +71,7 @@
                             </div>
                             <small class="text-danger">{{ $errors->first('TipoDocumento') }}</small>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-12">
                             <!-- Documento -->
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Documento</label>
@@ -83,7 +83,7 @@
                             </div>
                             <small class="text-danger">{{ $errors->first('Documento') }}</small>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Correo</label>
                             </div>
@@ -96,7 +96,7 @@
                         </div>
 
                         <!-- NIVEL 3-->
-                        <div class="col-lg-3">
+                        <div class="col-lg-12">
                             <!-- Fecha de nacimiento -->
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Fecha de nacimiento </label>
@@ -108,7 +108,7 @@
                             </div>
                             <small class="text-danger">{{ $errors->first('FechaNacimiento') }}</small>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <!-- Dirección -->
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Dirección</label>
@@ -120,7 +120,7 @@
                             </div>
                             <small class="text-danger">{{ $errors->first('Direccion') }}</small>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-12">
                             <!-- Ciudad o municipio -->
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Ciudad/Municipio</label>
@@ -134,9 +134,7 @@
                         </div>
 
                         <!-- NIVEL 4-->
-                        <div class="col-lg-3">
-                        </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="d-flex justify-content-center">
                                 <label class="form-label">Teléfono</label>
                             </div>
@@ -147,14 +145,14 @@
                             </div>
                             <small class="text-danger">{{ $errors->first('Telefonos') }}</small>
                         </div>
-                        <div class="col-lg-3">
+                        <div>
                             <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                         </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Guardar">
+                    <input class="btn botonConfirmar" type="submit" value="Guardar">
                 </div>
                 </form>
             </div>
@@ -304,7 +302,7 @@
 
                 <div class="modal fade" id="EdicionClientes{{ $cliente->id }}" tabindex="-1"
                     aria-labelledby="EdicionClientesLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
+                    <div class="modal-dialog modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="EdicionClientesLabel">Edicion de
@@ -313,13 +311,13 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div class="modal-body formulario row">
+                            <div class="modal-body">
                                 <form class="text-center fst-italic needs-validation "
                                     action="{{ route('clienteActualizar', $cliente) }}" method="POST">
                                     @csrf @method('PUT')
 
                                     <!-- NIVEL 1 -->
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <!--- Nombre Cliente --->
                                         <div class="d-flex justify-content-center">
                                             <label class="form-label ">Nombres</label>
@@ -331,7 +329,7 @@
                                                 value="{{ old('Nombres', $cliente->Nombres) }}">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <!-- Apellido -->
                                         <div class="d-flex justify-content-center">
                                             <label class="form-label">Apellido</label>
@@ -345,7 +343,7 @@
                                     </div>
 
                                     <!-- NIVEL 2 -->
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-12">
                                         <!-- tipo documento -->
                                         <div class="d-flex justify-content-center">
                                             <label class="form-label">Tipo</label>
@@ -363,7 +361,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-12">
                                         <!-- Documento -->
                                         <div class="d-flex justify-content-center">
                                             <label class="form-label">Documento</label>
@@ -375,7 +373,7 @@
                                                 value="{{ old('Documento', $cliente->Documento) }}">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="d-flex justify-content-center">
                                             <label class="form-label">Correo</label>
                                         </div>
@@ -387,7 +385,7 @@
                                     </div>
 
                                     <!-- NIVEL 3-->
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-12">
                                         <!-- Fecha de nacimiento -->
                                         <div class="d-flex justify-content-center">
                                             <label class="form-label">Fecha de nacimiento </label>
@@ -400,7 +398,7 @@
                                                 value="{{ old('FechaNacimiento', $cliente->FechaNacimiento) }}">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <!-- Dirección -->
                                         <div class="d-flex justify-content-center">
                                             <label class="form-label">Dirección</label>
@@ -412,7 +410,7 @@
                                                 value="{{ old('Direccion', $cliente->Direccion) }}">
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-12">
                                         <!-- Ciudad o municipio -->
                                         <div class="d-flex justify-content-center">
                                             <label class="form-label">Ciudad/Municipio</label>
@@ -426,9 +424,7 @@
                                     </div>
 
                                     <!-- NIVEL 4-->
-                                    <div class="col-lg-3">
-                                    </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="d-flex justify-content-center">
                                             <label class="form-label">Teléfono</label>
                                         </div>
@@ -445,7 +441,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
-                                <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Actualizar">
+                                <input class="btn botonConfirmar" type="submit" value="Actualizar">
                             </div>
                             </form>
 
