@@ -160,8 +160,6 @@
                 <th scope="col">Marca</th>
                 <th scope="col">Stock</th>
                 <th scope="col">Valor unitario</th>
-                <th scope="col">Precio detal</th>
-                <th scope="col">Precio mayor</th>
                 <th scope="col">Operaciones</th>
                 <th scope="col">Estado</th>
             </tr>
@@ -174,8 +172,6 @@
                     <td>{{ $producto->Marca }}</td>
                     <td>{{ $producto->Stock }}</td>
                     <td>${{ $producto->ValorUnitario }}</td>
-                    <td>${{ $producto->PrecioDetal }}</td>
-                    <td>${{ $producto->PrecioMayor }}</td>
                     <td>
                         <form action="{{ route('existenciaEliminar', $producto) }}" method="post"
                             style="display:inline-flex">

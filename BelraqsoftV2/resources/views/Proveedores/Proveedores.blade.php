@@ -14,7 +14,7 @@
 
     <div class="modal fade" id="FormularioRegistroProveedores" tabindex="-1"
         aria-labelledby="FormularioRegistroProveedoresLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="FormularioRegistroProveedoresLabel">Registro de {{ $modulo }}</h5>
@@ -26,7 +26,7 @@
                         @csrf
                         <!-- NIVEL 1 -->
                         <!-- Nombre razon social 1 -->
-                        <div class="col-lg-5">
+                        <div class="col-lg-12">
                             <div class="d-flex">
                                 <label class="label">Ingrese nombre o razón social:</label><br>
                             </div>
@@ -40,7 +40,7 @@
                         </div>
 
                         <!-- Tipo de documento -->
-                        <div class="col-lg-3">
+                        <div class="col-lg-12">
                             <div class="d-flex">
                                 <label class="label">Tipo:</label><br>
                             </div>
@@ -58,7 +58,7 @@
                         </div>
 
                         <!-- nit -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-12">
                             <div class="d-flex">
                                 <label class="label">Número / NIT:</label><br>
                             </div>
@@ -72,7 +72,7 @@
 
                         <!-- NIVEL 2 -->
                         <!--telefono  -->
-                        <div class="col-lg-3">
+                        <div class="col-lg-12">
                             <div class="d-flex">
                                 <label class="label">Teléfono</label><br>
                             </div>
@@ -85,7 +85,7 @@
                         </div>
 
                         <!--Direccion -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="d-flex">
                                 <label class="label">Dirección</label><br>
                             </div>
@@ -98,7 +98,7 @@
                         </div>
 
                         <!-- Ciudad -->
-                        <div class="col-lg-3">
+                        <div class="col-lg-12">
                             <div class="d-flex">
                                 <label class="label">Ciudad / Municipio</label><br>
                             </div>
@@ -113,7 +113,7 @@
 
                         <!-- NIVEL 3 -->
                         <!--Nombre de contacto-->
-                        <div class="col-lg-8">
+                        <div class="col-lg-12">
                             <div class="d-flex">
                                 <label class="label">Ingrese nombre del
                                     contacto:</label><br>
@@ -127,7 +127,7 @@
                         </div>
 
                         <!--Numero de contacto -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-12">
                             <div class="d-flex">
                                 <label class="label">Ingrese número del
                                     contacto:</label><br>
@@ -211,13 +211,11 @@
     <table id="TableProveedores" class="table text-center table-striped align-middle display" style="width:100%">
         <thead>
             <tr>
-                <th scope="col">Razon social</th>
+                <th scope="col">Razón social</th>
                 <th scope="col">Documento</th>
                 <th scope="col">Contacto Interno</th>
                 <th scope="col">Teléfono Contacto</th>
                 <th scope="col">Correo</th>
-                <th scope="col">Teléfonos</th>
-                <th scope="col">Dirección</th>
                 <th scope="col">Operaciones</th>
                 <th scope="col">Estado</th>
             </tr>
@@ -230,8 +228,6 @@
                     <td>{{ $Proveedor->NombreContacto }}</td>
                     <td>{{ $Proveedor->NumeroContacto }}</td>
                     <td>{{ $Proveedor->Correo }}</td>
-                    <td>{{ $Proveedor->Telefonos }}</td>
-                    <td>{{ $Proveedor->Direccion }}</td>
                     <td>
                         <form action="{{ route('ProveedorEliminar', $Proveedor) }}" method="post"
                             style="display:inline-flex">
@@ -273,7 +269,7 @@
                         </form>
                     </td>
                     <td>
-                        <form class="form-check form-switch form-switch-md" action="{{ route('proveedorEstado', $Proveedor) }}" method="post">
+                        <form class="form-check form-switch form-switch-md formulario" action="{{ route('proveedorEstado', $Proveedor) }}" method="post">
                             @csrf
                             @if ($Proveedor->Estado == 1)
                                 <input type="checkbox" onChange="this.form.submit()" class="form-check-input" id="flexSwitchCheckChecked" checked>
@@ -319,24 +315,24 @@
                 <!-- Modal -->
                 <div class="modal fade" id="EdicionProveedores{{ $Proveedor->id }}" tabindex="-1"
                     aria-labelledby="EdicionProveedoresLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
+                    <div class="modal-dialog modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="EdicionProveedoresLabel">Edicion de
+                                <h5 class="modal-title" id="EdicionProveedoresLabel">Edición de
                                     {{ $modulo }}
                                 </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div class="modal-body formulario row">
+                            <div class="modal-body row">
                                 <form class="text-center fst-italic needs-validation "
                                     action="{{ route('proveedorActualizar', $Proveedor) }}" method="POST">
                                     @csrf @method('PUT')
                                     <!-- NIVEL 1 -->
                                     <!-- Nombre razon social 1 -->
-                                    <div class="col-lg-5">
-                                        <div class="d-flex justify-content-center">
-                                            <label class="label">Ingrese nombre o razon social:</label><br>
+                                    <div class="col-lg-12">
+                                        <div class="d-flex">
+                                            <label class="label">Ingrese nombre o razón social:</label><br>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
@@ -348,8 +344,8 @@
                                     </div>
 
                                     <!-- Tipo de documento -->
-                                    <div class="col-lg-3">
-                                        <div class="d-flex justify-content-center">
+                                    <div class="col-lg-12">
+                                        <div class="d-flex">
                                             <label class="label">Tipo:</label><br>
                                         </div>
                                         <div class="input-group mb-3">
@@ -368,13 +364,13 @@
                                     </div>
 
                                     <!-- nit -->
-                                    <div class="col-lg-4">
-                                        <div class="d-flex justify-content-center">
-                                            <label class="label">Numero / NIT:</label><br>
+                                    <div class="col-lg-12">
+                                        <div class="d-flex">
+                                            <label class="label">Número / NIT:</label><br>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-asterisk"></i></span>
-                                            <input type="text" class="form-control" placeholder="NumeroIdenNit"
+                                            <input type="text" class="form-control" placeholder="NúmeroIdenNit"
                                                 name="NumeroIdenNit" id="NumeroIdenNit"
                                                 value="{{ old('NumeroIdenNit', $Proveedor->NumeroIdenNit) }}">
                                         </div>
@@ -383,53 +379,49 @@
 
                                     <!-- NIVEL 2 -->
                                     <!--telefono  -->
-                                    <div class="col-lg-3">
-                                        <div class="d-flex justify-content-center">
-                                            <label class="label">Telefono</label><br>
+                                    <div class="col-lg-12">
+                                        <div class="d-flex">
+                                            <label class="label">Teléfono</label><br>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
-                                            <input type="text" class="form-control" placeholder="Telefonos"
+                                            <input type="text" class="form-control" placeholder="Teléfonos"
                                                 name="Telefonos" id="Telefonos" value="{{ old('Telefonos', $Proveedor->Telefonos) }}">
                                         </div>
                                         <small class="text-danger">{{ $errors->first('Telefonos') }}</small>
                                     </div>
 
-
                                     <!--Direccion -->
-                                    <div class="col-lg-6">
-                                        <div class="d-flex justify-content-center">
-                                            <label class="label">Direccion</label><br>
+                                    <div class="col-lg-12">
+                                        <div class="d-flex">
+                                            <label class="label">Dirección</label><br>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
-                                            <input type="text" class="form-control" placeholder="Direccion"
+                                            <input type="text" class="form-control" placeholder="Dirección"
                                                 name="Direccion" id="Direccion" value="{{ old('Direccion', $Proveedor->Direccion) }}">
                                         </div>
                                         <small class="text-danger">{{ $errors->first('Direccion') }}</small>
                                     </div>
 
                                     <!-- Ciudad -->
-
-
-
-                                    <div class="col-lg-3">
-                                        <div class="d-flex justify-content-center">
+                                    <div class="col-lg-12">
+                                        <div class="d-flex">
                                             <label class="label">Ciudad / Municipio</label><br>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
                                             <input type="text" class="form-control" placeholder="Ciudad_Municipio"
                                                 name="Ciudad_Municipio" id="Ciudad_Municipio"
-                                                value="{{ old('Ciudad_Municipio') }}">
+                                                value="{{ old('Ciudad_Municipio',$Proveedor->Ciudad_Municipio) }}">
                                         </div>
                                         <small class="text-danger">{{ $errors->first('Ciudad_Municipio', $Proveedor->Ciudad_Municipio) }}</small>
                                     </div>
 
                                     <!-- NIVEL 3 -->
                                     <!--Nombre de contacto-->
-                                    <div class="col-lg-8">
-                                        <div class="d-flex justify-content-center">
+                                    <div class="col-lg-12">
+                                        <div class="d-flex">
                                             <label class="label">Ingrese nombre del
                                                 contacto:</label><br>
                                         </div>
@@ -443,14 +435,14 @@
                                     </div>
 
                                     <!--Numero de contacto -->
-                                    <div class="col-lg-4">
-                                        <div class="d-flex justify-content-center">
-                                            <label class="label">Ingrese numero del
+                                    <div class="col-lg-12">
+                                        <div class="d-flex">
+                                            <label class="label">Ingrese número del
                                                 contacto:</label><br>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
-                                            <input type="text" class="form-control" placeholder="NumeroContacto"
+                                            <input type="text" class="form-control" placeholder="NúmeroContacto"
                                                 name="NumeroContacto" id="NumeroContacto"
                                                 value="{{ old('NumeroContacto', $Proveedor->NumeroContacto) }}">
                                         </div>
@@ -460,7 +452,7 @@
                                     <!-- NIVEL 4-->
                                     <!--Correo-->
                                     <div class="col-lg-12">
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="label">Correo:</label><br>
                                         </div>
                                         <div class="input-group mb-3">
@@ -473,15 +465,15 @@
 
                                     <!-- Descripcion -->
                                     <div class="col-lg-12">
-                                        <div class="d-flex justify-content-center">
-                                            <label class="label">Descripcion del proveedor:</label><br>
+                                        <div class="d-flex">
+                                            <label class="label">Descripción del proveedor:</label><br>
                                         </div>
                                     </div>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-blockquote-left"></i></span>
                                         <input type="hidden" name="Estado" id="Estado" class="form-control"
                                             value="1">
-                                        <input type="textarea" class="form-control" placeholder="Descripcion"
+                                        <input type="textarea" class="form-control" placeholder="Descripción"
                                             name="Descripcion" id="Descripcion" value="{{ old('Descripcion', $Proveedor->Descripcion) }}">
                                     </div>
                                     <small class="text-danger">{{ $errors->first('Descripcion') }}</small>
@@ -489,7 +481,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary"
                                     data-bs-dismiss="modal">Cancelar</button>
-                                <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Actualizar">
+                                <input class="btn botonConfirmar" type="submit" value="Actualizar">
                             </div>
                             </form>
                         </div>
