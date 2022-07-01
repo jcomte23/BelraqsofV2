@@ -179,7 +179,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Guardar">
+                    <input class="btn botonConfirmar" type="submit" value="Guardar">
                 </div>
                 </form>
             </div>
@@ -461,7 +461,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <input class="btn btn-success confirmar_o_cancelar" type="submit" value="Guardar">
+                            <input class="btn botonConfirmar" type="submit" value="Actualizar">
                         </div>
                         </form>
                     </div>
