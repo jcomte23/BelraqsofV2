@@ -6,7 +6,7 @@ $(document).ready( function () {
             "lengthMenu": "Mostrar _MENU_ Registros por página",
             "zeroRecords": "No se encontró ningún resultado",
             "info": "Mostrando la página _PAGE_ de _PAGES_",
-            "infoEmpty": "No records available",
+            "infoEmpty": "No hay registros disponibles",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
             'paginate':{
@@ -14,7 +14,7 @@ $(document).ready( function () {
                 'previous':'Anterior'
             }
         },
-        "order":[ [9, 'desc'],[0, 'asc']]
+        "order":[ [6, 'desc'],[0, 'asc']]
     });
 
     $('#TableProveedores').DataTable({
@@ -24,7 +24,7 @@ $(document).ready( function () {
             "lengthMenu": "Mostrar _MENU_ Registros por página",
             "zeroRecords": "No se encontró ningún resultado",
             "info": "Mostrando la página _PAGE_ de _PAGES_",
-            "infoEmpty": "No records available",
+            "infoEmpty": "No hay registros disponibles",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
             'paginate':{
@@ -42,7 +42,7 @@ $(document).ready( function () {
             "lengthMenu": "Mostrar _MENU_ Registros por página",
             "zeroRecords": "No se encontró ningún resultado",
             "info": "Mostrando la página _PAGE_ de _PAGES_",
-            "infoEmpty": "No records available",
+            "infoEmpty": "No hay registros disponibles",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
             'paginate':{
@@ -50,7 +50,7 @@ $(document).ready( function () {
                 'previous':'Anterior'
             }
         },
-        "order":[ [8, 'desc'],[0, 'asc']]
+        "order":[ [5, 'desc'],[0, 'asc']]
     });
 
     $('#TableVentas').DataTable({
@@ -60,7 +60,7 @@ $(document).ready( function () {
             "lengthMenu": "Mostrar _MENU_ Registros por página",
             "zeroRecords": "No se encontró ningún resultado",
             "info": "Mostrando la página _PAGE_ de _PAGES_",
-            "infoEmpty": "No records available",
+            "infoEmpty": "No hay registros disponibles",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
             'paginate':{
@@ -78,7 +78,7 @@ $(document).ready( function () {
             "lengthMenu": "Mostrar _MENU_ Registros por página",
             "zeroRecords": "No se encontró ningún resultado",
             "info": "Mostrando la página _PAGE_ de _PAGES_",
-            "infoEmpty": "No records available",
+            "infoEmpty": "No hay registros disponibles",
             "infoFiltered": "(Filtrado de _MAX_ registros totales)",
             'search':'Buscar:',
             'paginate':{
@@ -86,7 +86,7 @@ $(document).ready( function () {
                 'previous':'Anterior'
             }
         },
-        "order":[0, 'asc']
+        "order":[ [7, 'desc'],[0, 'asc']]
     });
     
 } );

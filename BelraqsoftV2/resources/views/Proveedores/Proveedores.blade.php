@@ -354,9 +354,13 @@
                                             <select class="form-select IngresoDatos form-control"
                                                 aria-label="Default select example" name="TipoDocumento"
                                                 id="TipoDocumento" value="{{ old('TipoDocumento', $Proveedor->unionTipoDoc->Abreviatura) }}">
+                                                <option selected="true" value="{{ $Proveedor->TipoDocumento }}">
+                                                    {{ $Proveedor->unionTipoDoc->Abreviatura }}</option>
                                                 @foreach ($Documentos as $tipo)
-                                                    <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}
-                                                    </option>
+                                                    @if ($tipo->id != $Proveedor->TipoDocumento)
+                                                        <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}
+                                                        </option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                         </div>
