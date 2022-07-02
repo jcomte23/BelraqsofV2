@@ -30,7 +30,7 @@
                         <!-- NIVEL 1 -->
                         <div class="col-lg-12">
                             <!--- Nombre Cliente --->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label ">Nombres</label>
                             </div>
                             <div class="input-group mb-3">
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-lg-12">
                             <!-- Apellido -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Apellido</label>
                             </div>
                             <div class="input-group mb-3">
@@ -56,7 +56,7 @@
                         <!-- NIVEL 2 -->
                         <div class="col-lg-12">
                             <!-- tipo documento -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex ">
                                 <label class="form-label">Tipo</label>
                             </div>
                             <div class="input-group mb-3">
@@ -73,7 +73,7 @@
                         </div>
                         <div class="col-lg-12">
                             <!-- Documento -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Documento</label>
                             </div>
                             <div class="input-group mb-3">
@@ -84,7 +84,7 @@
                             <small class="text-danger">{{ $errors->first('Documento') }}</small>
                         </div>
                         <div class="col-lg-12">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Correo</label>
                             </div>
                             <div class="input-group mb-3">
@@ -98,7 +98,7 @@
                         <!-- NIVEL 3-->
                         <div class="col-lg-12">
                             <!-- Fecha de nacimiento -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex ">
                                 <label class="form-label">Fecha de nacimiento </label>
                             </div>
                             <div class="input-group mb-3">
@@ -110,7 +110,7 @@
                         </div>
                         <div class="col-lg-12">
                             <!-- Dirección -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Dirección</label>
                             </div>
                             <div class="input-group mb-3">
@@ -122,12 +122,12 @@
                         </div>
                         <div class="col-lg-12">
                             <!-- Ciudad o municipio -->
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Ciudad/Municipio</label>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-map-fill"></i></span>
-                                <input class="IngresoDatos form-control" type="text" name="Ciudad_Municipio"
+                                <input class="IngresoDatos form-control" type="text" placeholder="Ciudad o municipio" name="Ciudad_Municipio"
                                     id="Ciudad_Municipio" value="{{ old('Ciudad_Municipio') }}">
                             </div>
                             <small class="text-danger">{{ $errors->first('Ciudad_Municipio') }}</small>
@@ -135,12 +135,12 @@
 
                         <!-- NIVEL 4-->
                         <div class="col-lg-12">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex">
                                 <label class="form-label">Teléfono</label>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
-                                <input type="number" class="form-control" placeholder="Telefono(s)" name="Telefonos"
+                                <input type="number" class="form-control" placeholder="Teléfono(s)" name="Telefonos"
                                     id="Telefonos" value="{{ old('Telefonos') }}">
                             </div>
                             <small class="text-danger">{{ $errors->first('Telefonos') }}</small>
@@ -192,12 +192,9 @@
     <table id="TableClientes" class="table table-striped text-center display" style="width:100%">
         <thead>
             <tr>
-                <th scope="col">ID</th>
                 <th scope="col">Nombres</th>
                 <th scope="col">Apellidos</th>
-                <th scope="col">Tipo</th>
                 <th scope="col">Documento</th>
-                <th scope="col">Fecha Nacimiento</th>
                 <th scope="col">Dirección</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col">Operaciones</th>
@@ -207,13 +204,10 @@
         <tbody>
             @forelse($clientes as $cliente)
                 <tr>
-                    <td>{{ $cliente->id }}</td>
                     <td>{{ $cliente->Nombres }}</td>
                     <td>{{ $cliente->Apellidos }}</td>
-                    <td>{{ $cliente->unionTipoDoc->Abreviatura }}</td>
-                    <td>{{ $cliente->Documento }}</td>
-                    <td>{{ $cliente->FechaNacimiento }}</td>
-                    <td>{{ $cliente->Direccion }}</td>
+                    <td>{{ $cliente->unionTipoDoc->Abreviatura }}-{{ $cliente->Documento }}</td>
+                    <td>{{ $cliente->Direccion }} ( {{ $cliente->Ciudad_Municipio }} )</td>
                     <td>{{ $cliente->Telefonos }}</td>
                     <td>
                         <form action="{{ route('clienteEliminar', $cliente) }}" method="post"
@@ -255,7 +249,7 @@
                         </form>
                     </td>
                     <td>
-                        <form class="form-check form-switch form-switch-md" action="{{ route('clienteEstado', $cliente) }}" method="post">
+                        <form class="form-check form-switch form-switch-md formulario" action="{{ route('clienteEstado', $cliente) }}" method="post">
                             @csrf
                             @if ($cliente->Estado == 1)
                                 <input type="checkbox" onChange="this.form.submit()" class="form-check-input" id="flexSwitchCheckChecked" checked>
@@ -319,7 +313,7 @@
                                     <!-- NIVEL 1 -->
                                     <div class="col-lg-12">
                                         <!--- Nombre Cliente --->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flexr">
                                             <label class="form-label ">Nombres</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -331,7 +325,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <!-- Apellido -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Apellido</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -345,7 +339,7 @@
                                     <!-- NIVEL 2 -->
                                     <div class="col-lg-12">
                                         <!-- tipo documento -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Tipo</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -354,16 +348,20 @@
                                             <select class="form-select IngresoDatos form-control"
                                                 aria-label="Default select example" name="TipoDocumento" id="TipoDocumento"
                                                 value="{{ old('TipoDocumento', $cliente->unionTipoDoc->Abreviatura) }}">
+                                                <option selected="true" value="{{ $cliente->TipoDocumento }}">
+                                                    {{ $cliente->unionTipoDoc->Abreviatura }}</option>
                                                 @foreach ($TipoDocumentos as $tipo)
-                                                    <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}
-                                                    </option>
+                                                    @if ($tipo->id != $cliente->TipoDocumento)
+                                                        <option value="{{ $tipo->id }}">{{ $tipo->Abreviatura }}
+                                                        </option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <!-- Documento -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Documento</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -374,7 +372,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Correo</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -387,7 +385,7 @@
                                     <!-- NIVEL 3-->
                                     <div class="col-lg-12">
                                         <!-- Fecha de nacimiento -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Fecha de nacimiento </label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -400,7 +398,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <!-- Dirección -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Dirección</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -412,7 +410,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <!-- Ciudad o municipio -->
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Ciudad/Municipio</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -425,7 +423,7 @@
 
                                     <!-- NIVEL 4-->
                                     <div class="col-lg-12">
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex">
                                             <label class="form-label">Teléfono</label>
                                         </div>
                                         <div class="input-group mb-3">
@@ -435,11 +433,9 @@
                                                 value="{{ old('Telefonos', $cliente->Telefonos) }}">
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
-                                    </div>
                             </div>
                             <div class="modal-footer">
+                                <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
                                 <input class="btn botonConfirmar" type="submit" value="Actualizar">
                             </div>
