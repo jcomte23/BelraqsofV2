@@ -44,12 +44,15 @@
                         </form>
                     </td>
                     <td>
-                        <form class="form-check form-switch form-switch-md formulario" action="{{ route('ventaEstado', $venta) }}" method="post">
+                        <form class="form-check form-switch form-switch-md formulario"
+                            action="{{ route('ventaEstado', $venta) }}" method="post">
                             @csrf
                             @if ($venta->Estado == 1)
-                                <input type="checkbox" onChange="this.form.submit()" class="form-check-input" id="flexSwitchCheckChecked" checked>
+                                <input type="checkbox" onChange="this.form.submit()" class="form-check-input"
+                                    id="flexSwitchCheckChecked" checked>
                             @else
-                            <input type="checkbox" onChange="this.form.submit()" class="form-check-input" id="flexSwitchCheckDefault">
+                                <input type="checkbox" onChange="this.form.submit()" class="form-check-input"
+                                    id="flexSwitchCheckDefault">
                             @endif
                         </form>
                     </td>
@@ -57,30 +60,87 @@
 
                 <div class="modal fade" id="DetallesVentas{{ $venta->id }}" tabindex="-1"
                     aria-labelledby="DetallesVentasLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="DetallesVentasLabel">Detalles de la venta:  
-                                    {{ $venta->Codigo }}
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h5> <strong>Codigo: </strong> {{ $venta->Codigo }}</h5>
-                                <h5> <strong>Fecha: </strong> {{ $venta->Fecha }}</h5>
-                                <h5> <strong>Vendedor: </strong> {{ $venta->unionCliente->Nombres }} {{ $venta->unionCliente->Apellidos }}</h5>
-                                <h5> <strong>Cliente: </strong> {{ $venta->unionCliente->Nombres }} {{ $venta->unionCliente->Apellidos }}</h5>
-                                <h5> <strong>Cantidad productos: </strong> {{ $venta->CantidadProductos }}</h5>
-                                <h5> <strong>Valor: $</strong> {{ $venta->Total }}</h5>
-                                @if ($venta->Estado == 1)
-                                    <h5 style="color: green"><strong style="color: gray">Estado: </strong>Activa</h5>
-                                @else
-                                    <h5 style="color: red"><strong style="color: gray">Estado: </strong>InActiva</h5>
-                                @endif
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="modal-body row">
+                                <div class="col-lg-10">
+                                    <h2> <strong>{{ $venta->Codigo }}</strong> </h2>
+                                </div>
+                                <div class="col-lg-2">
+                                    @if ($venta->Estado == 1)
+                                        <h2 style="color: green">Activa</h2>
+                                    @else
+                                        <h2 style="color: red">InActiva</h2>
+                                    @endif
+                                </div>
+
+                                <div class="col-lg-7">
+                                    <br>
+                                    <h5><strong>Vendedor</strong></h5>
+                                    <h6>{{ $venta->unionUsuario->Nombres }} {{ $venta->unionUsuario->Apellidos }} (
+                                        {{ $venta->unionUsuario->unionRol->Nombre }} )</h6>
+                                    <h6>{{ $venta->unionUsuario->unionTipoDoc->Abreviatura }}-{{ $venta->unionUsuario->Documento }}
+                                    </h6>
+                                    <h6>{{ $venta->unionUsuario->Correo }}</h6>
+                                </div>
+                                <div class="col-lg-5">
+                                    <br>
+                                    <h5><strong>Cliente</strong></h5>
+                                    <h6>{{ $venta->unionCliente->Nombres }} {{ $venta->unionCliente->Apellidos }}</h6>
+                                    <h6>{{ $venta->unionCliente->unionTipoDoc->Abreviatura }}-{{ $venta->unionCliente->Documento }}
+                                    </h6>
+                                    <h6><i class="bi bi-telephone-fill"></i> {{ $venta->unionCliente->Telefonos }}</h6>
+                                    <h6><i class="bi bi-map-fill"></i> {{ $venta->unionCliente->Direccion }} (
+                                        {{ $venta->unionCliente->Ciudad_Municipio }} )</h6>
+                                </div>
+                                <div class="col-lg-12">
+                                    <br>
+                                    <h5><strong>Fecha: </strong>{{ $venta->Fecha }}</h5>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h5><strong>Descripcion</strong></h5>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h5><strong>Cant</strong></h5>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h5><strong>valor</strong></h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h6>Producto</h6>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h6>#</h6>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h6>$$$</h6>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h6>Producto</h6>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h6>#</h6>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h6>$$$</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h5><strong>Valor:</strong></h5>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h5>{{ $venta->Total }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

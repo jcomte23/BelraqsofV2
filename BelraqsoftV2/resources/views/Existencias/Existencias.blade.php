@@ -226,27 +226,47 @@
 
                 <div class="modal fade" id="DetallesExistencias{{ $producto->id }}" tabindex="-1"
                     aria-labelledby="DetallesExistenciasLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="DetallesExistenciasLabel">Detalles de
-                                    {{ $producto->Nombre }}
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h5> <strong>Nombre: </strong> {{ $producto->Nombre }}</h5>
-                                <h5> <strong>Marca: </strong> {{ $producto->Marca }}</h5>
-                                <h5> <strong>Stock: </strong> {{ $producto->Stock }}</h5>
-                                <h5> <strong>Valor Unitario: </strong> {{ $producto->ValorUnitario }}</h5>
-                                <h5> <strong>Precio al X detal: </strong> {{ $producto->PrecioDetal }}</h5>
-                                <h5> <strong>Precio al X mayor: </strong> {{ $producto->PrecioMayor }}</h5>
-                                @if ($producto->Estado == 1)
-                                    <h5 style="color: green"><strong style="color: gray">Estado: </strong>Activo</h5>
-                                @else
-                                    <h5 style="color: red"><strong style="color: gray">Estado: </strong>InActivo</h5>
-                                @endif
+                            <div class="modal-body row">
+
+                                <div class="col-lg-9">
+                                    <h2> <strong>{{ $producto->Nombre }}</strong> </h2>
+                                </div>
+                                <div class="col-lg-3">
+                                    @if ($producto->Estado == 1)
+                                        <h2 style="color: green">Activo</h2>
+                                    @else
+                                        <h2 style="color: red">InActivo</h2>
+                                    @endif
+                                </div>
+
+                                <div class="col-lg-7">
+                                    <br>
+                                    <h5><strong>Marca</strong></h5>
+                                    <h6>{{ $producto->Marca }}</h6>
+                                </div>                                
+                                <div class="col-lg-5">
+                                    <br>
+                                    <h5><strong>Stock</strong></h5>
+                                    <h6>{{ $producto->Stock}}</h6>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <br>
+                                    <h5><strong>Valor Unitario</strong></h5>
+                                    <h6>{{ $producto->ValorUnitario }}</h6>
+                                </div>                                
+                                <div class="col-lg-4">
+                                    <br>
+                                    <h5><strong>Valor Detal</strong></h5>
+                                    <h6>{{ $producto->PrecioDetal}}</h6>
+                                </div>
+                                <div class="col-lg-4">
+                                    <br>
+                                    <h5><strong>Valor Mayor</strong></h5>
+                                    <h6>{{ $producto->PrecioMayor}}</h6>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

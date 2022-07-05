@@ -29,5 +29,10 @@ class TipoDocumentoSeeder extends Seeder
         $tipo2->Abreviatura = 'PA';
         $tipo2->TipoDocumento = 'Pasaporte';
         $tipo2->save();
+
+        $tipo3=new Tipo_Documento();
+        $tipo3->Abreviatura = 'NIT';
+        $tipo3->TipoDocumento = 'Identificación Tributaria';
+        $tipo3->save();
     }
 }
