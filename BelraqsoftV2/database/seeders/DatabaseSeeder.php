@@ -27,15 +27,19 @@ class DatabaseSeeder extends Seeder
         DB::table('clientes')->truncate();
         DB::table('proveedores')->truncate();
         DB::table('existencias')->truncate();
+        DB::table('ventas')->truncate();
         DB::table('usuarios')->truncate();
         DB::table('roles')->truncate();
+        DB::table('ventas')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
         $this->call(TipoDocumentoSeeder::class);
         $this->call(RolSeeder::class);
         Cliente::factory(50)->create();
         Proveedor::factory(15)->create();
         Existencia::factory(20)->create();
-        Venta::factory(200)->create();
         Usuario::factory(11)->create();
+        Venta::factory(200)->create();
+        
+        
     }
 }

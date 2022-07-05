@@ -19,7 +19,7 @@ class ClienteFactory extends Factory
         return [
             'Nombres'=>$this->faker->firstName(),
             'Apellidos'=>$this->faker->lastName(),
-            'TipoDocumento'=>$this->faker->randomElement([1,2,3]),
+            'TipoDocumento'=>$this->faker->randomElement([1,2,3,4]),
             'Documento'=>$this->faker->numberBetween(10000000, 1099999999),
             'Correo'=>$this->faker->email(),
             'FechaNacimiento'=>$this->faker->date('Y-m-d', 'now'),

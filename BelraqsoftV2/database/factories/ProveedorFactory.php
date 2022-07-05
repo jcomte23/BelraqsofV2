@@ -21,7 +21,7 @@ class ProveedorFactory extends Factory
             'Descripcion'=>$this->faker->text(),
             'NombreContacto'=>$this->faker->name(),
             'NumeroContacto'=>$this->faker->biasedNumberBetween($min = 3000000000, $max = 3400000000, $function = 'sqrt'),
-            'TipoDocumento'=>$this->faker->randomElement([1,2,3]),
+            'TipoDocumento'=>$this->faker->randomElement([1,2,3,4]),
             'NumeroIdenNit'=>$this->faker->numberBetween(10000000, 1099999999),
             'Correo'=>$this->faker->email(),
             'Direccion'=>$this->faker->address(),

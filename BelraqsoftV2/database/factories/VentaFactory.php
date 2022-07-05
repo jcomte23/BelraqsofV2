@@ -20,6 +20,7 @@ class VentaFactory extends Factory
             'Codigo'=>$this->faker->numerify('VT-####'),
             'Fecha'=>$this->faker->date('Y-m-d', 'now'),
             'Cliente'=>$this->faker->numberBetween(1, 50),
+            'Usuario'=>$this->faker->numberBetween(1, 10),
             'CantidadProductos'=>$this->faker->biasedNumberBetween($min = 2, $max = 25, $function = 'sqrt'),
             'Total'=>$this->faker->biasedNumberBetween($min = 30000, $max = 999999, $function = 'sqrt'),
             'Estado'=>$this->faker->randomElement([0,1])
