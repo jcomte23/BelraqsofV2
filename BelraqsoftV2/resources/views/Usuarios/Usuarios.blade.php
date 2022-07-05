@@ -210,7 +210,7 @@
     @if (session('ErrorEliminacionRegistro'))
         <script>
             registroNoEliminado(
-                "Este cliente ya tiene una venta asociada,para mantener un mejor historial te recomendamos desactivarlo");
+                "Este usuario ya tiene una venta asociada,para mantener un mejor historial te recomendamos desactivarlo");
         </script>
     @endif
 
@@ -298,6 +298,58 @@
                         </form>
                     </td>
                 </tr>
+
+                <div class="modal fade" id="DetalleUsuario{{ $usuario->id }}" tabindex="-1"
+                    aria-labelledby="DetallesClientesLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body row">
+                                <div class="col-lg-9">
+                                    <h2> <strong>{{ $usuario->Nombres }} {{ $usuario->Apellidos }}</strong> </h2>
+                                </div>
+                                <div class="col-lg-3">
+                                    @if ($usuario->Estado == 1)
+                                        <h2 style="color: green">Activo</h2>
+                                    @else
+                                        <h2 style="color: red">InActivo</h2>
+                                    @endif
+                                </div>
+                                <div class="col-lg-12">
+                                    <h6>{{ $usuario->unionRol->Nombre }}</h6>
+                                </div>
+
+                                <div class="col-lg-5">
+                                    <br>
+                                    <h5><strong>{{ $usuario->unionTipoDoc->Abreviatura}}</strong></h5>
+                                    <h6>{{ $usuario->Documento}}</h6>
+                                </div>
+                                <div class="col-lg-7">
+                                    <br>
+                                    <h5><strong>Fecha Exp</strong></h5>
+                                    <h6>{{ $usuario->FechaExpedicion }}</h6>
+                                </div>
+
+                                <div class="col-lg-5">
+                                    <h5><strong>Teléfono(s)</strong></h5>
+                                    <h6>{{ $usuario->Telefonos }}</h6>
+                                </div>
+                                <div class="col-lg-7">
+                                    <h5><strong>Correo</strong></h5>
+                                    <h6>{{ $usuario->Correo }}</h6>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <br>
+                                    <h5><strong>Dirección</strong></h5>
+                                    <h6>{{ $usuario->Direccion }} ({{ $usuario->Ciudad_Municipio }})</h6>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 {{-- Modal Editar Usuario --}}
                 <div class="modal fade" id="EdicionUsuarios{{ $usuario->id }}" tabindex="-1"

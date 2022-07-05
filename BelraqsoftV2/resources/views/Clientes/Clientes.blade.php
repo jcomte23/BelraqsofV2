@@ -262,30 +262,45 @@
 
                 <div class="modal fade" id="DetallesClientes{{ $cliente->id }}" tabindex="-1"
                     aria-labelledby="DetallesClientesLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="DetallesClientesLabel">Detalles de
-                                    {{ $cliente->Nombres }} {{ $cliente->Apellidos }}
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h5> <strong>Nombre(s): </strong> {{ $cliente->Nombres }}</h5>
-                                <h5> <strong>Apellido(s): </strong> {{ $cliente->Apellidos }}</h5>
-                                <h5> <strong>Tipo Doc. : </strong> {{ $cliente->unionTipoDoc->Abreviatura }}</h5>
-                                <h5> <strong># Documento: </strong> {{ $cliente->Documento }}</h5>
-                                <h5> <strong>Fecha Nac: </strong> {{ $cliente->FechaNacimiento }}</h5>
-                                <h5> <strong>Correo: </strong> {{ $cliente->Correo }}</h5>
-                                <h5> <strong>Telefono(s): </strong> {{ $cliente->Telefonos }}</h5>
-                                <h5> <strong>Direccion: </strong> {{ $cliente->Direccion }}</h5>
-                                <h5> <strong>Ciudad/Municipio: </strong> {{ $cliente->Ciudad_Municipio }}</h5>
-                                @if ($cliente->Estado == 1)
-                                    <h5 style="color: green"><strong style="color: gray">Estado: </strong>Activo</h5>
-                                @else
-                                    <h5 style="color: red"><strong style="color: gray">Estado: </strong>InActivo</h5>
-                                @endif
+                            <div class="modal-body row">
+                                <div class="col-lg-9">
+                                    <h2> <strong>{{ $cliente->Nombres }} {{ $cliente->Apellidos }}</strong> </h2>
+                                </div>
+                                <div class="col-lg-3">
+                                    @if ($cliente->Estado == 1)
+                                        <h2 style="color: green">Activo</h2>
+                                    @else
+                                        <h2 style="color: red">InActivo</h2>
+                                    @endif
+                                </div>
+
+                                <div class="col-lg-5">
+                                    <br>
+                                    <h5><strong>{{ $cliente->unionTipoDoc->Abreviatura}}</strong></h5>
+                                    <h6>{{ $cliente->Documento}}</h6>
+                                </div>
+                                <div class="col-lg-7">
+                                    <br>
+                                    <h5><strong>Fecha Nac</strong></h5>
+                                    <h6>{{ $cliente->FechaNacimiento }}</h6>
+                                </div>
+
+                                <div class="col-lg-5">
+                                    <h5><strong>Teléfono(s)</strong></h5>
+                                    <h6>{{ $cliente->Telefonos }}</h6>
+                                </div>
+                                <div class="col-lg-7">
+                                    <h5><strong>Correo</strong></h5>
+                                    <h6>{{ $cliente->Correo }}</h6>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <br>
+                                    <h5><strong>Dirección</strong></h5>
+                                    <h6>{{ $cliente->Direccion }} ({{ $cliente->Ciudad_Municipio }})</h6>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
