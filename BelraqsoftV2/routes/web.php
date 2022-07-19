@@ -45,8 +45,9 @@ Route::get('Compras/Registrar', [ComprasController::class, "registrar"])->name('
 Route::get('Compras/Editar', [ComprasController::class, "editar"])->name('compraEditar');
 
 Route::get('Pedidos', [PedidosController::class, "index"])->name('pedidoIndex');
-Route::get('Pedidos/Registrar', [PedidosController::class, "registrar"])->name('pedidoRegistrar');
-Route::get('Pedidos/Editar', [PedidosController::class, "editar"])->name('pedidoEditar');
+Route::post('Pedidos', [PedidosController::class, "create"])->name('pedidoRegistrar');
+Route::post('Detalles/{Pedido?}', [PedidosController::class, "iniciodetalle"])->name('pedidodetalle');
+
 
 Route::get('Ventas', [VentasController::class, "index"])->name('ventaIndex');
 Route::post('Ventas/{venta?}', [VentasController::class, "actualizarEstado"])->name('ventaEstado');

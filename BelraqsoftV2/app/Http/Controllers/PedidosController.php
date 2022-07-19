@@ -1,23 +1,41 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Pedido;
+use App\Models\DetallePedido;
+use App\Models\Existencia;
 use Illuminate\Http\Request;
 
 class PedidosController extends Controller
 {
     public function index(){
         $modulo="Pedidos";
-        return view("$modulo.$modulo",compact('modulo'));
+        //carga para el combo
+        $pedido=Pedido::all();
+        return view("$modulo.$modulo",compact('modulo'),['pedidos'=>$pedido]);
     }
 
-    public function registrar(){
-        $modulo="Pedidos";
-        return view("$modulo.Registrar",compact('modulo'));
+    public function iniciodetalle(Request $request){
+        $pedido = $request->input('pedido');
+        $modulo="Detalles";
+        $productos=Existencia::all();
+        $detallepedidos=Detallepedido::where('IdPedido',$pedido)->get();
+        return view("Pedidos.Detalles",compact('modulo','productos'),['detalles'=>$detallepedidos]);
     }
 
-    public function editar(){
-        $modulo="Pedidos";
-        return view("$modulo.Editar",compact('modulo'));
+    public function create(){
+        Pedido::create();
+        return redirect()->route('pedidoIndex')->with('RegistroGuardado', 'Registro Exitoso');
     }
+
+    public function createDetalle(Request $request){
+        $validated = $request->validate([
+            'Cantidad'=>'required|min:3',
+                'Precio'=>'required',
+                
+        ]);
+    
+        Pedido::create($validated);
+        return redirect()->route('clienteIndex')->with('RegistroGuardado', 'Registro Exitoso');
+        }
 }
