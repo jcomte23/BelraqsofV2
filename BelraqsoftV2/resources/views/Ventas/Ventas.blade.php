@@ -39,8 +39,8 @@
                                 data-bs-toggle="modal" data-bs-target="#DetallesVentas{{ $venta->id }}"><i
                                     class="bi bi-eye-fill"></i></a>
 
-                            <button class="btn btn-outline-success boton-listado" type="submit"><i
-                                    class="bi bi-image"></i></button>
+                            <a href="#ImagenComprobante{{$venta->id}}" class="btn btn-outline-success boton-listado" data-bs-toggle="modal" data-bs-target="#ImagenComprobante{{$venta->id}}"><i
+                                class="bi bi-image"></i></a>
                         </form>
                     </td>
                     <td>
@@ -145,6 +145,16 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="modal fade" id="ImagenComprobante{{$venta->id}}" tabindex="-1" aria-labelledby="ImagenComprobanteLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                            <img src="{{ asset('img/Comprobantes/imagen01.jpeg') }}" class="card-img" alt="...">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
             @empty
                 <tr>Sin ventas</tr>
