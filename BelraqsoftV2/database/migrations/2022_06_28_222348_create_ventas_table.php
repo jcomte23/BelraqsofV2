@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('Cliente');
             $table->integer('CantidadProductos');
             $table->double('Total');
+            $table->string('Comprobante')->nullable();
             $table->boolean('Estado')->default(true);
             $table->foreign('Usuario')->references('id')->on('usuarios');
             $table->foreign('Cliente')->references('id')->on('clientes');
