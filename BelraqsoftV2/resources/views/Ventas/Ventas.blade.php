@@ -53,6 +53,7 @@
                     <br>
 
                     <input type="file" name="Comprobante" id="Comprobante">
+                    <input type="hidden" name="Estado" id="Estado" class="form-control" value="1">
                     <br>
             </div>
             <div class="modal-footer">

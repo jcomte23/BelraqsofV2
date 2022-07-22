@@ -39,7 +39,5 @@ class DatabaseSeeder extends Seeder
         Existencia::factory(20)->create();
         Usuario::factory(11)->create();
         Venta::factory(1)->create();
-        
-        
     }
 }
