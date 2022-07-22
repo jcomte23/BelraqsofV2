@@ -10,7 +10,8 @@
     <meta name="robots" content="index,follow">
     <meta name="revisit-after" content="15days">
     <meta name="googlebot" content="index,follow">
-    <meta name="author" content="Javier Cómbita Téllez, Sebastián Velásquez, Kevin Orlando Hernández Ruiz,Santiago Garcia Uribe">
+    <meta name="author"
+        content="Javier Cómbita Téllez, Sebastián Velásquez, Kevin Orlando Hernández Ruiz,Santiago Garcia Uribe">
     <!--icono de la pagina:https://www.favicon-generator.org/ solo imagenes .png-->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('img/Favicon/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/Favicon/apple-icon-60x60.png') }}">
@@ -25,6 +26,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/Favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('img/Favicon/favicon-96x96.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/Favicon/favicon-16x16.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="manifest" href="{{ asset('img/Favicon/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ asset('img/Favicon/ms-icon-144x144.png') }}">
@@ -41,10 +43,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.bootstrap5.min.css') }}">
@@ -69,12 +75,13 @@
                     </div>
                     <div class="col-lg-1">
                         <form action="{{ route('logout') }}" method="post" name="logout">
-                            @csrf      
+                            @csrf
                             <ul class="nav pull-right top-menu rounded">
-                                <li class="alineacion_boton"><button type="submit" class="btn btn-link logout"><i class="bi bi-box-arrow-left"></i></button></li>
+                                <li class="alineacion_boton"><button type="submit" class="btn btn-link logout"><i
+                                            class="bi bi-box-arrow-left"></i></button></li>
                                 {{-- <li class="alineacion_boton"><button type="submit" class="logout">Cerrar Sesion</button></li> --}}
                             </ul>
-                    </form>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -85,53 +92,62 @@
     <aside>
         <div id="sidebar" class="nav-collapse navegation">
             <ul class="sidebar-menu navegation" id="nav-accordion">
-                <p class="centered"><a href="{{ route('reporteIndex') }}"><img class="logo" src="{{ asset('img/FondoLogo.jpg') }}" width="100"></a>
+                <p class="centered"><a href="{{ route('reporteIndex') }}"><img class="logo"
+                            src="{{ asset('img/FondoLogo.jpg') }}" width="100"></a>
                 </p>
                 <h5 class="centered titulo">Usuario</h5>
                 <li>
-                    <a href="{{ route('reporteIndex') }}" class="{{request()->routeIs('reporteIndex') ? 'active' : ''}}">
+                    <a href="{{ route('reporteIndex') }}"
+                        class="{{ request()->routeIs('reporteIndex') ? 'active' : '' }}">
                         <i class="bi bi-speedometer2"></i>
                         <span>Reportes</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('clienteIndex') }}" class="{{request()->routeIs('clienteIndex') ? 'active' : ''}}">
+                    <a href="{{ route('clienteIndex') }}"
+                        class="{{ request()->routeIs('clienteIndex') ? 'active' : '' }}">
                         <i class="bi bi-person-square"></i>
                         <span>Clientes</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('usuarioIndex') }}" class="{{request()->routeIs('usuarioIndex') ? 'active' : ''}}">
+                    <a href="{{ route('usuarioIndex') }}"
+                        class="{{ request()->routeIs('usuarioIndex') ? 'active' : '' }}">
                         <i class="bi bi-person-circle"></i>
                         <span>Usuarios</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('compraIndex') }}" class="{{request()->routeIs('compraIndex') ? 'active' : ''}}">
+                    <a href="{{ route('compraIndex') }}"
+                        class="{{ request()->routeIs('compraIndex') ? 'active' : '' }}">
                         <i class="bi bi-cart-plus-fill"></i>
                         <span>Compras</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('pedidoIndex') }}" class="{{request()->routeIs('pedidoIndex') ? 'active' : ''}}">
+                    <a href="{{ route('pedidoIndex') }}"
+                        class="{{ request()->routeIs('pedidoIndex') ? 'active' : '' }}">
                         <i class="bi bi-bag-plus-fill"></i>
                         <span>Pedidos</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('ventaIndex') }}" class="{{request()->routeIs('ventaIndex') ? 'active' : ''}}">
+                    <a href="{{ route('ventaIndex') }}"
+                        class="{{ request()->routeIs('ventaIndex') ? 'active' : '' }}">
                         <i class="bi bi-bag-check-fill"></i>
                         <span>Ventas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('proveedorIndex') }}" class="{{request()->routeIs('proveedorIndex') ? 'active' : ''}}">
+                    <a href="{{ route('proveedorIndex') }}"
+                        class="{{ request()->routeIs('proveedorIndex') ? 'active' : '' }}">
                         <i class="bi bi-person-bounding-box"></i>
                         <span>Proveedores</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('existenciaIndex') }}" class="{{request()->routeIs('existenciaIndex') ? 'active' : ''}}">
+                    <a href="{{ route('existenciaIndex') }}"
+                        class="{{ request()->routeIs('existenciaIndex') ? 'active' : '' }}">
                         <i class="bi bi-archive"></i>
                         <span>Existencias</span>
                     </a>
@@ -169,8 +185,10 @@
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('js/dataTableSite.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/dataTables.bootstrap5.min.js') }}"></script> 
+    <script src="{{ asset('js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('js/responsive.bootstrap5.min.js') }}"></script> 
+    <script src="{{ asset('js/responsive.bootstrap5.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </body>
+
 </html>
