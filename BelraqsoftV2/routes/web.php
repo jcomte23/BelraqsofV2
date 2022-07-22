@@ -45,7 +45,7 @@ Route::get('Compras/Registrar', [ComprasController::class, "registrar"])->name('
 Route::get('Compras/Editar', [ComprasController::class, "editar"])->name('compraEditar');
 
 Route::get('Pedidos', [PedidosController::class, "index"])->name('pedidoIndex');
-Route::post('Pedidos', [PedidosController::class, "create"])->name('pedidoRegistrar');
+Route::post('Pedidos/Registrar', [PedidosController::class, "create"])->name('pedidoRegistrar');
 Route::post('Detalles/{Pedido?}', [PedidosController::class, "iniciodetalle"])->name('pedidodetalle');
 
 
@@ -71,9 +71,10 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
-     Route::get('/dashboard', function () {
-         return view('dashboard');
-     })->name('dashboard');
-    Route::get('dashboard', [ReportesController::class, "index"])->name('reporteIndex');
-});
+]);
+// ->group(function () {
+//      Route::get('/dashboard', function () {
+//          return view('dashboard');
+//      })->name('dashboard');
+//     Route::get('dashboard', [ReportesController::class, "index"])->name('reporteIndex');
+// });

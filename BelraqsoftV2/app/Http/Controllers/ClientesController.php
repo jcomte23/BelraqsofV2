@@ -48,7 +48,7 @@ class ClientesController extends Controller
                 'Ciudad_Municipio'=>'required',
                 'Estado'=>'required',
         ]);
-    
+
         $cliente->update($campos);
         return redirect()->route('clienteIndex')->with('RegistroActualizado', 'Registro actualizado');
     }
@@ -62,11 +62,11 @@ class ClientesController extends Controller
         }
     }
 
-    public function actualizarEstado(Cliente $cliente){ 
+    public function actualizarEstado(Cliente $cliente){
 
         if($cliente->Estado==1)
             $cliente->Estado=0;
-        else        
+        else
             $cliente->Estado=1;
         $cliente->update();
         return redirect()->route('clienteIndex')->with('EstadoActualizado', 'Estado cambiado');
