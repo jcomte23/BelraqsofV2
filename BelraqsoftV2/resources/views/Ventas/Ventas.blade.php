@@ -148,13 +148,14 @@
 
                 <div class="modal fade" id="ImagenComprobante{{$venta->id}}" tabindex="-1" aria-labelledby="ImagenComprobanteLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-scrollable">
+                        <h2></h2>
                       <div class="modal-content">
                         <div class="modal-body">
-                            <img src="{{ asset('img/Comprobantes/imagen01.jpeg') }}" class="card-img" alt="...">
+                            <img src="{{ asset($venta->Comprobante) }}" class="card-img" alt="...">
                         </div>
                       </div>
                     </div>
-                  </div>
+                </div>
 
             @empty
                 <tr>Sin ventas</tr>
