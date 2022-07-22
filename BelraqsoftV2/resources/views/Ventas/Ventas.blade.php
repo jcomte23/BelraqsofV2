@@ -4,6 +4,65 @@
 
 @section('content')
     <h1 class="fw-bold">{{ $modulo }}</h1>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ventaNueva">
+        NUEVA
+    </button>
+    <br>
+    <br>
+      
+    <!-- Modal -->
+    <div class="modal fade" id="ventaNueva" tabindex="-1" aria-labelledby="ventaNuevaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+                <form action="" method="post">
+                    <h1>nueva venta</h1>
+                    <label class="form-label" for="codigo">Codigo</label>
+                    <input type="text" name="Codigo" id="Codigo">
+                    <br>
+
+                    <label class="form-label" for="Fecha">Codigo</label>
+                    <input type="date" name="Fecha" id="Fecha">
+                    <br>
+
+                    <label class="form-label" for="Usuario">Usuario</label>
+                    <select class="form-select IngresoDatos form-control" aria-label="Default select example"
+                                    name="Usuario" id="Usuario" value="{{ old('Usuario') }}">
+                                @foreach ($clientes as $cliente)
+                                        <option value="{{ $cliente->id }}">{{ $cliente->Nombres }}</option>
+                             @endforeach
+                    </select>
+                    <br>
+
+                    <label class="form-label" for="CantidadProductos">Cantidad</label>
+                    <input type="number" name="CantidadProductos" id="CantidadProductos">
+                    <br>
+
+                    <label class="form-label" for="Total">Total</label>
+                    <input type="number" name="Total" id="Total">
+                    <br>
+
+                    <label class="form-label">usuario</label>
+                    <select class="form-select IngresoDatos form-control" aria-label="Default select example"
+                                    name="Usuario" id="Usuario" value="{{ old('Usuario') }}">
+                                @foreach ($Usuarios as $Usuario)
+                                        <option value="{{ $Usuario->id }}">{{ $Usuario->Nombres }}</option>
+                             @endforeach
+                    </select>
+                    <br>
+
+                    <input type="file" name="Comprobante" id="Comprobante">
+                    <br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
     @if (session('EstadoActualizado'))
         <script>
@@ -39,8 +98,8 @@
                                 data-bs-toggle="modal" data-bs-target="#DetallesVentas{{ $venta->id }}"><i
                                     class="bi bi-eye-fill"></i></a>
 
-                            <button class="btn btn-outline-success boton-listado" type="submit"><i
-                                    class="bi bi-image"></i></button>
+                            <a href="#ImagenComprobante{{$venta->id}}" class="btn btn-outline-success boton-listado" data-bs-toggle="modal" data-bs-target="#ImagenComprobante{{$venta->id}}"><i
+                                class="bi bi-image"></i></a>
                         </form>
                     </td>
                     <td>
@@ -146,6 +205,34 @@
                     </div>
                 </div>
 
+                <div class="modal fade" id="ImagenComprobante{{$venta->id}}" tabindex="-1" aria-labelledby="ImagenComprobanteLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                      <div class="modal-content">
+                          <div class="modal-body">
+                                <div class="container-fluid">
+                                        <div class="row">
+                                            <h2>FORMULARIO DE REGISTRO</h2>
+                                            <div class="col-md-12 ms-auto">
+                                                    <form action="{{ route('ventaActualizar') }}" method="post" enctype="multipart/form-data">
+                                                        @csrf @method('PUT')
+                                                        <input type="file" name="Comprobante" id="Comprobante">
+                                                        <button type="submit">actualizar</button>
+                                                    </form>
+                                            </div>
+                                            <h2>FORMULARIO DE ACTUALIZACION</h2>
+                                            <div class="col-md-12 ms-auto">
+                                                    <form action="{{ route('ventaActualizar') }}" method="post" enctype="multipart/form-data">
+                                                        @csrf @method('PUT')
+                                                        <input type="file" name="Comprobante" id="Comprobante">
+                                                        <button type="submit">actualizar</button>
+                                                    </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                        </div>
+                      </div>
+                </div>
             @empty
                 <tr>Sin ventas</tr>
             @endforelse

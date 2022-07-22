@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
         Proveedor::factory(15)->create();
         Existencia::factory(20)->create();
         Usuario::factory(11)->create();
-        Venta::factory(200)->create();
+        Venta::factory(1)->create();
         
         
     }

@@ -50,6 +50,7 @@ Route::post('Detalles/{Pedido?}', [PedidosController::class, "iniciodetalle"])->
 
 
 Route::get('Ventas', [VentasController::class, "index"])->name('ventaIndex');
+Route::put('Ventas/{venta?}', [VentasController::class, "actualizar"])->name('ventaActualizar');
 Route::post('Ventas/{venta?}', [VentasController::class, "actualizarEstado"])->name('ventaEstado');
 
 Route::get('Proveedores', [ProveedoresController::class, "index"])->name('proveedorIndex');
