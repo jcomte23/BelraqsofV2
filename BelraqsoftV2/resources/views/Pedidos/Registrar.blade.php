@@ -20,7 +20,7 @@
         <div class="row">
             <div class="form-group col-3">
                 <label for="txtCliente">Cliente</label>
-                <select name="txtCliente" id="txtCliente" class="form-control">
+                <select name="txtCliente" id="txtCliente" class="form-control js-example-basic-single">
                     <option value="AL">Seleccione</option>
                     @foreach ($Cliente as $valueCliente)
                         <option value="{{ $valueCliente->id }}">{{ $valueCliente->Nombres }} {{ $valueCliente->Apellidos }}
@@ -80,7 +80,7 @@
         </div>
     </div>
     {{-- </form> --}}
-
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         function cambioProductoRegistrarPedido() {
             var producto = $("#dllProducto").val();
