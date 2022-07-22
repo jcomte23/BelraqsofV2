@@ -33,7 +33,7 @@ $(document).ready( function () {
             }
         },
         "order":[ [6, 'desc'],[0, 'asc']]
-        
+
     });
 
     $('#TableExistencias').DataTable({
@@ -89,5 +89,7 @@ $(document).ready( function () {
         },
         "order":[ [7, 'desc'],[0, 'asc']]
     });
-    
+
 } );
+
+

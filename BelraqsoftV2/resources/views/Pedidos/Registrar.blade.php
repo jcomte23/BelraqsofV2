@@ -1,146 +1,161 @@
 @extends('Layouts.plantilla')
 
-@section('title',$modulo)
+@section('title', $modulo)
 
 @section('content')
-<div class="container w-100 fs-5  ">
-    <div class="mt-5 w-50 " style="margin-left: 25%;">
-        <H2 class="d-flex justify-content-center">Nuevo Pedido</H2>
-
-        <!-- - Transportadora -
-                  <div class="d-flex justify-content-center">
-                    <label class="form-label ">Transportadora</label>
-                  </div>
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"><i class="material-icons align-middle"></i></span>
-                    <input type="text" class="form-control" placeholder="Transportadora" name="" required>
-                  </div> -->
-
-        <!-- Documento cliente -->
-        <!-- <div class="d-flex justify-content-center">
-                    <label  class="form-label">Cliente</label>
-                  </div> -->
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="material-icons align-middle"></i></span>
-            <input type="text" class="form-control" placeholder="Cliente" name="">
+    {{-- <div class="row">
+        <div class="col">
+            <h3 class="text-center">Crear Producto </h3>
+            <a href="/producto/listar"> Listar</a>
         </div>
-
-        <!-- Código producto -->
-        <!-- <div class="d-flex justify-content-center">
-                    <label  class="form-label">Código producto</label>
-                  </div> -->
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="material-icons align-middle"></i></span>
-            <input type="text" class="form-control" placeholder="Producto" name="">
-        </div>
-
-        <!-- Cantidad productos -->
-        <!-- <div class="d-flex justify-content-center">
-                    <label  class="form-label">Cantidad productos</label>
-                  </div> -->
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="material-icons align-middle"></i></span>
-            <input type="number" class="form-control" placeholder="Cantidad productos" name="">
-        </div>
-
-        <!-- Valor pedido -->
-        <!-- <div class="d-flex justify-content-center">
-                    <label  class="form-label">Valor pedido</label>
-                  </div> -->
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="material-icons align-middle"></i></span>
-            <input type="number" class="form-control" placeholder="Valor pedido" name="" disabled>
-        </div>
-        <div class="btn-group btn-group " role="group">
-            <a type="submit" class="btn btn-primary " href="">
-                <i class="material-icons align-middle">add</i>
-                <span></span>
-            </a>
+    </div> --}}
+    {{-- <form action="/producto/guardar" method="post"> --}}
+    @csrf
+    <div class="card-head row">
+        <div class="col-12">
+            <h4 class="text-center">Nuevo pedido</h4>
         </div>
     </div>
-    <br>
-
-
-    <table class="table text-center align-middle W-100">
-        <thead>
-            <tr>
-                <th scope="col">Código</th>
-                <th scope="col">Nombre producto</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Valor unitario</th>
-                <th scope="col">Subtotal</th>
-                <th scope="col">Total</th>
-                <th scope="col">Operaciones</th>
-            </tr>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Labial</td>
-                <td>Maquillaje</td>
-                <td>12</td>
-                <td>1.500</td>
-                <td>18.000</td>
-                <td>20.000</td>
-                <td>
-                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-                        <a type="button" class="btn btn-danger" href="">
-                            <i class="material-icons align-middle">close</i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Labial</td>
-                <td>Maquillaje</td>
-                <td>12</td>
-                <td>1.500</td>
-                <td>18.000</td>
-                <td>20.000</td>
-                <td>
-                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-                        <a type="button" class="btn btn-danger" href="">
-                            <i class="material-icons align-middle">close</i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Labial</td>
-                <td>Maquillaje</td>
-                <td>12</td>
-                <td>1.500</td>
-                <td>18.000</td>
-                <td>20.000</td>
-                <td>
-                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-                        <a type="button" class="btn btn-danger" href="">
-                            <i class="material-icons align-middle">close</i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Total</td>
-                <td>60.000</td>
-            </tr>
-
-        </tbody>
-    </table>
-
-    <div class="mt-5 btn-group d-flex">
-        <a type="submit" href="{{ route('pedidoRegistrar') }}" class="btn btn-success confirmar_o_cancelar " style="margin-right: 30%; left: 29%;">Registrar</a>
-        <a type="submit" href="{{ route('pedidoIndex') }}" class="btn btn-danger confirmar_o_cancelar " style="margin-left: 30%; right: 29%;">Cancelar</a>
+    <div class="card-body">
+        <div class="row">
+            <div class="form-group col-3">
+                <label for="txtCliente">Cliente</label>
+                <select name="txtCliente" id="txtCliente" class="form-control js-example-basic-single">
+                    <option value="AL">Seleccione</option>
+                    @foreach ($Cliente as $valueCliente)
+                        <option value="{{ $valueCliente->id }}">{{ $valueCliente->Nombres }} {{ $valueCliente->Apellidos }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group col-3">
+                <label for="dllProducto">Producto</label>
+                <select name="dllProducto" id="dllProducto" class="form-control"
+                    onchange="cambioProductoRegistrarPedido();">
+                    <option value="">Seleccione</option>
+                    @foreach ($Existencias as $valueExistencia)
+                        <option value="{{ $valueExistencia->id }}">{{ $valueExistencia->Nombre }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group col-3">
+                <label for="txtMarca">Marca</label>
+                <input type="text" class="form-control" name="txtMarca" id="txtMarca" readonly>
+            </div>
+            <div class="form-group col-3">
+                <label for="txtPrecio">Precio</label>
+                <input type="text" class="form-control" name="txtPrecio" id="txtPrecio" readonly>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-3">
+                <label for="txtCantidad">Cantidad</label>
+                <input type="number" class="form-control" name="txtCantidad" id="txtCantidad" min="0"
+                    onchange="calcularPrecio();">
+            </div>
+        </div>
     </div>
+    <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4" style="margin-top: 3%;">
+            <button type="submit" class="btn btn-success btn-block" onclick="agregarProductosTabla();">Agregar</button>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <table id="TablePedidos" class="table table-striped text-center display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                    </tr>
+                </thead>
+            </table>
+            <tbody>
 
-</div>
+            </tbody>
+        </div>
+    </div>
+    {{-- </form> --}}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        function cambioProductoRegistrarPedido() {
+            var producto = $("#dllProducto").val();
+
+            var existencias = {!! json_encode($Existencias) !!};
+
+            existencias.forEach(element => {
+                if (element.id == producto) {
+                    $("#txtMarca").val(element.Marca);
+                    $("#txtPrecio").val(element.PrecioDetal);
+                    $("#txtCantidad").val(1);
+                }
+            });
+        }
+
+        function agregarProductosTabla() {
+            var agregarCliente = $("#txtCliente").val();
+            var agregarProducto = $("#dllProducto").val();
+            var agregarMarca = $("#txtMarca").val();
+            var agregarMarca = $("#txtPrecio").val();
+            var agregarCantidad = $("#txtCantidad").val();
+
+            if (agregarCliente == null || agregarCliente == "" || agregarCliente == " " || agregarCliente == undefined) {
+                alert("El cliente no puede estar vacio.");
+                return;
+            };
+
+            if (agregarProducto == null || agregarProducto == "" || agregarProducto == " " || agregarProducto ==
+                undefined) {
+                alert("El producto no puede estar vacio.")
+                return;
+            };
+
+            if (agregarCantidad == null || agregarCantidad == "" || agregarCantidad == " " || agregarCantidad ==
+                undefined || agregarCantidad == 0) {
+                alert("La cantidad no puede estar vacia.")
+                return;
+            }
+        }
+
+        function calcularPrecio() {
+            var cantidad = parseInt($("#txtCantidad").val());
+
+            var producto = $("#dllProducto").val();
+
+            var existencias = {!! json_encode($Existencias) !!};
+
+            existencias.forEach(element => {
+                if (element.id == producto) {
+                    $("#txtPrecio").val(cantidad * element.PrecioDetal);
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            $('#TablePedidos').DataTable({
+                responsive: true,
+                autoWidth: false,
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ Registros por página",
+                    "zeroRecords": "No se encontró ningún resultado",
+                    "info": "Mostrando la página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros disponibles",
+                    "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                    'search': 'Buscar:',
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    }
+                },
+                "order": [
+                    [0, 'desc'],
+                    [0, 'asc']
+                ]
+            });
+        });
+    </script>
 @endsection
