@@ -455,13 +455,6 @@
                                 <input class="btn botonConfirmar" type="submit" value="Actualizar">
                             </div>
                             </form>
-
-
-
-
-
-
-
                         </div>
                     </div>
                 </div>
